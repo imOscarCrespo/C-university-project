@@ -19,7 +19,7 @@ SEMINARI 1
 
 	- area de diseny: per tenir una bona interficie grafica i que la plataforma tingui una bona usabilitat
 	
-	-compres in game : estudiar com enganxar al jugadro perque compri
+	- compres in game : estudiar com enganxar al jugadro perque compri
 
 	- requeriments previs : fase de prova per poder penjar el joc
 
