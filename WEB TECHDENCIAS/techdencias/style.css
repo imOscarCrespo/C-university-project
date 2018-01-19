@@ -1,0 +1,255 @@
+/*
+Theme Name: Techdencias
+Author: Xavier Maltas
+Description: Plantilla para la web de Techdencias.
+Version: 1.0
+License: GNU General Public License v2 or later
+Text Domain: techdencias
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+
+/* General */
+body {
+	font-family: 'Roboto', sans-serif;
+    color: #291701;
+    overflow-x: hidden;
+}
+
+/*Header*/
+
+header{
+	width: auto;
+    background-color: #afa0a0;
+}
+
+.menu-bar 
+{
+	margin-top: 15px
+}
+	.menu-bar ul{
+		display: flex;
+		list-style: none;
+		display: inline-flex;
+		justify-content: flex-end;
+	}
+
+	.menu-bar ul li:hover ul 
+	{
+		opacity: 1;
+		transform: translateX(0);
+
+	}
+		.menu-bar ul li a
+		{
+			display: block;
+			padding: 0px 30px;
+			color: #000000;
+
+
+			font-size: 20px;
+		    font-weight: 500;
+		}
+
+		.menu-bar ul li a:hover
+		{
+			color:#fff;
+		}
+
+		.menu-bar ul li a span
+		{
+			transition: all .6s;
+		}
+		.menu-bar ul li a:hover span
+		{
+			color:#fff;
+			transform: translateY(5px);
+			opacity: 0;
+		}
+
+		.menu-bar ul ul
+		{
+			position: absolute;
+			display: block;
+			color:#000000;
+			background: #afa0a0;
+			transform: translateX(60%);
+			opacity: 0;
+			transition: all .6s
+		}
+
+		.menu-bar ul ul li a:hover
+		{
+			/*text-decoration: none;*/
+			text-decoration-color: #000000;
+		}
+
+/*Content*/
+	/*Main*/
+
+	#main > .container {
+		box-shadow: 0 7px 18px rgba(0, 0, 0, .5);
+		
+		/*border: 1px solid grey;*/
+	}
+
+	/* Carousel */
+	#slider-home {
+		margin-bottom: 20px;
+		padding-bottom: 20px;
+	}
+
+	.carousel-caption {
+		background-color: rgba(41, 23, 1, 0.75);
+		height: 100%;
+		left: 0;
+		top: 0;
+		padding: 30px 45px;
+		text-align: left;
+		width: 340px;
+	}
+
+		.carousel-caption p {
+			font-size: 14px;
+			line-height: 18px;
+		}
+
+		.carousel-caption h2 {
+			font-size: 26px;
+			line-height: 30px;
+		}
+
+		.carousel-caption .h4 {
+			font-size: 20px;
+			margin-bottom: 30px;
+			margin-top: 8px;
+		}
+
+		.carousel-caption img {
+			display: block;
+			max-width: 100%;
+			height: auto;
+			margin: 0 auto;
+		}
+
+		.carousel-caption a {
+			border-radius: 0;
+			font-weight: bold;
+			color: #291701;
+			border: none;
+		}
+
+
+	/*Blocs*/
+	
+	.container .big_blogs{
+		padding-top: 10px;
+		background-color: rgb(228, 222, 222);
+	}
+	.container .blocs{
+		margin: 0px 15px;	
+	}
+
+		.blocs .col-lg-3 {
+			/*background-color: rgb(228, 222, 222);*/
+			/*padding-top: 15px;*/
+			padding-bottom: 20px;
+		}
+			.blocs .col-lg-3 h3{
+				font-size: 20px;
+				border-bottom: 1px solid #9e9e9e;
+				padding-top: 5px;
+				margin-bottom: 15px;
+			}
+			.blocs .col-lg-3 .container_image{
+				/*padding-top: 5px;
+				padding-bottom: 5px;*/
+				position: relative;
+			}
+
+			.blocs .col-lg-3 .container_image img{
+				display: block;
+			    max-width: 100%;
+			    height: auto; 
+			    /*this is to make justify:centre*/
+			    margin: 0 auto;
+			}
+
+			.blocs .col-lg-3 .container_image:hover .opacity_element {
+				opacity: 1;
+
+			}
+
+			.blocs .col-lg-3 .container_image:hover img {
+				/*-webkit-filter: blur(4px);filter: blur(4px);*/
+				-webkit-filter: opacity(50%);filter: opacity(50%);
+
+			}
+				.container_image .opacity_element {
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					height: auto;
+					width: auto;
+					opacity: 0;
+					transition: .5s ease;
+					
+				}
+
+					.container_image .opacity_element .opac_image{
+						position: relative;
+						width: 100%;
+						height: 100%;		
+					}
+
+					.container_image .opacity_element .opac_text{
+						position: absolute;
+						width: 100%;
+						height: 30%;	
+						top:70%;
+						background-color: #8fd400;
+						filter:opacity(85%);
+						border: 2px solid black;
+					}
+
+				.container_image .opacity_element .opac_text p {
+					position: absolute;
+					width: 100%;
+					height: auto;
+
+					padding: 5px;
+					box-sizing: border-box;
+
+					color: black;
+					font-size: 15px;
+					overflow: hidden;
+					text-overflow: ellipsis;	
+				}
+
+	/*Info_bottom*/
+	.Info_Bottom {
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+
+		.Info_Bottom {
+			padding-top: 20px;
+		}
+
+
+
+
+/*Footer*/
+
+
+/*Helper*/
+/*.half-rule { 
+    margin-left: 0;
+    text-align: left;
+	width: auto;
+	color: black;
+}*/
