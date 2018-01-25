@@ -1,6 +1,3 @@
-
-
-
 /* 
    - Use the getters and setters of the attribute _name
 
@@ -33,27 +30,35 @@ int main(void)
 	// introduce one of each type
 	Animal anAnimal;
 	anAnimal.name("Pikatxu");
+        anAnimal.amic("Jumbo y Kermit");
 	animals.push_back(&anAnimal);
 
 	Elephant anElephant;
 	anElephant.name("Jumbo");
+        anElephant.amic("Pikatxu");
 	animals.push_back(&anElephant); 
 
 	Frog aFrog;
 	aFrog.name("Kermit");
+        aFrog.amic("pikatxu");
 	animals.push_back(&aFrog);
 
 	Cat aCat;
 	aCat.name("Puss in Boots");
+        aCat.amic("Pikatxu");
 	animals.push_back(&aCat);
 
 
 	// iterate using iterators
 	for (Animals::iterator it=animals.begin(); it!=animals.end(); it++)
 	{
+            
 		std::cout << (*it)->name() << " is of the species ";
-		(*it)->writeSpecies();
+                (*it)->writeSpecies();
+                std::cout << (*it)->name() << " is friends with ";
+                (*it)->isFriend();
 	}
-
+        
+ 
 	return 0;
 }

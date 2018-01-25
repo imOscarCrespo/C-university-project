@@ -6,6 +6,21 @@
    - Add getters and setters
  */
 
+/*
+	void isFriend() const
+	{
+		std::cout << "is friends with "<< std::endl;
+	}
+
+	void amic(std::string Friends){
+		_amic = Friends;
+	}
+
+	std::string& isFriend(){
+		return _amic;
+	}
+*/
+
 #include <iostream>
 #include <string>
 
@@ -25,9 +40,34 @@ public:
 		return _name;
 	}
 
+
+	virtual void isFriend() const
+	{
+		std::cout << "Jumbo, Kermit" << std::endl;
+	}
+	//Setter
+	void amic(std::string theFriend)
+	{
+		_amic = theFriend;
+	}
+	//Getter
+	std::string& amic()
+	{
+		return _amic;
+	}
+
+
+
 private:
+
 	std::string _name;
+	std::string _amic;
 };
+
+
+
+
+
 
 class Elephant : public Animal
 {
@@ -36,7 +76,16 @@ public:
 	{
 		std::cout << "elephant" << std::endl;
 	}
+
+	void isFriend() const
+	{
+		std::cout << "Pikatxu" << std::endl;
+	}
 };
+
+
+
+
 
 class Frog : public Animal
 {
@@ -45,7 +94,16 @@ public:
 	{
 		std::cout << "frog" << std::endl;
 	}
+
+	void isFriend() const
+	{
+		std::cout << "Pikatxu, Puss in Boots" << std::endl;
+	}
 };
+
+
+
+
 
 class Cat : public Animal
 {
@@ -54,12 +112,14 @@ public:
 	{
 		std::cout << "cat" << std::endl;
 	}
+
+	void isFriend() const
+	{
+		std::cout << "Kermit" << std::endl;
+	}
 };
 
-#endif
-
-
-/* 
+#endif/* 
    - Use the getters and setters of the attribute _name
 
    In summary we have learned:
@@ -91,27 +151,35 @@ int main(void)
 	// introduce one of each type
 	Animal anAnimal;
 	anAnimal.name("Pikatxu");
+        anAnimal.amic("Jumbo y Kermit");
 	animals.push_back(&anAnimal);
 
 	Elephant anElephant;
 	anElephant.name("Jumbo");
+        anElephant.amic("Pikatxu");
 	animals.push_back(&anElephant); 
 
 	Frog aFrog;
 	aFrog.name("Kermit");
+        aFrog.amic("pikatxu");
 	animals.push_back(&aFrog);
 
 	Cat aCat;
 	aCat.name("Puss in Boots");
+        aCat.amic("Pikatxu");
 	animals.push_back(&aCat);
 
 
 	// iterate using iterators
 	for (Animals::iterator it=animals.begin(); it!=animals.end(); it++)
 	{
+            
 		std::cout << (*it)->name() << " is of the species ";
-		(*it)->writeSpecies();
+                (*it)->writeSpecies();
+                std::cout << (*it)->name() << " is friends with ";
+                (*it)->isFriend();
 	}
-
+        
+ 
 	return 0;
 }
