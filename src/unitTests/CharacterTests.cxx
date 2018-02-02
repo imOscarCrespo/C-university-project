@@ -7,7 +7,7 @@ public:
 	TEST_FIXTURE( CharacterTest )
 	{
 		TEST_CASE( test_name_byDefault );
-	//	TEST_CASE( test_name_whenChanged );
+		TEST_CASE( test_name_whenChanged );
 	//	TEST_CASE( test_level_byDefault );
 	//	TEST_CASE( test_level_whenChanged );
 	//	TEST_CASE( test_life_byDefault );
@@ -24,7 +24,7 @@ public:
 			"unknown",
 			anonymous.name()
 		);
-	}/*
+	}
 	void test_name_whenChanged()
 	{
 		Character character;
@@ -33,7 +33,7 @@ public:
 			"Peter",
 			character.name()
 		);
-	}
+	}/*
 	void test_level_byDefault()
 	{
 		Character character;

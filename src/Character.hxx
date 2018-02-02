@@ -27,10 +27,10 @@ public:
 		return _name;
 	}
 
-	/*//setter
-	void sname(const std::character theName){
-		_name = theName;
-	}*/
+	//setter
+	void name(const std::string & theName){
+		_name = "hola";
+	}
 
 
 };
