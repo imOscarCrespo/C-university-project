@@ -3,12 +3,36 @@
 
 class Character{
 
+//ATRIBUTS d'entrada
+
+std::string _name;
+
 public:
 
-	std::string name()
+//Constructor de la classe
+
+	Character()
+		//inicialització per defecte
+		: _name("unknown")
 	{
-		return "";	
+
 	}
+
+
+//Functions of the class
+
+	//getter
+	const std::string & name() const //utilitzem & com a punter i cap persona des d'una altra part del codi no pot canviar aquest valor que guardem a _name, per tant ha de ser constant.
+	{
+		return _name;
+	}
+
+	/*//setter
+	void sname(const std::character theName){
+		_name = theName;
+	}*/
+
+
 };
 
 #endif //Character_hxx
