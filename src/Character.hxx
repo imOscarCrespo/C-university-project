@@ -29,7 +29,7 @@ public:
 
 	//setter
 	void name(const std::string & theName){
-		_name = "hola";
+		_name = theName;
 	}
 
 
