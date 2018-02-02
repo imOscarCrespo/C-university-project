@@ -1,12 +1,13 @@
 #include <MiniCppUnit.hxx>
+#include <Character.hxx>
 
 class CharacterTest : public TestFixture< CharacterTest >
 {
 public:
 	TEST_FIXTURE( CharacterTest )
 	{
-	//	TEST_CASE( test_name_byDefault );
-	//	TEST_CASE( test_name_whenChanged );
+		TEST_CASE( test_name_byDefault );
+		//TEST_CASE( test_name_whenChanged );
 	//	TEST_CASE( test_level_byDefault );
 	//	TEST_CASE( test_level_whenChanged );
 	//	TEST_CASE( test_life_byDefault );
@@ -15,7 +16,7 @@ public:
 	//	TEST_CASE( test_life_afterDamageBeyondLife );
 	//	TEST_CASE( test_life_afterCuringBeyondMax );
 	}
-	/*
+	
 	void test_name_byDefault()
 	{
 		Character anonymous;
@@ -24,6 +25,7 @@ public:
 			anonymous.name()
 		);
 	}
+	/*
 	void test_name_whenChanged()
 	{
 		Character character;
