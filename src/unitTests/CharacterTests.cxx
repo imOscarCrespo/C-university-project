@@ -7,12 +7,9 @@ public:
 	TEST_FIXTURE( CharacterTest )
 	{
 		TEST_CASE( test_name_byDefault );
-<<<<<<< HEAD
-		//TEST_CASE( test_name_whenChanged );
-=======
+
 		TEST_CASE( test_name_whenChanged );
->>>>>>> 0782c9637f3441adcf5ed49dfc19460700a70d85
-	//	TEST_CASE( test_level_byDefault );
+		TEST_CASE( test_level_byDefault );
 	//	TEST_CASE( test_level_whenChanged );
 	//	TEST_CASE( test_life_byDefault );
 	//	TEST_CASE( test_life_afterDamage );
@@ -29,7 +26,7 @@ public:
 			anonymous.name()
 		);
 	}
-	/*
+	
 	void test_name_whenChanged()
 	{
 		Character character;
@@ -38,7 +35,7 @@ public:
 			"Peter",
 			character.name()
 		);
-	}/*
+	}
 	void test_level_byDefault()
 	{
 		Character character;
@@ -46,7 +43,9 @@ public:
 			0u,
 			character.level()
 		);
-	}
+
+	}/*
+	
 	void test_level_whenChanged()
 	{
 		Character character;

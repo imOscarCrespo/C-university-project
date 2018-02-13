@@ -1,20 +1,7 @@
-<<<<<<< HEAD
-#ifndef Character hxx
-#define Character_hxx
 
-class Character{
-	
-	public: 
 
-		std::string name()
 
-		{
-				return "hgj";
-		}
-};
-#endif //Character_hxx
-=======
-#ifndef Character_hxx
+
 #define Character_hxx
 
 class Character{
@@ -22,6 +9,7 @@ class Character{
 //ATRIBUTS d'entrada
 
 std::string _name;
+int _level;
 
 public:
 
@@ -30,6 +18,7 @@ public:
 	Character()
 		//inicialització per defecte
 		: _name("unknown")
+		
 	{
 
 	}
@@ -48,8 +37,12 @@ public:
 		_name = theName;
 	}
 
+	const int & level() const
+	{
+		return _level;
+	}
 
 };
 
-#endif //Character_hxx
->>>>>>> 0782c9637f3441adcf5ed49dfc19460700a70d85
+ //Character_hxx
+
