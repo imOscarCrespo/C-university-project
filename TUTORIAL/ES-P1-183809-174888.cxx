@@ -54,7 +54,7 @@ class Animal
     	std::string _name;
 
     	//Definim el vector de strings de amics
-        std::vector <std::string> vamics = std::vector <std::string> () ; 
+        std::vector <std::string> vamics = std::vector <std::string>(); 
             
     };
 
