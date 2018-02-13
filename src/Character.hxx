@@ -10,6 +10,7 @@ class Character{
 
 std::string _name;
 int _level;
+int _life;
 
 public:
 
@@ -17,7 +18,7 @@ public:
 
 	Character()
 		//inicialització per defecte
-		: _name("unknown"), _level(0u)
+		: _name("unknown"), _level(0u), _life(0000)
 		
 		
 	{
@@ -46,6 +47,11 @@ public:
 
 	void level(const int & theLevel){
 		_level = theLevel;
+	}
+
+	const int & life()  const
+	{
+		return _life;
 	}
 	
 };

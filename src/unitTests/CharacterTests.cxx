@@ -7,11 +7,10 @@ public:
 	TEST_FIXTURE( CharacterTest )
 	{
 		TEST_CASE( test_name_byDefault );
-
 		TEST_CASE( test_name_whenChanged );
 		TEST_CASE( test_level_byDefault );
 		TEST_CASE( test_level_whenChanged );
-	//	TEST_CASE( test_life_byDefault );
+		TEST_CASE( test_life_byDefault );
 	//	TEST_CASE( test_life_afterDamage );
 	//	TEST_CASE( test_life_afterCure );
 	//	TEST_CASE( test_life_afterDamageBeyondLife );
@@ -55,7 +54,7 @@ public:
 			character.level()
 		);
 	}
-	/*
+	
 
 	void test_life_byDefault()
 	{
@@ -65,6 +64,7 @@ public:
 			character.life()
 		);
 	}
+	/*
 	void test_life_afterDamage()
 	{
 		Character character;
