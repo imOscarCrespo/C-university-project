@@ -43,6 +43,10 @@ public:
 	{
 		return _level;
 	}
+
+	void level(const int & theLevel){
+		_name = theLevel;
+	}
 	
 };
 

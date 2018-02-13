@@ -10,7 +10,7 @@ public:
 
 		TEST_CASE( test_name_whenChanged );
 		TEST_CASE( test_level_byDefault );
-	//	TEST_CASE( test_level_whenChanged );
+		TEST_CASE( test_level_whenChanged );
 	//	TEST_CASE( test_life_byDefault );
 	//	TEST_CASE( test_life_afterDamage );
 	//	TEST_CASE( test_life_afterCure );
@@ -46,8 +46,7 @@ public:
 		);
 
 	}
-	/*
-	void test_level_whenChanged()
+		void test_level_whenChanged()
 	{
 		Character character;
 		character.level( 40 );
@@ -56,6 +55,8 @@ public:
 			character.level()
 		);
 	}
+	/*
+
 	void test_life_byDefault()
 	{
 		Character character;
