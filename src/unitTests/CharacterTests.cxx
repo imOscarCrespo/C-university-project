@@ -14,7 +14,7 @@ public:
 		TEST_CASE( test_life_afterDamage );
 		TEST_CASE( test_life_afterCure );
 	//	TEST_CASE( test_life_afterDamageBeyondLife );
-	//	TEST_CASE( test_life_afterCuringBeyondMax );
+		TEST_CASE( test_life_afterCuringBeyondMax );
 	}
 	
 	void test_name_byDefault()
@@ -95,6 +95,8 @@ public:
 			character.life()
 		);
 	}
+	*/
+	
 	void test_life_afterCuringBeyondMax()
 	{
 		Character character;
@@ -104,7 +106,7 @@ public:
 			character.life()
 		);
 	}
-	*/
+	
 };
 
 REGISTER_FIXTURE( CharacterTest )

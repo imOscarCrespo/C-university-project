@@ -53,6 +53,11 @@ public:
 	const int & life()  const
 	{
 		return _life;
+
+	}
+
+	void life(const int & theLife){
+		_life=theLife;
 	}
 
 	void damage(const int & theDamage){
@@ -67,7 +72,24 @@ public:
 
 	}
 
-	
+	/*void mort(const int & theDamage){
+		int i = _life.damage(theDamage);
+		if(i<0){
+			//Mates el pesonatje
+		}
+	}
+
+	*/
+
+	void maxcure(const int & theCure){
+		this->cure(theCure);
+		int x;
+		x = this->life();
+
+		if (x>=10u){
+			_life = 10u;
+		}
+	}
 };
 
  //Character_hxx
