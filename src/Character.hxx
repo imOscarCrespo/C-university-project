@@ -18,7 +18,7 @@ public:
 
 	Character()
 		//inicialització per defecte
-		: _name("unknown"), _level(0u), _life(0000)
+		: _name("unknown"), _level(0u), _life(10u)
 		
 		
 	{
