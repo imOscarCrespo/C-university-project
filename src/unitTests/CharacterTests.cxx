@@ -36,16 +36,17 @@ public:
 			character.name()
 		);
 	}
+	
 	void test_level_byDefault()
 	{
 		Character character;
 		ASSERT_EQUALS(
-			0u,
+			0,
 			character.level()
 		);
 
-	}/*
-	
+	}
+	/*
 	void test_level_whenChanged()
 	{
 		Character character;

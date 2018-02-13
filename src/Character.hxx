@@ -17,10 +17,12 @@ public:
 
 	Character()
 		//inicialització per defecte
-		: _name("unknown")
+		: _name("unknown"), _level(0u)
+		
 		
 	{
 
+		 
 	}
 
 
@@ -37,11 +39,11 @@ public:
 		_name = theName;
 	}
 
-	const int & level() const
+	 const int & level()  const
 	{
 		return _level;
 	}
-
+	
 };
 
  //Character_hxx
