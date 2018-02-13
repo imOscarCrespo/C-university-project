@@ -45,7 +45,7 @@ public:
 	}
 
 	void level(const int & theLevel){
-		_name = theLevel;
+		_level = theLevel;
 	}
 	
 };
