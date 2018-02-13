@@ -11,7 +11,7 @@ public:
 		TEST_CASE( test_level_byDefault );
 		TEST_CASE( test_level_whenChanged );
 		TEST_CASE( test_life_byDefault );
-	//	TEST_CASE( test_life_afterDamage );
+		TEST_CASE( test_life_afterDamage );
 	//	TEST_CASE( test_life_afterCure );
 	//	TEST_CASE( test_life_afterDamageBeyondLife );
 	//	TEST_CASE( test_life_afterCuringBeyondMax );
@@ -64,7 +64,7 @@ public:
 			character.life()
 		);
 	}
-	/*
+	
 	void test_life_afterDamage()
 	{
 		Character character;
@@ -74,6 +74,7 @@ public:
 			character.life()
 		);
 	}
+	/*
 	void test_life_afterCure()
 	{
 		Character character;

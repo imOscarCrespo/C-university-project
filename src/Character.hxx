@@ -11,6 +11,7 @@ class Character{
 std::string _name;
 int _level;
 int _life;
+int _damage;
 
 public:
 
@@ -52,6 +53,12 @@ public:
 	const int & life()  const
 	{
 		return _life;
+	}
+
+	void damage(const int & theDamage){
+		_life = _life - theDamage;
+
+
 	}
 	
 };
