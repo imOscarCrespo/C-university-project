@@ -11,7 +11,7 @@ class Character{
 std::string _name;
 int _level;
 int _life;
-int _damage;
+
 
 public:
 
@@ -60,6 +60,13 @@ public:
 
 
 	}
+
+	void cure(const int & theCure){
+		_life = _life + theCure;
+
+
+	}
+
 	
 };
 
