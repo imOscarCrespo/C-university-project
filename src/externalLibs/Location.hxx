@@ -1,5 +1,5 @@
-
-#define Location_hxx
+#ifndef LOCATION_HXX
+#define LOCATION_HXX
 
 class Location{
 
@@ -23,9 +23,11 @@ public:
 	}
 
 
-//Functions of the class
+//Metodes de la classe
 
 	
 };
 
 //Location_hxx
+
+#endif
