@@ -1,4 +1,5 @@
 #include <MiniCppUnit.hxx>
+#include <Location.hxx>
 
 class LocationTest : public TestFixture< LocationTest >
 {

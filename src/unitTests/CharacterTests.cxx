@@ -1,3 +1,8 @@
+/*
+*	PRACTICA 2 : Xavier Maltas i Oscar Crespo
+*/
+
+
 #include <MiniCppUnit.hxx>
 #include <Character.hxx>
 
@@ -13,7 +18,7 @@ public:
 		TEST_CASE( test_life_byDefault );
 		TEST_CASE( test_life_afterDamage );
 		TEST_CASE( test_life_afterCure );
-	//	TEST_CASE( test_life_afterDamageBeyondLife );
+		TEST_CASE( test_life_afterDamageBeyondLife );
 		TEST_CASE( test_life_afterCuringBeyondMax );
 	}
 	
@@ -85,7 +90,7 @@ public:
 			character.life()
 		);
 	}
-	/*
+	
 	void test_life_afterDamageBeyondLife()
 	{
 		Character character;
@@ -95,7 +100,7 @@ public:
 			character.life()
 		);
 	}
-	*/
+	
 	
 	void test_life_afterCuringBeyondMax()
 	{
