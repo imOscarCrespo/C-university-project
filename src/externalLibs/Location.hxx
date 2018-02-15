@@ -30,10 +30,10 @@ public:
 
 
 //Metodes de la classe
-		//getter de name
-		std::string name()
+		//Getter de name
+		const std::string & name() const
 		{
-			return "";
+			return _name;
 		}
 
 	
