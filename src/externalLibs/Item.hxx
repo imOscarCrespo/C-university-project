@@ -28,35 +28,34 @@ bool _enable;
 			return _name;
 		}
 
-		/*
+		
 		//Setter name
 		void name(const std::string &name) 
 		{
 			_name = name;
 		}
-
-		//getter
+/*----------LEVEL-------------*/
+		//getter level
 		 const int & level()  const
 		{
 			return _level;
 		}
-		//setter
+		//setter level
 		void level(const int & theLevel){
 			_level = theLevel;
 		}
-
-
-		//getter
+/*----------ENABLE-------------*/
+		//getter enable
 		const bool & enable() const
 		{
 			return _enable;
 		}
-		//setter
+		//setter enable
 		void enable( const bool & theEnable)
 		{
 			_enable = theEnable;
 		}
-*/
+
 };
 
 

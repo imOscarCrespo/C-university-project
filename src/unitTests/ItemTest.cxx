@@ -14,11 +14,11 @@ public:
 	TEST_FIXTURE(ItemTest){
 	
 	TEST_CASE( test_name_byDefault );
-	//TEST_CASE( test_name_whenChanged );
-	//TEST_CASE( test_level_byDefault );
-	//TEST_CASE( test_level_whenChanged );
-	//TEST_CASE( test_enable_byDefault );
-	//TEST_CASE( test_enable_whenChanged );
+	TEST_CASE( test_name_whenChanged );
+	TEST_CASE( test_level_byDefault );
+	TEST_CASE( test_level_whenChanged );
+	TEST_CASE( test_enable_byDefault );
+	TEST_CASE( test_enable_whenChanged );
 
 	}
 
@@ -31,7 +31,7 @@ public:
 			anonymous.name()
 		);
 	}
-	/*
+	
 	void test_name_whenChanged()
 	{
 		Item anonymous;
@@ -41,7 +41,7 @@ public:
 			anonymous.name()
 		);
 	}
-
+	
 	void test_level_byDefault()
 	{
 		Item anonymous;
@@ -79,9 +79,6 @@ public:
         	ASSERT_EQUALS( true, anonymous.enable() );
     }
 	
-
-	*/
-
 
 };
 
