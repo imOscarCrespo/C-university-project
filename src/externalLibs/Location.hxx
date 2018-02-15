@@ -7,16 +7,26 @@
 #ifndef LOCATION_HXX
 #define LOCATION_HXX
 #include <iostream>
+#include <string>
+#include <list>
+#include <algorithm>
+#include <vector>
 
+#include <Item.hxx>
+
+
+	
 class Location{
 
 //ATRIBUTS d'entrada
 std::string _name;
-//std::string _description;
+//
+typedef std::list<Item*> Items;
 
 public:
-
-//Constructor de la classe
+	//Llista d'Items
+	Items _items;
+	//Constructor de la classe
 
 	Location()
 		//inicialització per defecte
@@ -27,7 +37,7 @@ public:
 	}
 
 
-//Metodes de la classe
+	//Metodes de la classe
 		//Getter de name
 		const std::string & name() const
 		{
@@ -40,9 +50,31 @@ public:
 		}
 
 		//Empty Description
-		std::string description()
+		std::string description() const
 		{
 			return "Location: " + _name + "\n";
+		}
+
+		//Add item at the pointers vectors of Items
+		void addItem( const std::string & theName, const int & level )
+		{
+			//nova instancia de item
+			//set del valors de la nova instancia
+			//pushback al final del vector
+			Item * anonymous = new Item ();
+			
+			anonymous->name("Hammer");
+			anonymous->level(0u);
+			_items.push_back(anonymous);
+		
+		}
+		//Retorna tot el contingut del vector
+		std::string items() const
+		{
+			for (Items::const_iterator it=_items.begin(); it!=_items.end(); it++)
+				{
+					return "Hola";
+				}	
 		}
 };
 

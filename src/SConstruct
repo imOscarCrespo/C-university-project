@@ -36,6 +36,7 @@ env.AppendUnique(
 		"-pedantic",
 		"-g",
 		"-Wno-long-long",
+		"-std=c++11",
 	]
 )
 

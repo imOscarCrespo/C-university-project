@@ -1,11 +1,12 @@
 #include <MiniCppUnit.hxx>
+#include <Location.hxx>
 
 class ExtendedLocationTests : public TestFixture< ExtendedLocationTests >
 {
 public:
 	TEST_FIXTURE( ExtendedLocationTests )
 	{
-		//TEST_CASE( test_addItem_withOneItem );
+		TEST_CASE( test_addItem_withOneItem );
 		//TEST_CASE( test_addItem_withNoItem );
 		//TEST_CASE( test_addItem_withTwoItems );
 		//TEST_CASE( test_findItem_withTwoItems );
@@ -20,7 +21,7 @@ public:
 		//TEST_CASE( testDescription_withItemsAndCharacters );
 		//TEST_CASE( testDescription_withUnplacedCharacter );
 	}
-	/*
+	
 	void test_addItem_withOneItem()
 	{
 		Location location;
@@ -30,6 +31,7 @@ public:
 			location.items()
 		);
 	}
+	/*
 	void test_addItem_withNoItem()
 	{
 		Location location;
