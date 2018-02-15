@@ -23,12 +23,13 @@ bool _enable;
 		//Metodes
 /*----------NAME-------------*/
 		//Getter name
-		std::string name()
+		const std::string & name() const
 		{
-			return "";
+			return _name;
 		}
 
-		/*//Setter name
+		/*
+		//Setter name
 		void name(const std::string &name) 
 		{
 			_name = name;
@@ -54,8 +55,8 @@ bool _enable;
 		void enable( const bool & theEnable)
 		{
 			_enable = theEnable;
-		}*/
-
+		}
+*/
 };
 
 
