@@ -30,6 +30,11 @@ public:
 
 
 //Metodes de la classe
+		//getter de name
+		std::string name()
+		{
+			return "";
+		}
 
 	
 };

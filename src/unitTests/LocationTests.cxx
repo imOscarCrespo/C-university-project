@@ -10,11 +10,11 @@ class LocationTest : public TestFixture< LocationTest >
 public:
 	TEST_FIXTURE( LocationTest )
 	{
-	//	TEST_CASE( test_name_byDefault );
+		TEST_CASE( test_name_byDefault );
 	//	TEST_CASE( test_name_whenChanged );
 	//	TEST_CASE( test_description_whenEmpty );
 	}
-	/*
+	
 	void test_name_byDefault()
 	{
 		Location location;
@@ -23,6 +23,8 @@ public:
 			location.name()
 		);
 	}
+
+	/*
 	void test_name_whenChanged()
 	{
 		Location location;
