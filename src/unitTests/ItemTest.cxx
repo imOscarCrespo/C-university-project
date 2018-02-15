@@ -1,3 +1,7 @@
+/*
+*	PRACTICA 2 : Xavier Maltas i Oscar Crespo
+*/
+
 #include <MiniCppUnit.hxx>
 #include "Item.hxx"
 

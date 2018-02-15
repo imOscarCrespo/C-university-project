@@ -1,3 +1,9 @@
+/*
+*	PRACTICA 2 : Xavier Maltas i Oscar Crespo
+*/
+
+//Location.hxx
+
 #ifndef LOCATION_HXX
 #define LOCATION_HXX
 
