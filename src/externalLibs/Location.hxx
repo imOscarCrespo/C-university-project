@@ -42,7 +42,7 @@ public:
 		//Empty Description
 		std::string description()
 		{
-			return _name;
+			return "Location: " + _name + "\n";
 		}
 };
 
