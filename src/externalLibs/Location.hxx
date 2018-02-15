@@ -71,9 +71,13 @@ public:
 		//Retorna tot el contingut del vector
 		std::string items() const
 		{
+
 			for (Items::const_iterator it=_items.begin(); it!=_items.end(); it++)
 				{
-					return "Hola";
+					int entero = (*it)->level();
+					std::string cadena = "";
+					cadena = std::to_string(entero);
+					return "\tItem: " + (*it)->name() + " [" + cadena + "]\n";
 				}	
 		}
 };
