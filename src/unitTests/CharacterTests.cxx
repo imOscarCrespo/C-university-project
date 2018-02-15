@@ -50,7 +50,8 @@ public:
 		);
 
 	}
-		void test_level_whenChanged()
+
+	void test_level_whenChanged()
 	{
 		Character character;
 		character.level( 40 );
