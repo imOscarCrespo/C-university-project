@@ -35,7 +35,7 @@ public:
 		//Setter de name
 		void name(const std::string &theName)
 		{
-			_name = "";
+			_name = theName;
 		}
 	
 };
