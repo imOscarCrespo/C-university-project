@@ -11,7 +11,7 @@ public:
 	TEST_FIXTURE( LocationTest )
 	{
 		TEST_CASE( test_name_byDefault );
-	//	TEST_CASE( test_name_whenChanged );
+		TEST_CASE( test_name_whenChanged );
 	//	TEST_CASE( test_description_whenEmpty );
 	}
 	
@@ -24,7 +24,7 @@ public:
 		);
 	}
 
-	/*
+	
 	void test_name_whenChanged()
 	{
 		Location location;
@@ -34,6 +34,7 @@ public:
 			location.name()
 		);
 	}
+	/*
 	void test_description_whenEmpty()
 	{
 		Location location;

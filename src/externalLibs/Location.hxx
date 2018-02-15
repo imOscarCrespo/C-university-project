@@ -19,10 +19,7 @@ public:
 
 	Location()
 		//inicialització per defecte
-		: _name("unknown")
-		//,
-		//
-		
+		: _name("unknown")	
 	{
 
 		 
@@ -35,7 +32,11 @@ public:
 		{
 			return _name;
 		}
-
+		//Setter de name
+		void name(const std::string &theName)
+		{
+			_name = "";
+		}
 	
 };
 
