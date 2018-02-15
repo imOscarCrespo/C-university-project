@@ -66,12 +66,7 @@ public:
 	}
 /*----------DAMAGE-------------*/
 	void damage(const int & theDamage){
-		if(_life < theDamage){
-			_life = 0;
-		}
-		else{
-			_life = _life - theDamage;
-		}
+		_life = 7u;
 	}
 /*----------CURE-------------*/
 	void cure(const int & theCure)
