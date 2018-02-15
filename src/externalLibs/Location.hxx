@@ -6,6 +6,7 @@
 
 #ifndef LOCATION_HXX
 #define LOCATION_HXX
+#include <iostream>
 
 class Location{
 
@@ -37,7 +38,12 @@ public:
 		{
 			_name = theName;
 		}
-	
+
+		//Empty Description
+		std::string description()
+		{
+			return _name;
+		}
 };
 
 //Location_hxx
