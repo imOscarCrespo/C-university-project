@@ -8,7 +8,7 @@ public:
 	{
 		TEST_CASE( test_addItem_withOneItem );
 		TEST_CASE( test_addItem_withNoItem );
-		//TEST_CASE( test_addItem_withTwoItems );
+		TEST_CASE( test_addItem_withTwoItems );
 		//TEST_CASE( test_findItem_withTwoItems );
 		//TEST_CASE( test_findItem_withInexistentItem );
 		//TEST_CASE( testDescription_withoutItems );
@@ -40,7 +40,7 @@ public:
 			location.items()
 		);
 	}
-	/*
+	
 	void test_addItem_withTwoItems()
 	{
 		Location location;
@@ -51,7 +51,8 @@ public:
 			"\tItem: Nail [0]\n",
 			location.items()
 		);
-	}/*
+	}
+	/*
 	void test_findItem_withTwoItems()
 	{
 		Location location;
