@@ -51,7 +51,7 @@ public:
 			"\tItem: Nail [0]\n",
 			location.items()
 		);
-	}
+	}/*
 	void test_findItem_withTwoItems()
 	{
 		Location location;

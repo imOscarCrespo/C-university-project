@@ -68,16 +68,16 @@ public:
 			_items.push_back(anonymous);
 		
 		}
+
 		//Retorna tot el contingut del vector
 		std::string items() const
 		{
 
 			for (Items::const_iterator it=_items.begin(); it!=_items.end(); it++)
 				{
-					if (_items.size()==0){
-					return "";
-
-				}
+					if ( (*it) == NULL){
+						return "";
+					}
 
 					else {
 
@@ -87,21 +87,16 @@ public:
 
 							std::string aux;
 							for(int r=0;r<_items.size();r++){
-								aux=aux + "\tItem: " + (*it)->name() + " [" + cadena + "]\n";
+								aux = aux + "\tItem: " + (*it)->name() + " [" + cadena + "]\n";
 								it++;
 							}
 							return aux;
 							//return "\tItem: " + (*it)->name() + " [" + cadena + "]\n";
-
 					}
-					
-				
-
-						
 
 				}
 
-			return 0;
+			return "";
 		}
 };
 
