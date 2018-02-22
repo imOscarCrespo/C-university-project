@@ -7,7 +7,7 @@ public:
 	TEST_FIXTURE( ExtendedLocationTests )
 	{
 		TEST_CASE( test_addItem_withOneItem );
-		//TEST_CASE( test_addItem_withNoItem );
+		TEST_CASE( test_addItem_withNoItem );
 		//TEST_CASE( test_addItem_withTwoItems );
 		//TEST_CASE( test_findItem_withTwoItems );
 		//TEST_CASE( test_findItem_withInexistentItem );
@@ -31,7 +31,7 @@ public:
 			location.items()
 		);
 	}
-	/*
+	
 	void test_addItem_withNoItem()
 	{
 		Location location;
@@ -40,6 +40,7 @@ public:
 			location.items()
 		);
 	}
+	/*
 	void test_addItem_withTwoItems()
 	{
 		Location location;
