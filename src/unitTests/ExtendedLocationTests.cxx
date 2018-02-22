@@ -59,7 +59,7 @@ public:
 		Location location;
 		location.addItem( "Hammer", 0u );
 		location.addItem( "Nail", 0u );
-
+		
 		Item & item = location.findItem( "Nail" );
 		ASSERT_EQUALS(
 			"Nail [0]",

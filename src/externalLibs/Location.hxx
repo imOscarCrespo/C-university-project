@@ -66,6 +66,8 @@ public:
 			anonymous->name(theName);
 			anonymous->level(level);
 			_items.push_back(anonymous);
+
+			delete anonymous;
 		
 		}
 
@@ -101,7 +103,7 @@ public:
 		}
 
 		//Retorna la posició de memoria d'on esta un item amb un nom concret que reps per parmentre
-		Item & findItem( std::string theName) const
+		Item & findItem(const std::string theName) const
 		{
 			
 			Item* anonymous;
