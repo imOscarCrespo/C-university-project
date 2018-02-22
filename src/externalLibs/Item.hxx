@@ -64,7 +64,7 @@ bool _enable;
 				std::string cadena = "";
 				cadena = std::to_string(entero);
 
-			return _name + " [" + cadena + " ]";
+			return _name + " [" + cadena + "]";
 
 		}
 
