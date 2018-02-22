@@ -87,7 +87,7 @@ public:
 
 							std::string aux;
 							for(int r=0;r<_items.size();r++){
-								aux = aux + "tItem: " + (*it)->name() + " [" + cadena + "]\n";
+								aux = aux + "\tItem: " + (*it)->name() + " [" + cadena + "]\n";
 								it++;
 							}
 							return aux;
