@@ -86,7 +86,8 @@ public:
 							cadena = std::to_string(entero);
 
 							std::string aux;
-							for(int r=0;r<_items.size();r++){
+							int r;
+							for(r = 0; r < _items.size(); r++){
 								aux = aux + "\tItem: " + (*it)->name() + " [" + cadena + "]\n";
 								it++;
 							}
@@ -98,6 +99,31 @@ public:
 
 			return "";
 		}
+
+		//Retorna la posició de memoria d'on esta un item amb un nom concret que reps per parmentre
+		Item & findItem( std::string theName) const
+		{
+			
+			Item* anonymous;
+			
+			for( Items::const_iterator it=_items.begin(); it!=_items.end(); it++)
+			{
+					if( (*it)->name() == theName ){		
+						anonymous = (*it);						
+					}
+					else {
+						anonymous = NULL;
+					}
+			}
+	
+			return *(anonymous);			
+		
+
+		}
+
+
+
+
 };
 
 //Location_hxx

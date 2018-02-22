@@ -56,6 +56,18 @@ bool _enable;
 			_enable = theEnable;
 		}
 
+/*---------DESCRIPTION----------*/
+
+		std::string description() const
+		{
+				int entero = _level;
+				std::string cadena = "";
+				cadena = std::to_string(entero);
+
+			return _name + " [" + cadena + " ]";
+
+		}
+
 };
 
 
