@@ -63,8 +63,8 @@ public:
 			//pushback al final del vector
 			Item * anonymous = new Item ();
 			
-			anonymous->name("Hammer");
-			anonymous->level(0u);
+			anonymous->name(theName);
+			anonymous->level(level);
 			_items.push_back(anonymous);
 		
 		}
@@ -74,11 +74,34 @@ public:
 
 			for (Items::const_iterator it=_items.begin(); it!=_items.end(); it++)
 				{
-					int entero = (*it)->level();
-					std::string cadena = "";
-					cadena = std::to_string(entero);
-					return "\tItem: " + (*it)->name() + " [" + cadena + "]\n";
-				}	
+					if (_items.size()==0){
+					return "";
+
+				}
+
+					else {
+
+							int entero = (*it)->level();
+							std::string cadena = "";
+							cadena = std::to_string(entero);
+
+							std::string aux;
+							for(int r=0;r<_items.size();r++){
+								aux=aux + "\Item: " + (*it)->name() + " [" + cadena + "]\n";
+								it++;
+							}
+							return aux;
+							//return "\tItem: " + (*it)->name() + " [" + cadena + "]\n";
+
+					}
+					
+				
+
+						
+
+				}
+
+			return 0;
 		}
 };
 
