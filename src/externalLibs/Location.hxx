@@ -147,7 +147,7 @@ public:
 							std::string aux;
 							int r;
 							for(r = 0; r < _character.size(); r++){
-								aux = aux + "- "  + (*it)->name() + "is here.\n";
+								aux = aux + "- "  + (*it)->name() + " is here.\n";
 								it++;
 							}
 							return aux;
