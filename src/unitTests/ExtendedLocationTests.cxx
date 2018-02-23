@@ -18,7 +18,7 @@ public:
 		TEST_CASE( test_placeCharacter_withNoCharacter );
 		TEST_CASE( test_placeCharacter_withTwoCharacters );
 		TEST_CASE( test_findCharacter_withTwoCharacters );
-		//TEST_CASE( test_findCharacter_withInexistentCharacter );
+		TEST_CASE( test_findCharacter_withInexistentCharacter );
 		//TEST_CASE( testDescription_withItemsAndCharacters );
 		//TEST_CASE( testDescription_withUnplacedCharacter );
 	}
@@ -172,7 +172,7 @@ public:
 		);
 	}
 
-	/*
+	
 	void test_findCharacter_withInexistentCharacter()
 	{
 		Location location;
@@ -193,7 +193,7 @@ public:
 				e.what()
 			)
 		}
-	}
+	}/*
 	void testDescription_withItemsAndCharacters()
 	{
 		Location location;
