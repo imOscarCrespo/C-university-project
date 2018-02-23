@@ -53,7 +53,8 @@ public:
 		//Empty Description
 		std::string description() const
 		{
-			return "Location: " + _name + "\n";
+			return "Location: " + _name + "\n" + items();
+
 		}
 
 		//Add item at the pointers vectors of Items

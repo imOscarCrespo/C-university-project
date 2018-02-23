@@ -96,6 +96,7 @@ public:
 			location.description()
 		)
 	}
+	
 	void testDescription_withItems()
 	{
 		Location location;
