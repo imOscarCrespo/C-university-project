@@ -1,10 +1,11 @@
 /*
 *	PRACTICA 3 : Xavier Maltas i Oscar Crespo
 */
+//#include <Exception.hxx>
 
 #ifndef ITEM_HXX
 #define ITEM_HXX 
-
+#include "Exception.hxx"
 class Item{
 
 std::string _name;

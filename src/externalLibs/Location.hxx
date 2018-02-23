@@ -11,11 +11,12 @@
 #include <list>
 #include <algorithm>
 #include <vector>
+#include <exception>
 
-#include <Item.hxx>
+#include "Item.hxx"
+#include "Exception.hxx"
 
 
-	
 class Location{
 
 //ATRIBUTS d'entrada
@@ -111,17 +112,17 @@ public:
 			for( Items::const_iterator it=_items.begin(); it!=_items.end(); it++)
 			{
 					if( (*it)->name() == theName ){		
-						anonymous = (*it);						
-					}
-					else {
-						anonymous = NULL;
+						return *(*it);						
 					}
 			}
 	
-			return *(anonymous);			
+			throw Exception();			
 		
 
 		}
+
+		
+
 
 
 

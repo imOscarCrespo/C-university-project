@@ -1,5 +1,5 @@
 #include <MiniCppUnit.hxx>
-#include <Location.hxx>
+#include "Location.hxx"
 #include <iostream>
 
 class ExtendedLocationTests : public TestFixture< ExtendedLocationTests >
@@ -11,7 +11,7 @@ public:
 		TEST_CASE( test_addItem_withNoItem );
 		TEST_CASE( test_addItem_withTwoItems );
 		TEST_CASE( test_findItem_withTwoItems );
-		//TEST_CASE( test_findItem_withInexistentItem );
+		TEST_CASE( test_findItem_withInexistentItem );
 		//TEST_CASE( testDescription_withoutItems );
 		//TEST_CASE( testDescription_withItems );
 		//TEST_CASE( test_placeCharacter_withOneCharacter );
@@ -70,7 +70,7 @@ public:
 	void test_findItem_withInexistentItem()
 	{
 		Location location;
-		location.addItem( "Hammer", 0u );
+		location.addItem( "Hammer", 0u );	
 
 		try
 		{
