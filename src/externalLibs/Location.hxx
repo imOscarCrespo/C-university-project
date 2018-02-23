@@ -174,7 +174,7 @@ public:
 			for( Characters::const_iterator it=_character.begin(); it!=_character.end(); it++)
 			{
 					if( (*it)->name() == theName ){		
-						return *(*(it+1));						
+						return *(*it);						
 					}
 			}
 	
