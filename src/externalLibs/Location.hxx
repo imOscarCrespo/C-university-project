@@ -187,7 +187,7 @@ public:
 			Character * anonymous = new Character();
 			anonymous = &(theCharacter);
 
-			//_character.remove(anonymous);
+			_character.remove(anonymous);
 
 		}
 
