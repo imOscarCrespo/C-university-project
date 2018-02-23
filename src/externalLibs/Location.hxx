@@ -15,6 +15,7 @@
 
 #include "Item.hxx"
 #include "Exception.hxx"
+#include "Character.hxx"
 
 
 class Location{
@@ -23,10 +24,13 @@ class Location{
 std::string _name;
 //
 typedef std::list<Item*> Items;
+typedef std::list<Character*> Characters;
 
 public:
 	//Llista d'Items
 	Items _items;
+	//Llista d'Items
+	Characters _character;
 	//Constructor de la classe
 
 	Location()
@@ -119,6 +123,47 @@ public:
 	
 			throw Exception();			
 
+		}
+
+		void placeCharacter(Character &theCharacter){
+
+			Character * anonymous = new Character();
+			anonymous = &(theCharacter);
+
+			_character.push_back(anonymous);
+
+		}
+
+		std::string characters() const
+		{
+			for (Characters::const_iterator it=_character.begin(); it!=_character.end(); it++)
+				{
+					if ( (*it) == NULL){
+						return "";
+					}
+
+					else {
+
+							std::string aux;
+							int r;
+							for(r = 0; r < _character.size(); r++){
+								aux = aux + "- "  + (*it)->name() + "is here.\n";
+								it++;
+							}
+							return aux;
+							//return "\tItem: " + (*it)->name() + " [" + cadena + "]\n";
+					}
+
+				}
+
+			return "";
+
+
+
+
+
+
+			//return "-" + _character->name() + "is here.\n";
 		}
 
 		

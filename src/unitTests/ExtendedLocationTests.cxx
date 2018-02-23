@@ -14,7 +14,7 @@ public:
 		TEST_CASE( test_findItem_withInexistentItem );
 		TEST_CASE( testDescription_withoutItems );
 		TEST_CASE( testDescription_withItems );
-		//TEST_CASE( test_placeCharacter_withOneCharacter );
+		TEST_CASE( test_placeCharacter_withOneCharacter );
 		//TEST_CASE( test_placeCharacter_withNoCharacter );
 		//TEST_CASE( test_placeCharacter_withTwoCharacters );
 		//TEST_CASE( test_findCharacter_withTwoCharacters );
@@ -96,7 +96,7 @@ public:
 			location.description()
 		)
 	}
-	
+
 	void testDescription_withItems()
 	{
 		Location location;
@@ -111,7 +111,7 @@ public:
 			"\tItem: Nail [0]\n",
 			location.description()
 		)
-	}/*
+	}
 	void test_placeCharacter_withOneCharacter()
 	{
 		Location location;
@@ -124,7 +124,7 @@ public:
 			"- Carpenter is here.\n",
 			location.characters()
 		);
-	}
+	}/*
 	void test_placeCharacter_withNoCharacter()
 	{
 		Location location;
