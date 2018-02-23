@@ -166,6 +166,22 @@ public:
 			//return "-" + _character->name() + "is here.\n";
 		}
 
+		Character & findCharacter(const std::string theName) const
+		{
+			
+			Character *anonymous;
+			
+			for( Characters::const_iterator it=_character.begin(); it!=_character.end(); it++)
+			{
+					if( (*it)->name() == theName ){		
+						return *(*(it+1));						
+					}
+			}
+	
+			throw Exception();			
+
+		}
+
 		
 
 

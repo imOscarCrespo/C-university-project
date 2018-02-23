@@ -17,7 +17,7 @@ public:
 		TEST_CASE( test_placeCharacter_withOneCharacter );
 		TEST_CASE( test_placeCharacter_withNoCharacter );
 		TEST_CASE( test_placeCharacter_withTwoCharacters );
-		//TEST_CASE( test_findCharacter_withTwoCharacters );
+		TEST_CASE( test_findCharacter_withTwoCharacters );
 		//TEST_CASE( test_findCharacter_withInexistentCharacter );
 		//TEST_CASE( testDescription_withItemsAndCharacters );
 		//TEST_CASE( testDescription_withUnplacedCharacter );
@@ -151,7 +151,8 @@ public:
 			"- Painter is here.\n",
 			location.characters()
 		);
-	}/*
+	}
+
 	void test_findCharacter_withTwoCharacters()
 	{
 		Location location;
@@ -170,6 +171,8 @@ public:
 			character.name()
 		);
 	}
+
+	/*
 	void test_findCharacter_withInexistentCharacter()
 	{
 		Location location;
