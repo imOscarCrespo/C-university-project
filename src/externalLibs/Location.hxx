@@ -106,7 +106,7 @@ public:
 		Item & findItem(const std::string theName) const
 		{
 			
-			Item* anonymous;
+			Item *anonymous;
 			
 			for( Items::const_iterator it=_items.begin(); it!=_items.end(); it++)
 			{

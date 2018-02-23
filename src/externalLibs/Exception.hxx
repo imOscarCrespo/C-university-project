@@ -5,19 +5,11 @@
 #ifndef EXCEPTION_HXX
 #define EXCEPTION_HXX 
 
-class Exception{
+class Exception : public exeption{
 
 	public:
-		Exception()
-			//Variables inicial
-			: _what("The item does not exist")
-		
-		{}
-
-/*METODES*/
-
-		std::string what()
-		{
-			return _what;
+		const char *what() const throw(){
+			return "The item does not exist";
 		}
+};
 #endif

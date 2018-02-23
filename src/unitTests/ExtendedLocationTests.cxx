@@ -66,7 +66,7 @@ public:
 			item.description()
 		);
 	}
-	/*
+	
 	void test_findItem_withInexistentItem()
 	{
 		Location location;
