@@ -20,7 +20,7 @@ class Exception1 : public exception{
 
 	public:
 		const char * what() const throw(){
-			return "The Character does not exist";
+			return "The character does not exist";
 		}
 };
 #endif
