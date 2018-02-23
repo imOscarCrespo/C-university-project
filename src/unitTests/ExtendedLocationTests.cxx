@@ -12,7 +12,7 @@ public:
 		TEST_CASE( test_addItem_withTwoItems );
 		TEST_CASE( test_findItem_withTwoItems );
 		TEST_CASE( test_findItem_withInexistentItem );
-		//TEST_CASE( testDescription_withoutItems );
+		TEST_CASE( testDescription_withoutItems );
 		//TEST_CASE( testDescription_withItems );
 		//TEST_CASE( test_placeCharacter_withOneCharacter );
 		//TEST_CASE( test_placeCharacter_withNoCharacter );
@@ -85,7 +85,7 @@ public:
 			)
 		}
 	}
-	/*
+	
 	void testDescription_withoutItems()
 	{
 		Location location;
@@ -95,7 +95,7 @@ public:
 			"Location: Workshop\n",
 			location.description()
 		)
-	}
+	}/*
 	void testDescription_withItems()
 	{
 		Location location;
