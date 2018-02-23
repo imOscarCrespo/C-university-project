@@ -20,7 +20,7 @@ public:
 		TEST_CASE( test_findCharacter_withTwoCharacters );
 		TEST_CASE( test_findCharacter_withInexistentCharacter );
 		TEST_CASE( testDescription_withItemsAndCharacters );
-		//TEST_CASE( testDescription_withUnplacedCharacter );
+		TEST_CASE( testDescription_withUnplacedCharacter );
 	}
 	
 	void test_addItem_withOneItem()
@@ -218,7 +218,7 @@ public:
 			"- Painter is here.\n",
 			location.description()
 		)
-	}/*
+	}
 	void testDescription_withUnplacedCharacter()
 	{
 		Location location;
@@ -240,7 +240,7 @@ public:
 			location.description()
 		)
 	}
-*/
+
 };
 
 REGISTER_FIXTURE( ExtendedLocationTests )

@@ -182,6 +182,15 @@ public:
 
 		}
 
+		void unplaceCharacter(Character &theCharacter){
+
+			Character * anonymous = new Character();
+			anonymous = &(theCharacter);
+
+			//_character.remove(anonymous);
+
+		}
+
 		
 
 
