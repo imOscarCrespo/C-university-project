@@ -11,7 +11,7 @@ public:
 		TEST_CASE( test_addItem_withNoItem );
 		TEST_CASE( test_addItem_withTwoItems );
 		TEST_CASE( test_findItem_withTwoItems );
-		TEST_CASE( test_findItem_withInexistentItem );
+		//TEST_CASE( test_findItem_withInexistentItem );
 		//TEST_CASE( testDescription_withoutItems );
 		//TEST_CASE( testDescription_withItems );
 		//TEST_CASE( test_placeCharacter_withOneCharacter );
@@ -66,7 +66,7 @@ public:
 			item.description()
 		);
 	}
-	
+	/*
 	void test_findItem_withInexistentItem()
 	{
 		Location location;

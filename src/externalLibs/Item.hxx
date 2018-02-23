@@ -1,5 +1,5 @@
 /*
-*	PRACTICA 2 : Xavier Maltas i Oscar Crespo
+*	PRACTICA 3 : Xavier Maltas i Oscar Crespo
 */
 
 #ifndef ITEM_HXX
@@ -13,7 +13,7 @@ bool _enable;
 
 	public:
 		Item()
-			//Variables inicials
+			//Variab1les inicials
 			: _name("unknown"),
 			_level(10u),
 			_enable(false)
