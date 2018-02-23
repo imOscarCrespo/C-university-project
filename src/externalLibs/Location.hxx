@@ -57,7 +57,7 @@ public:
 		//Empty Description
 		std::string description() const
 		{
-			return "Location: " + _name + "\n" + items();
+			return "Location: " + _name + "\n" + items() + characters();
 
 		}
 
