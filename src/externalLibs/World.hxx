@@ -48,38 +48,38 @@ class World{
 			_name = theName;
 		}
 
-	void addLocation(const std::string & theName){
+		void addLocation(const std::string & theName){
 
-		Location * anonymous = new Location ();
+			Location * anonymous = new Location ();
 
-		anonymous->name(theName);
-		_locations.push_back (anonymous);
-	}
-
-	std::string locations() const
-		{
-
-			for (Locations::const_iterator it=_locations.begin(); it!=_locations.end(); it++)
-				{
-					if ( (*it) == NULL){
-						return "";
-					}
-
-					else {
-							std::string aux;
-							int r;
-							for(r = 0; r < _locations.size(); r++){
-								aux = aux + (*it)->name() + "\n";
-								it++;
-							}
-							return aux;
-							//return "\tItem: " + (*it)->name() + " [" + cadena + "]\n";
-					}
-
-				}
-
-			return "";
+			anonymous->name(theName);
+			_locations.push_back(anonymous);
 		}
+
+		std::string locations() const
+			{
+
+				for (Locations::const_iterator it=_locations.begin(); it!=_locations.end(); it++)
+					{
+						if ( (*it) == NULL){
+							return "";
+						}
+
+						else {
+								std::string aux;
+								int r;
+								for(r = 0; r < _locations.size(); r++){
+									aux = aux + (*it)->name() + "\n";
+									it++;
+								}
+								return aux;
+								//return "\tItem: " + (*it)->name() + " [" + cadena + "]\n";
+						}
+
+					}
+
+				return " ";
+			}
 
 };
 
