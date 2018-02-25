@@ -69,7 +69,7 @@ class World{
 							std::string aux;
 							int r;
 							for(r = 0; r < _locations.size(); r++){
-								aux = aux + (*it)->name() + " \n";
+								aux = aux + (*it)->name() + "\n";
 								it++;
 							}
 							return aux;
