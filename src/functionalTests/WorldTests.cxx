@@ -9,7 +9,7 @@ public:
 		TEST_CASE( test_locations_afterAddingALocation );
 		TEST_CASE( test_locations_byDefault );
 		TEST_CASE( test_locations_afterAddingASecondLocation );
-		//TEST_CASE( test_locationDetails_whenNoLocation );
+		TEST_CASE( test_locationDetails_whenNoLocation );
 		//TEST_CASE( test_locationDetails_whenEmptyAndUnconnected );
 		//TEST_CASE( test_locationDetails_whenLocationDoesNotExist );
 		//TEST_CASE( test_addItemAtLocation_withOneItem );
@@ -62,13 +62,14 @@ public:
 			world.locations()
 		);
 	}
-	/*
+	
 	void test_locationDetails_whenNoLocation()
 	{
 		World world;
 		try
 		{
 			world.locationDetails( "Paradise" );
+			//ASSERT_EQUALS( "hol", world.locationDetails("Paradise") );
 			FAIL( "Exception expected" );
 		}
 		catch ( LocationNotFound & e )
@@ -79,6 +80,7 @@ public:
 			);
 		}
 	}
+	/*
 	void test_locationDetails_whenEmptyAndUnconnected()
 	{
 		// The idea is to use the method Location::description.

@@ -23,4 +23,12 @@ class Exception1 : public exception{
 			return "The character does not exist";
 		}
 };
+
+class LocationNotFound : public exception{
+
+	public:
+		const char * what() const throw(){
+			return "The location does not exist!";
+		}
+};
 #endif

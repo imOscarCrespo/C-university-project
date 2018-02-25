@@ -56,6 +56,7 @@ class World{
 			_locations.push_back(anonymous);
 		}
 
+		//Retorna totes les localitzacions del World
 		std::string locations() const
 			{
 
@@ -79,6 +80,21 @@ class World{
 					}
 
 				return "";
+			}
+
+		//locationDetails
+		//Reserca d'una localització dins del World i treure tota la seva infomació
+		bool locationDetails( const std::string & theLocation) const
+			{
+				for( Locations::const_iterator it=_locations.begin(); it!=_locations.end(); it++)
+					{
+							if( (*it)->name() == theLocation ){		
+								return true;						
+							}
+					}
+			
+				throw LocationNotFound();
+
 			}
 
 };
