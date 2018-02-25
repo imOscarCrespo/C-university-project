@@ -69,7 +69,6 @@ public:
 		try
 		{
 			world.locationDetails( "Paradise" );
-			//ASSERT_EQUALS( "hol", world.locationDetails("Paradise") );
 			FAIL( "Exception expected" );
 		}
 		catch ( LocationNotFound & e )
@@ -91,6 +90,7 @@ public:
 			world.locationDetails( "Madrid" )
 		);
 	}
+	
 	void test_locationDetails_whenLocationDoesNotExist()
 	{
 		World world;

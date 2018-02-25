@@ -158,12 +158,6 @@ public:
 
 			return "";
 
-
-
-
-
-
-			//return "-" + _character->name() + "is here.\n";
 		}
 
 		Character & findCharacter(const std::string theName) const

@@ -51,7 +51,7 @@ class World{
 		void addLocation(const std::string & theName){
 
 			Location * anonymous = new Location ();
-
+			//Sha d'utilitzar la funcio location.description
 			anonymous->name(theName);
 			_locations.push_back(anonymous);
 		}
@@ -82,14 +82,13 @@ class World{
 				return "";
 			}
 
-		//locationDetails
 		//Reserca d'una localització dins del World i treure tota la seva infomació
-		bool locationDetails( const std::string & theLocation) const
+		std::string locationDetails( const std::string & theLocation) const
 			{
 				for( Locations::const_iterator it=_locations.begin(); it!=_locations.end(); it++)
 					{
 							if( (*it)->name() == theLocation ){		
-								return true;						
+								return (*it)->name();						
 							}
 					}
 			
