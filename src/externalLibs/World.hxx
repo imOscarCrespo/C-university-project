@@ -78,7 +78,7 @@ class World{
 
 					}
 
-				return " ";
+				return "";
 			}
 
 };
