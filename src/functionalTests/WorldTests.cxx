@@ -10,7 +10,7 @@ public:
 		TEST_CASE( test_locations_byDefault );
 		TEST_CASE( test_locations_afterAddingASecondLocation );
 		TEST_CASE( test_locationDetails_whenNoLocation );
-		//TEST_CASE( test_locationDetails_whenEmptyAndUnconnected );
+		TEST_CASE( test_locationDetails_whenEmptyAndUnconnected );
 		//TEST_CASE( test_locationDetails_whenLocationDoesNotExist );
 		//TEST_CASE( test_addItemAtLocation_withOneItem );
 		//TEST_CASE( test_addItemAtLocation_withWrongLocation );
@@ -79,7 +79,7 @@ public:
 			);
 		}
 	}
-	/*
+	
 	void test_locationDetails_whenEmptyAndUnconnected()
 	{
 		// The idea is to use the method Location::description.
@@ -90,7 +90,7 @@ public:
 			world.locationDetails( "Madrid" )
 		);
 	}
-	
+	/*
 	void test_locationDetails_whenLocationDoesNotExist()
 	{
 		World world;
