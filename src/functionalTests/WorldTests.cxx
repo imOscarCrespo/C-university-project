@@ -7,7 +7,7 @@ public:
 	TEST_FIXTURE( WorldTests )
 	{
 		TEST_CASE( test_locations_afterAddingALocation );
-		//TEST_CASE( test_locations_byDefault );
+		TEST_CASE( test_locations_byDefault );
 		//TEST_CASE( test_locations_afterAddingASecondLocation );
 		//TEST_CASE( test_locationDetails_whenNoLocation );
 		//TEST_CASE( test_locationDetails_whenEmptyAndUnconnected );
@@ -40,7 +40,7 @@ public:
 			"Hall\n",
 			world.locations()
 		);
-	}/*
+	}
 	void test_locations_byDefault()
 	{
 		World world;
@@ -48,7 +48,7 @@ public:
 			"",
 			world.locations()
 		);
-	}
+	}/*
 	void test_locations_afterAddingASecondLocation()
 	{
 		World world;
