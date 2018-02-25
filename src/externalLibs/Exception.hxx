@@ -28,7 +28,7 @@ class LocationNotFound : public exception{
 
 	public:
 		const char * what() const throw(){
-			return "The location does not exist!";
+			return "The location does not exist";
 		}
 };
 #endif
