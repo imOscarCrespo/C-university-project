@@ -1,11 +1,12 @@
 #include <MiniCppUnit.hxx>
+#include "world.hxx"
 
 class WorldTests : public TestFixture< WorldTests >
 {
 public:
 	TEST_FIXTURE( WorldTests )
 	{
-		//TEST_CASE( test_locations_afterAddingALocation );
+		TEST_CASE( test_locations_afterAddingALocation );
 		//TEST_CASE( test_locations_byDefault );
 		//TEST_CASE( test_locations_afterAddingASecondLocation );
 		//TEST_CASE( test_locationDetails_whenNoLocation );
@@ -30,7 +31,7 @@ public:
 		//TEST_CASE( test_connectWestToEast_whenEastAlreadyConnected ); // Optional
 		//TEST_CASE( test_connectWestToEast_whenWestAlreadyConnected ); // Optional
 	}
-/*
+
 	void test_locations_afterAddingALocation()
 	{
 		World world;
@@ -39,7 +40,7 @@ public:
 			"Hall\n",
 			world.locations()
 		);
-	}
+	}/*
 	void test_locations_byDefault()
 	{
 		World world;
