@@ -8,7 +8,7 @@ public:
 	{
 		TEST_CASE( test_locations_afterAddingALocation );
 		TEST_CASE( test_locations_byDefault );
-		//TEST_CASE( test_locations_afterAddingASecondLocation );
+		TEST_CASE( test_locations_afterAddingASecondLocation );
 		//TEST_CASE( test_locationDetails_whenNoLocation );
 		//TEST_CASE( test_locationDetails_whenEmptyAndUnconnected );
 		//TEST_CASE( test_locationDetails_whenLocationDoesNotExist );
@@ -48,7 +48,7 @@ public:
 			"",
 			world.locations()
 		);
-	}/*
+	}
 	void test_locations_afterAddingASecondLocation()
 	{
 		World world;
@@ -59,7 +59,7 @@ public:
 			"Garden\n",
 			world.locations()
 		);
-	}
+	}/*
 	void test_locationDetails_whenNoLocation()
 	{
 		World world;
