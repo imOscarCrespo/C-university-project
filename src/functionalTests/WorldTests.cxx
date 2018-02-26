@@ -12,7 +12,7 @@ public:
 		TEST_CASE( test_locationDetails_whenNoLocation );
 		TEST_CASE( test_locationDetails_whenEmptyAndUnconnected );
 		TEST_CASE( test_locationDetails_whenLocationDoesNotExist );
-		//TEST_CASE( test_addItemAtLocation_withOneItem );
+		TEST_CASE( test_addItemAtLocation_withOneItem );
 		//TEST_CASE( test_addItemAtLocation_withWrongLocation );
 		//TEST_CASE( test_locationDetails_whenConnectedNorthSouth );
 		//TEST_CASE( test_locationDetails_whenConnectedEastWest );
@@ -107,7 +107,7 @@ public:
 				e.what()
 			);
 		}
-	}/*
+	}
 	void test_addItemAtLocation_withOneItem()
 	{
 		// The idea is to use the method Location::addItem.
@@ -120,7 +120,7 @@ public:
 			"\tItem: BulletinBoard [0]\n"
 			, world.locationDetails("Hall")
 		);
-	}
+	}/*
 	void test_addItemAtLocation_withWrongLocation()
 	{
 		World world;

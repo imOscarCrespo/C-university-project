@@ -97,6 +97,26 @@ class World{
 
 			}
 
+		void addItemAtLocation(const std::string & theLocation, const std::string & theItem, int level)
+			{
+			
+				for( Locations::const_iterator it= _locations.begin(); it!=_locations.end(); it++)
+					{
+						//Comprovacio si la localitzacio existeix
+						if( (*it)->name() == theLocation)
+							{
+								//Afegim l'element a la localitzacio
+								(*it)->addItem( "", level );
+								
+							}
+					}
+				//throw LocationNotFound();
+
+
+			} 
+
+
+
 };
 
 
