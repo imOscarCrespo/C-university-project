@@ -106,7 +106,7 @@ class World{
 						if( (*it)->name() == theLocation)
 							{
 								//Afegim l'element a la localitzacio
-								(*it)->addItem( "", level );
+								(*it)->addItem( theItem, level );
 								
 							}
 					}
