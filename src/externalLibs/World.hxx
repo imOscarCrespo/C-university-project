@@ -19,6 +19,7 @@
 #include <vector>
 
 
+
 class World{
 	std::string _name;
 
@@ -88,7 +89,7 @@ class World{
 				for( Locations::const_iterator it=_locations.begin(); it!=_locations.end(); it++)
 					{
 							if( (*it)->name() == theLocation ){		
-								return "Location: " + (*it)->name() + "\n";						
+								return (*it)->description()+"sda";						
 							}
 					}
 			
