@@ -89,8 +89,8 @@ public:
 			"Location: Madrid\n",
 			world.locationDetails( "Madrid" )
 		);
-	}
-	/*
+	}/*
+	
 	void test_locationDetails_whenLocationDoesNotExist()
 	{
 		World world;

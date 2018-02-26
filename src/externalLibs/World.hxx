@@ -88,7 +88,7 @@ class World{
 				for( Locations::const_iterator it=_locations.begin(); it!=_locations.end(); it++)
 					{
 							if( (*it)->name() == theLocation ){		
-								return (*it)->name();						
+								return "Location: " + (*it)->name() + "\n";						
 							}
 					}
 			
