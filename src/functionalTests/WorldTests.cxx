@@ -13,7 +13,7 @@ public:
 		TEST_CASE( test_locationDetails_whenEmptyAndUnconnected );
 		TEST_CASE( test_locationDetails_whenLocationDoesNotExist );
 		TEST_CASE( test_addItemAtLocation_withOneItem );
-		//TEST_CASE( test_addItemAtLocation_withWrongLocation );
+		TEST_CASE( test_addItemAtLocation_withWrongLocation );
 		//TEST_CASE( test_locationDetails_whenConnectedNorthSouth );
 		//TEST_CASE( test_locationDetails_whenConnectedEastWest );
 		//TEST_CASE( test_locationDetails_whenFullyConnected );
@@ -120,7 +120,7 @@ public:
 			"\tItem: BulletinBoard [0]\n"
 			, world.locationDetails("Hall")
 		);
-	}/*
+	}
 	void test_addItemAtLocation_withWrongLocation()
 	{
 		World world;
@@ -136,7 +136,7 @@ public:
 				e.what()
 			);
 		}
-	}
+	}/*
 	void test_locationDetails_whenConnectedNorthSouth()
 	{
 		// Remember that the (unary) association is *optional*, not multiple.
