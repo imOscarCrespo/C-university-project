@@ -116,6 +116,26 @@ class World{
 
 			} 
 
+		void connectNorthToSouth( const std::string & theNorth, const std::string & theSouth)
+			{
+			
+				for( Locations::const_iterator it1=_locations.begin(); it1!=_locations.end();it1++)
+				{
+					if( (*it1)->name() == theNorth )
+					{
+						for( Locations::const_iterator it2=_locations.begin(); it2!=_locations.end();it2++)
+						{
+							if( (*it2)->name() == theSouth )
+							{
+								(*it1)->south( theSouth);
+								(*it2)->north( theNorth);
+							}
+						}
+					}
+
+
+				}
+			}
 
 
 };

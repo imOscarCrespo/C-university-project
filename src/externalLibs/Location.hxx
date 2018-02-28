@@ -22,6 +22,8 @@ class Location{
 
 //ATRIBUTS d'entrada
 std::string _name;
+std::string _north;
+std::string _south;
 //
 typedef std::list<Item*> Items;
 typedef std::list<Character*> Characters;
@@ -35,11 +37,9 @@ public:
 
 	Location()
 		//inicialització per defecte
-		: _name("unknown")	
-	{
-
-		 
-	}
+		: _name("unknown")
+		
+	{}
 
 
 	//Metodes de la classe
@@ -53,14 +53,39 @@ public:
 		{
 			_name = theName;
 		}
+		//NORTH
+		const std::string & north() const
+		{
+			return _north;
+		}
+		void north(const std::string &theNorth)
+		{
+			_north = theNorth;
+		}
+
+		//SOUTH
+		const std::string & south() const
+		{
+			return _south;
+		}
+		void south(const std::string &theSouth)
+		{
+			_south = theSouth;
+		}
+
 
 		//Empty Description
 		std::string description() const
 		{
-			return "Location: " + _name + "\n" + items() + characters();
+			return "Location: " + _name + "\n" + items() + characters() + connections();
 
 		}
-
+/*----------------------------------CONNECTIONS----------------------------------------*/
+		std::string connections() const
+		{
+			return north() + south() ;
+		}
+/*----------------------------------ITEMS----------------------------------------------*/
 		//Add item at the pointers vectors of Items
 		void addItem( const std::string & theName, const int & level )
 		{
@@ -124,6 +149,7 @@ public:
 			throw Exception();			
 
 		}
+/*--------------------------------CHARACTER----------------------------------*/
 
 		void placeCharacter(Character &theCharacter){
 

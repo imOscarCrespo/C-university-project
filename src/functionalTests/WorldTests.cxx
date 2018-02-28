@@ -14,7 +14,7 @@ public:
 		TEST_CASE( test_locationDetails_whenLocationDoesNotExist );
 		TEST_CASE( test_addItemAtLocation_withOneItem );
 		TEST_CASE( test_addItemAtLocation_withWrongLocation );
-		//TEST_CASE( test_locationDetails_whenConnectedNorthSouth );
+		TEST_CASE( test_locationDetails_whenConnectedNorthSouth );
 		//TEST_CASE( test_locationDetails_whenConnectedEastWest );
 		//TEST_CASE( test_locationDetails_whenFullyConnected );
 		//TEST_CASE( test_characters_whenEmpty );
@@ -136,7 +136,8 @@ public:
 				e.what()
 			);
 		}
-	}/*
+	}
+	
 	void test_locationDetails_whenConnectedNorthSouth()
 	{
 		// Remember that the (unary) association is *optional*, not multiple.
@@ -172,6 +173,8 @@ public:
 			world.locationDetails("Madrid")
 		);
 	}
+	
+	/*
 	void test_locationDetails_whenConnectedEastWest()
 	{
 		// Similar to the previous test but for east-west connections.
