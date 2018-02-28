@@ -24,6 +24,8 @@ class Location{
 std::string _name;
 std::string _north;
 std::string _south;
+std::string _east;
+std::string _west;
 //
 typedef std::list<Item*> Items;
 typedef std::list<Character*> Characters;
@@ -71,6 +73,25 @@ public:
 		void south(const std::string &theSouth)
 		{
 			_south = theSouth;
+		}
+		//EAST
+		const std::string & east() const
+		{
+			return _east;
+		}
+		void east(const std::string &theEast)
+		{
+			_east = theEast;
+		}
+
+		//WEST
+		const std::string & west() const
+		{
+			return _west;
+		}
+		void west(const std::string &theWest)
+		{
+			_west = theWest;
 		}
 
 
