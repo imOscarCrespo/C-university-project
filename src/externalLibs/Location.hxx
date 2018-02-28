@@ -77,13 +77,18 @@ public:
 		//Empty Description
 		std::string description() const
 		{
+			return "Location: " + _name + "\n" + items() + characters();
+
+		}
+		std::string description_ns() const
+		{
 			return "Location: " + _name + "\n" + items() + characters() + connections();
 
 		}
 /*----------------------------------CONNECTIONS----------------------------------------*/
 		std::string connections() const
 		{
-			return north() + south() ;
+			return "\tNorth: " + north()+ "\n"+ "\tSouth: " + south() + "\n";
 		}
 /*----------------------------------ITEMS----------------------------------------------*/
 		//Add item at the pointers vectors of Items

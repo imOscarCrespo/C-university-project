@@ -88,8 +88,13 @@ class World{
 			{
 				for( Locations::const_iterator it=_locations.begin(); it!=_locations.end(); it++)
 					{
-							if( (*it)->name() == theLocation ){		
-								return (*it)->description();						
+							if( ( (*it)->name() == theLocation ) && (  (*it)->north() != "" || (*it)->south() != "" ) ){		
+								return (*it)->description_ns();						
+							}
+
+							if( ( (*it)->name() == theLocation ) && (  (*it)->north() == "" || (*it)->south() == "" ) )
+							{
+								return (*it)->description();
 							}
 					}
 			
