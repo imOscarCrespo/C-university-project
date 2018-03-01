@@ -26,8 +26,12 @@ public:
 		:	_name("unknown"), 
 			_level(0u), 
 			_life(10u)
-	{	 
+	{}
+	~Character()
+	{
+		
 	}
+
 
 
 //Functions of the class

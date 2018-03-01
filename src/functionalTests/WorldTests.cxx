@@ -16,7 +16,7 @@ public:
 		TEST_CASE( test_addItemAtLocation_withWrongLocation );
 		TEST_CASE( test_locationDetails_whenConnectedNorthSouth );
 		TEST_CASE( test_locationDetails_whenConnectedEastWest );
-		//TEST_CASE( test_locationDetails_whenFullyConnected );
+		TEST_CASE( test_locationDetails_whenFullyConnected );
 		//TEST_CASE( test_characters_whenEmpty );
 		//TEST_CASE( test_characters_withOneCharacter );
 		//TEST_CASE( test_characters_withTwoCharacters );
@@ -192,7 +192,7 @@ public:
 		);
 	}
 
-	/*
+	
 	void test_locationDetails_whenFullyConnected()
 	{
 		// Tests the order in which connections are presented.
@@ -215,6 +215,7 @@ public:
 			world.locationDetails("Madrid")
 		);
 	}
+	/*
 	void test_characters_whenEmpty()
 	{
 		World world;

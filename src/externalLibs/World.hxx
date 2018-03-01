@@ -35,6 +35,12 @@ class World{
 		//: _name("unknown")	
 
 		{}
+		~World()
+		{
+			for (Locations::const_iterator it =_locations.begin(); it!=_locations.end(); it++){
+				delete (*it);
+			}
+		}
 
 	//Metodes de la classe
 		//Getter de name

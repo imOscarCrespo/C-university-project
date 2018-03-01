@@ -47,6 +47,15 @@ public:
 		_east = NULL;
 		_west = NULL;
 	}
+	~Location()
+	{
+		for (Items::const_iterator it =_items.begin(); it!=_items.end(); it++){
+			delete (*it);
+		}
+		for (Characters::const_iterator it =_character.begin(); it!=_character.end(); it++){
+			delete (*it);
+		}
+	}
 
 
 	//Metodes de la classe
@@ -135,7 +144,7 @@ public:
 			if( _west != NULL)
 			{	
 				
-				connections = connections + "\tWest:  " + _west->name() + "\n";
+				connections = connections + "\tWest: " + _west->name() + "\n";
 			}
 		
 			return connections;
