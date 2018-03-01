@@ -188,7 +188,7 @@ class World{
 							std::string aux;
 							int r;
 							for(r = 0; r < _characters.size(); r++){
-								aux = (*it)->name() + " \n";
+								aux = (*it)->name() + "\n";
 								it++;
 							}
 							return aux;
