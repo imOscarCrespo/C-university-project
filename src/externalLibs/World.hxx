@@ -24,11 +24,13 @@ class World{
 	std::string _name;
 
 	typedef std::list<Location*> Locations;
+	typedef std::list<Character*> Characters;
 
 
 	public:
 
 		Locations _locations;
+		Characters _characters;
 
 		World()
 		//inicialització per defecte
@@ -170,6 +172,33 @@ class World{
 				}
 
 			}
+		}
+
+
+		std::string characters() const
+		{
+			for (Characters::const_iterator it=_characters.begin(); it!=_characters.end(); it++)
+				{
+					if ( (*it) == NULL){
+						return "";
+					}
+
+					else {
+
+							std::string aux;
+							int r;
+							for(r = 0; r < _characters.size(); r++){
+								aux = aux + "- "  + (*it)->name() + " is here.\n";
+								it++;
+							}
+							return aux;
+							//return "\tItem: " + (*it)->name() + " [" + cadena + "]\n";
+					}
+
+				}
+
+			return "";
+
 		}
 
 

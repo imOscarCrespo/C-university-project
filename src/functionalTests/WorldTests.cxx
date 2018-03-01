@@ -17,7 +17,7 @@ public:
 		TEST_CASE( test_locationDetails_whenConnectedNorthSouth );
 		TEST_CASE( test_locationDetails_whenConnectedEastWest );
 		TEST_CASE( test_locationDetails_whenFullyConnected );
-		//TEST_CASE( test_characters_whenEmpty );
+		TEST_CASE( test_characters_whenEmpty );
 		//TEST_CASE( test_characters_withOneCharacter );
 		//TEST_CASE( test_characters_withTwoCharacters );
 		//TEST_CASE( test_placeCharacter_whenCharacterDoesNotExist );
@@ -215,7 +215,7 @@ public:
 			world.locationDetails("Madrid")
 		);
 	}
-	/*
+	
 	void test_characters_whenEmpty()
 	{
 		World world;
@@ -224,6 +224,7 @@ public:
 			, world.characters()
 		);
 	}
+	/*
 	void test_characters_withOneCharacter()
 	{
 		World world;
