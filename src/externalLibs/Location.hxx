@@ -22,10 +22,10 @@ class Location{
 
 //ATRIBUTS d'entrada
 std::string _name;
-std::string _north;
-std::string _south;
-std::string _east;
-std::string _west;
+Location *_north;
+Location *_south;
+//*Location _east;
+//*Location _west;
 //
 typedef std::list<Item*> Items;
 typedef std::list<Character*> Characters;
@@ -41,7 +41,10 @@ public:
 		//inicialització per defecte
 		: _name("unknown")
 		
-	{}
+	{
+		_north=NULL;
+		_south=NULL;
+	}
 
 
 	//Metodes de la classe
@@ -55,57 +58,52 @@ public:
 		{
 			_name = theName;
 		}
+
 		//NORTH
-		const std::string & north() const
+		Location* north()
 		{
 			return _north;
 		}
-		void north(const std::string &theNorth)
+		void connectNorth(Location & theNorth)
 		{
-			_north = theNorth;
+			_north = &theNorth;
 		}
 
 		//SOUTH
-		const std::string & south() const
+		Location* south()
 		{
 			return _south;
 		}
-		void south(const std::string &theSouth)
+		void connectSouth(Location & theSouth)
 		{
-			_south = theSouth;
+			_south = &theSouth;
 		}
-		//EAST
-		const std::string & east() const
-		{
-			return _east;
-		}
-		void east(const std::string &theEast)
-		{
-			_east = theEast;
-		}
-
-		//WEST
-		const std::string & west() const
-		{
-			return _west;
-		}
-		void west(const std::string &theWest)
-		{
-			_west = theWest;
-		}
-
+		
 
 		//Empty Description
-		std::string description() const
+		std::string description()
 		{
-			return "Location: " + _name + "\n" + items() + characters();
+			return "Location: " + _name + "\n" + items() + characters()+ connections();
 
 		}
 
 /*----------------------------------CONNECTIONS----------------------------------------*/
 		std::string connections() const
 		{
-			return "\tNorth: " + north()+ "\n"+ "\tSouth: " + south() + "\n";
+			std::string connections = "";
+			if(_north != NULL)
+			{
+
+				connections = connections + "\tNorth:  " + _north->name() + "\n";
+			}
+			
+			if(_south != NULL)
+			{	
+				
+				connections = connections + "\tSouth: " + _south->name() + "\n";
+			}
+		
+			return connections;
 		}
 /*----------------------------------ITEMS----------------------------------------------*/
 		//Add item at the pointers vectors of Items

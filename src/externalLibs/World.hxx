@@ -118,14 +118,37 @@ class World{
 
 			} 
 
-		void connectNorthToSouth( const std::string & theNorth, const std::string & theSouth)
+
+		Location & findLocation( const std::string &theLocation)
+		{
+			if( _locations.empty() != true )
 			{
-			
+				for( Locations:: const_iterator it = _locations.begin(); it != _locations.end(); it++)
+				{
+					if( (*it)->name() == theLocation )
+						return (**it);
+				}
 			}
+			throw LocationNotFound();
+		}
 
 
-
+		void connectNorthToSouth( const std::string & theNorth, const std::string & theSouth)
+		{
 		
+			for( Locations::const_iterator it = _locations.begin(); it!=_locations.end(); it++)
+			{
+				if( (*it)->name() == theNorth )
+				{	(*it)->connectSouth( findLocation( theSouth ) );	}
+
+				if( (*it)->name() == theSouth )
+				{
+					(*it)->connectNorth(findLocation(theNorth));
+				}
+
+			}
+		}
+
 
 };
 
