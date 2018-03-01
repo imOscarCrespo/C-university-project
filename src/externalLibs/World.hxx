@@ -177,6 +177,7 @@ class World{
 
 		std::string characters() const
 		{
+
 			for (Characters::const_iterator it=_characters.begin(); it!=_characters.end(); it++)
 				{
 					if ( (*it) == NULL){
@@ -188,7 +189,7 @@ class World{
 							std::string aux;
 							int r;
 							for(r = 0; r < _characters.size(); r++){
-								aux = (*it)->name() + "\n";
+								aux = aux + (*it)->name() + "\n";
 								it++;
 							}
 							return aux;
@@ -198,7 +199,6 @@ class World{
 				}
 
 			return "";
-
 		}
 
 		void addCharacter( const std::string & theName, const int & level )

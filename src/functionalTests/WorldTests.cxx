@@ -19,7 +19,7 @@ public:
 		TEST_CASE( test_locationDetails_whenFullyConnected );
 		TEST_CASE( test_characters_whenEmpty );
 		TEST_CASE( test_characters_withOneCharacter );
-		//TEST_CASE( test_characters_withTwoCharacters );
+		TEST_CASE( test_characters_withTwoCharacters );
 		//TEST_CASE( test_placeCharacter_whenCharacterDoesNotExist );
 		//TEST_CASE( test_locationDetails_withOneCharacter );
 		//TEST_CASE( test_locationDetails_withManyCharacters );
@@ -235,7 +235,7 @@ public:
 			world.characters()
 		);
 	}
-	/*
+	
 	void test_characters_withTwoCharacters()
 	{
 		World world;
@@ -247,6 +247,7 @@ public:
 			world.characters()
 		);
 	}
+	/*
 	void test_placeCharacter_whenCharacterDoesNotExist()
 	{
 		World world;
