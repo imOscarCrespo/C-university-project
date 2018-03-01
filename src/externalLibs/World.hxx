@@ -188,7 +188,7 @@ class World{
 							std::string aux;
 							int r;
 							for(r = 0; r < _characters.size(); r++){
-								aux = aux + "- "  + (*it)->name() + " is here.\n";
+								aux = (*it)->name() + " \n";
 								it++;
 							}
 							return aux;
@@ -199,6 +199,21 @@ class World{
 
 			return "";
 
+		}
+
+		void addCharacter( const std::string & theName, const int & level )
+		{
+			//nova instancia de item
+			//set del valors de la nova instancia
+			//pushback al final del vector
+			Character * anonymous = new Character();
+			
+			anonymous->name(theName);
+			anonymous->level(level);
+			_characters.push_back(anonymous);
+
+			delete anonymous;
+		
 		}
 
 
