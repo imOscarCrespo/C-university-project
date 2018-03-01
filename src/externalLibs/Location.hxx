@@ -24,8 +24,8 @@ class Location{
 std::string _name;
 Location *_north;
 Location *_south;
-//*Location _east;
-//*Location _west;
+Location * _east;
+Location * _west;
 //
 typedef std::list<Item*> Items;
 typedef std::list<Character*> Characters;
@@ -42,8 +42,10 @@ public:
 		: _name("unknown")
 		
 	{
-		_north=NULL;
-		_south=NULL;
+		_north = NULL;
+		_south = NULL;
+		_east = NULL;
+		_west = NULL;
 	}
 
 
@@ -80,10 +82,31 @@ public:
 		}
 		
 
+		//WEST
+		Location* west()
+		{
+			return _west;
+		}
+		void connectWest(Location & theWest)
+		{
+			_west = &theWest;
+		}
+
+		//EAST
+		Location* east()
+		{
+			return _east;
+		}
+		void connectEast(Location & theEast)
+		{
+			_east = &theEast;
+		}
+		
+
 		//Empty Description
 		std::string description()
 		{
-			return "Location: " + _name + "\n" + items() + characters()+ connections();
+			return "Location: " + _name + "\n" + items() + characters() + connections();
 
 		}
 
@@ -94,13 +117,25 @@ public:
 			if(_north != NULL)
 			{
 
-				connections = connections + "\tNorth:  " + _north->name() + "\n";
+				connections = connections + "\tNorth: " + _north->name() + "\n";
 			}
 			
 			if(_south != NULL)
 			{	
 				
 				connections = connections + "\tSouth: " + _south->name() + "\n";
+			}
+
+			if(_east != NULL)
+			{
+
+				connections = connections + "\tEast: " + _east->name() + "\n";
+			}
+			
+			if( _west != NULL)
+			{	
+				
+				connections = connections + "\tWest:  " + _west->name() + "\n";
 			}
 		
 			return connections;

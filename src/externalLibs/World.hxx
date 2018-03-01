@@ -150,6 +150,23 @@ class World{
 		}
 
 
+		void connectWestToEast( const std::string & theWest, const std::string & theEast)
+		{
+		
+			for( Locations::const_iterator it = _locations.begin(); it!=_locations.end(); it++)
+			{
+				if( (*it)->name() == theWest )
+				{	(*it)->connectEast( findLocation( theEast ) );	}
+
+				if( (*it)->name() == theEast )
+				{
+					(*it)->connectWest(findLocation(theWest));
+				}
+
+			}
+		}
+
+
 };
 
 
