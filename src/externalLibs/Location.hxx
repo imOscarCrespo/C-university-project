@@ -101,11 +101,7 @@ public:
 			return "Location: " + _name + "\n" + items() + characters();
 
 		}
-		std::string description_ns() const
-		{
-			return "Location: " + _name + "\n" + items() + characters() + connections();
 
-		}
 /*----------------------------------CONNECTIONS----------------------------------------*/
 		std::string connections() const
 		{

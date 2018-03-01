@@ -88,14 +88,11 @@ class World{
 			{
 				for( Locations::const_iterator it=_locations.begin(); it!=_locations.end(); it++)
 					{
-							if( ( (*it)->name() == theLocation ) && (  (*it)->north() != "" || (*it)->south() != "" ) ){		
-								return (*it)->description_ns();						
+						if(  (*it)->name() == theLocation  )
+							{		
+								return (*it)->description();						
 							}
-
-							if( ( (*it)->name() == theLocation ) && (  (*it)->north() == "" || (*it)->south() == "" ) )
-							{
-								return (*it)->description();
-							}
+		
 					}
 			
 				throw LocationNotFound();
@@ -124,47 +121,11 @@ class World{
 		void connectNorthToSouth( const std::string & theNorth, const std::string & theSouth)
 			{
 			
-				for( Locations::const_iterator it1=_locations.begin(); it1!=_locations.end();it1++)
-				{
-					if( (*it1)->name() == theNorth )
-					{
-						for( Locations::const_iterator it2=_locations.begin(); it2!=_locations.end();it2++)
-						{
-							if( (*it2)->name() == theSouth )
-							{
-								(*it1)->south( theSouth);
-								(*it2)->north( theNorth);
-							}
-						}
-					}
-
-
-				}
 			}
 
 
 
-		void connectWestToEast( const std::string & theWest, const std::string & theEast)
-			{
-			
-				for( Locations::const_iterator it1=_locations.begin(); it1!=_locations.end();it1++)
-				{
-					if( (*it1)->name() == theWest )
-					{
-						for( Locations::const_iterator it2=_locations.begin(); it2!=_locations.end();it2++)
-						{
-							if( (*it2)->name() == theEast )
-							{
-								(*it1)->south( theEast);
-								(*it2)->north( theWest);
-							}
-						}
-					}
-
-
-				}
-			}
-
+		
 
 };
 
