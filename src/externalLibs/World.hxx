@@ -216,6 +216,12 @@ class World{
 		
 		}
 
+		void placeCharacter(const std::string & theCharacter, const std::string & theLocation){
+
+			//throw LocationNotFound();
+
+		}
+
 
 };
 

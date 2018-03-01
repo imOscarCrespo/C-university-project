@@ -20,7 +20,7 @@ public:
 		TEST_CASE( test_characters_whenEmpty );
 		TEST_CASE( test_characters_withOneCharacter );
 		TEST_CASE( test_characters_withTwoCharacters );
-		//TEST_CASE( test_placeCharacter_whenCharacterDoesNotExist );
+		TEST_CASE( test_placeCharacter_whenCharacterDoesNotExist );
 		//TEST_CASE( test_locationDetails_withOneCharacter );
 		//TEST_CASE( test_locationDetails_withManyCharacters );
 		//TEST_CASE( test_locationDetails_withCharactersItemsAndConnections );
@@ -247,7 +247,7 @@ public:
 			world.characters()
 		);
 	}
-	/*
+	
 	void test_placeCharacter_whenCharacterDoesNotExist()
 	{
 		World world;
@@ -265,6 +265,7 @@ public:
 			);
 		}
 	}
+/*
 	void test_locationDetails_withOneCharacter()
 	{
 		// The idea is to use the method Location::placeCharacter.

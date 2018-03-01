@@ -262,7 +262,7 @@ public:
 					}
 			}
 	
-			throw Exception1();			
+			throw CharacterNotFound();			
 
 		}
 

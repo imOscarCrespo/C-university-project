@@ -16,7 +16,7 @@ class Exception : public exception{
 		}
 };
 
-class Exception1 : public exception{
+class CharacterNotFound : public exception{
 
 	public:
 		const char * what() const throw(){
