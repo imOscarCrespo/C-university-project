@@ -4,6 +4,14 @@
 
 #ifndef CHARACTER_HXX
 #define CHARACTER_HXX
+#include <iostream>
+#include <string>
+#include <list>
+#include <algorithm>
+#include <vector>
+#include <exception>
+
+#include "Location.hxx"
 
 class Character{
 
@@ -12,9 +20,9 @@ class Character{
 std::string _name;
 int _level;
 int _life;
-//added
 int _damage;
 int _cure;
+//Location * _location;
 
 
 public:
@@ -26,11 +34,13 @@ public:
 		:	_name("unknown"), 
 			_level(0u), 
 			_life(10u)
-	{}
-	~Character()
+
 	{
-		
+		//_location = NULL;
 	}
+
+	~Character()
+	{}
 
 
 

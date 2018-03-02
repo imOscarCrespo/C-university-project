@@ -15,7 +15,7 @@
 
 #include "Item.hxx"
 #include "Exception.hxx"
-#include "Character.hxx"
+//#include "Character.hxx"
 
 
 class Location{
@@ -26,15 +26,16 @@ Location *_north;
 Location *_south;
 Location * _east;
 Location * _west;
+
 //
 typedef std::list<Item*> Items;
-typedef std::list<Character*> Characters;
+//typedef std::list<Character*> Characters;
 
 public:
 	//Llista d'Items
 	Items _items;
 	//Llista d'Items
-	Characters _character;
+	//Characters _character;
 	//Constructor de la classe
 
 	Location()
@@ -52,9 +53,10 @@ public:
 		for (Items::const_iterator it =_items.begin(); it!=_items.end(); it++){
 			delete (*it);
 		}
-		for (Characters::const_iterator it =_character.begin(); it!=_character.end(); it++){
+
+		/*for (Characters::const_iterator it =_character.begin(); it!=_character.end(); it++){
 			delete (*it);
-		}
+		}*/
 	}
 
 
@@ -115,7 +117,8 @@ public:
 		//Empty Description
 		std::string description()
 		{
-			return "Location: " + _name + "\n" + items() + characters() + connections();
+			return "Location: " + _name + "\n" + items() //+ characters() 
+				+ connections();
 
 		}
 
@@ -214,7 +217,7 @@ public:
 
 		}
 /*--------------------------------CHARACTER----------------------------------*/
-
+/*
 		void placeCharacter(Character &theCharacter){
 
 			Character * anonymous = new Character();
@@ -277,7 +280,7 @@ public:
 
 		
 
-
+*/
 
 
 

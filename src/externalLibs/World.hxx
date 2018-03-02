@@ -11,12 +11,12 @@
 #include <algorithm>
 #include <vector>
 #include <exception>
+
 #include "Location.hxx"
 #include "Item.hxx"
 #include "Exception.hxx"
 #include "Character.hxx"
-#include <iostream>
-#include <vector>
+
 
 
 
@@ -218,7 +218,16 @@ class World{
 
 		void placeCharacter(const std::string & theCharacter, const std::string & theLocation){
 
-			//throw LocationNotFound();
+			for( Characters::const_iterator it = _characters.begin(); it!=_characters.end(); it++)
+			{
+				if( (*it)->name() == theCharacter )
+				{	//(*it)->findLocation(theLocation);
+					/*(*it)->connectEast( findLocation( theEast ) );*/	
+				}
+
+			}
+			
+			throw LocationNotFound();
 
 		}
 
