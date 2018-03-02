@@ -20,10 +20,10 @@ public:
 		TEST_CASE( test_characters_whenEmpty );
 		TEST_CASE( test_characters_withOneCharacter );
 		TEST_CASE( test_characters_withTwoCharacters );
-		//TEST_CASE( test_placeCharacter_whenCharacterDoesNotExist );
-		//TEST_CASE( test_locationDetails_withOneCharacter );
-		//TEST_CASE( test_locationDetails_withManyCharacters );
-		//TEST_CASE( test_locationDetails_withCharactersItemsAndConnections );
+		TEST_CASE( test_placeCharacter_whenCharacterDoesNotExist );
+		TEST_CASE( test_locationDetails_withOneCharacter );
+		TEST_CASE( test_locationDetails_withManyCharacters );
+		TEST_CASE( test_locationDetails_withCharactersItemsAndConnections );
 		//TEST_CASE( test_placeCharacter_whenWasAlreadyPlaced );
 
 		//TEST_CASE( test_connectNorthToSouth_whenNorthAlreadyConnected ); // Optional
@@ -121,6 +121,7 @@ public:
 			, world.locationDetails("Hall")
 		);
 	}
+
 	void test_addItemAtLocation_withWrongLocation()
 	{
 		World world;
@@ -265,7 +266,7 @@ public:
 			);
 		}
 	}
-/*
+
 	void test_locationDetails_withOneCharacter()
 	{
 		// The idea is to use the method Location::placeCharacter.
@@ -279,6 +280,7 @@ public:
 			world.locationDetails( "Hall" )
 		);
 	}
+
 	void test_locationDetails_withManyCharacters()
 	{
 		World world;
@@ -294,6 +296,7 @@ public:
 			world.locationDetails( "Hall" )
 		);
 	}
+	
 	void test_locationDetails_withCharactersItemsAndConnections()
 	{
 		// Tests the order of the information in locationDetails.
@@ -324,6 +327,7 @@ public:
 			world.locationDetails( "Hall" )
 		);
 	}
+
 	void test_placeCharacter_whenWasAlreadyPlaced()
 	{
 		// Here we see that it is convenient to maintain a backlink from
@@ -376,6 +380,7 @@ public:
 			world.locationDetails( "Garden" )
 		);
 	}
+	/*
 	// Optional test
 	void test_connectNorthToSouth_whenNorthAlreadyConnected()
 	{

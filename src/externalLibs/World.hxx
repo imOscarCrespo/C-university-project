@@ -19,7 +19,6 @@
 
 
 
-
 class World{
 	std::string _name;
 
@@ -34,7 +33,7 @@ class World{
 
 		World()
 		//inicialització per defecte
-		//: _name("unknown")	
+			: _name("unknown")	
 
 		{}
 		~World()
@@ -63,33 +62,21 @@ class World{
 			//Sha d'utilitzar la funcio location.description
 			anonymous->name(theName);
 			_locations.push_back(anonymous);
+	
 		}
 
 		//Retorna totes les localitzacions del World
 		std::string locations() const
-			{
+		{
+			string locations;
 
-				for (Locations::const_iterator it=_locations.begin(); it!=_locations.end(); it++)
-					{
-						if ( (*it) == NULL){
-							return "";
-						}
+			for (Locations::const_iterator it=_locations.begin(); it!=_locations.end(); it++)
+				{
+					locations = locations + (*it)->name() + "\n";
+				}
 
-						else {
-								std::string aux;
-								int r;
-								for(r = 0; r < _locations.size(); r++){
-									aux = aux + (*it)->name() + "\n";
-									it++;
-								}
-								return aux;
-								//return "\tItem: " + (*it)->name() + " [" + cadena + "]\n";
-						}
-
-					}
-
-				return "";
-			}
+			return locations;
+		}
 
 		//Reserca d'una localització dins del World i treure tota la seva infomació
 		std::string locationDetails( const std::string & theLocation) const
@@ -211,36 +198,36 @@ class World{
 			anonymous->name(theName);
 			anonymous->level(level);
 			_characters.push_back(anonymous);
-
-			delete anonymous;
 		
 		}
 
 		void placeCharacter(const std::string & theCharacter, const std::string & theLocation){
 
-			for( Characters::const_iterator it = _characters.begin(); it!=_characters.end(); it++)
-			{
-				if( (*it)->name() == theCharacter )
-				{	//(*it)->findLocation(theLocation);
-					/*(*it)->connectEast( findLocation( theEast ) );*/	
-				}
+			Character* anonymous = NULL;
 
+			for( Locations::const_iterator it1 = _locations.begin(); it1!= _locations.end(); it1++ )
+			{
+				if( (*it1)->name() == theLocation )
+					{
+						for( Characters::const_iterator it2 = _characters.begin(); it2!= _characters.end(); it2++)
+						{
+							if( (*it2)->name() == theCharacter) 
+							{
+								anonymous = (*it2);
+								(*it1) ->placeCharacter(*anonymous);
+								//break;
+							}
+						}
+						//break;
+					}
 			}
-			
-			throw LocationNotFound();
+			if( anonymous == NULL)
+				throw CharacterNotFound();
 
 		}
 
 
 };
-
-
-
-
-
-
-
-
 
 
 

@@ -124,6 +124,7 @@ public:
 			"- Carpenter is here.\n",
 			location.characters()
 		);
+		
 	}
 	void test_placeCharacter_withNoCharacter()
 	{

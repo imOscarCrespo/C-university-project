@@ -11,7 +11,7 @@
 #include <vector>
 #include <exception>
 
-#include "Location.hxx"
+//class Location;
 
 class Character{
 
@@ -22,8 +22,7 @@ int _level;
 int _life;
 int _damage;
 int _cure;
-//Location * _location;
-
+//Location * location;
 
 public:
 
@@ -34,9 +33,11 @@ public:
 		:	_name("unknown"), 
 			_level(0u), 
 			_life(10u)
+			//location(NULL)
+			
 
 	{
-		//_location = NULL;
+		//location = NULL;	
 	}
 
 	~Character()

@@ -15,7 +15,7 @@
 
 #include "Item.hxx"
 #include "Exception.hxx"
-//#include "Character.hxx"
+#include "Character.hxx"
 
 
 class Location{
@@ -29,13 +29,13 @@ Location * _west;
 
 //
 typedef std::list<Item*> Items;
-//typedef std::list<Character*> Characters;
+typedef std::list<Character*> Characters;
 
 public:
 	//Llista d'Items
 	Items _items;
 	//Llista d'Items
-	//Characters _character;
+	Characters _character;
 	//Constructor de la classe
 
 	Location()
@@ -54,9 +54,9 @@ public:
 			delete (*it);
 		}
 
-		/*for (Characters::const_iterator it =_character.begin(); it!=_character.end(); it++){
+		for (Characters::const_iterator it =_character.begin(); it!=_character.end(); it++){
 			delete (*it);
-		}*/
+		}
 	}
 
 
@@ -117,8 +117,7 @@ public:
 		//Empty Description
 		std::string description()
 		{
-			return "Location: " + _name + "\n" + items() //+ characters() 
-				+ connections();
+			return "Location: " + _name + "\n" + connections() + items() + characters();
 
 		}
 
@@ -165,7 +164,7 @@ public:
 			anonymous->level(level);
 			_items.push_back(anonymous);
 
-			delete anonymous;
+			//delete anonymous;
 		
 		}
 
@@ -217,13 +216,10 @@ public:
 
 		}
 /*--------------------------------CHARACTER----------------------------------*/
-/*
+
 		void placeCharacter(Character &theCharacter){
 
-			Character * anonymous = new Character();
-			anonymous = &(theCharacter);
-
-			_character.push_back(anonymous);
+			_character.push_back(&theCharacter);
 
 		}
 
@@ -256,7 +252,7 @@ public:
 		Character & findCharacter(const std::string theName) const
 		{
 			
-			Character *anonymous;
+			//Character *anonymous;
 			
 			for( Characters::const_iterator it=_character.begin(); it!=_character.end(); it++)
 			{
@@ -271,16 +267,12 @@ public:
 
 		void unplaceCharacter(Character &theCharacter){
 
-			Character * anonymous = new Character();
-			anonymous = &(theCharacter);
-
-			_character.remove(anonymous);
+			_character.remove(&theCharacter);
 
 		}
 
 		
 
-*/
 
 
 
