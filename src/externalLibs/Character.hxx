@@ -22,7 +22,7 @@ int _level;
 int _life;
 int _damage;
 int _cure;
-//Location * location;
+//Location * _location;
 
 public:
 
@@ -33,12 +33,14 @@ public:
 		:	_name("unknown"), 
 			_level(0u), 
 			_life(10u)
-			//location(NULL)
+			//_location(NULL)
 			
 
 	{
 		//location = NULL;	
 	}
+
+	//void locateAt( Location & location);
 
 	~Character()
 	{}
@@ -95,7 +97,7 @@ public:
 			_life=_life;
 		}
 		else{
-			_life = _life+ theCure;
+			_life = _life + theCure;
 		}
 	}
 

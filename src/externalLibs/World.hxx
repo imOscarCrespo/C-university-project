@@ -197,7 +197,7 @@ class World{
 			
 			anonymous->name(theName);
 			anonymous->level(level);
-			_characters.push_back(anonymous);
+			_characters.push_back( anonymous);
 		
 		}
 

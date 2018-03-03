@@ -24,7 +24,7 @@ public:
 		TEST_CASE( test_locationDetails_withOneCharacter );
 		TEST_CASE( test_locationDetails_withManyCharacters );
 		TEST_CASE( test_locationDetails_withCharactersItemsAndConnections );
-		//TEST_CASE( test_placeCharacter_whenWasAlreadyPlaced );
+		TEST_CASE( test_placeCharacter_whenWasAlreadyPlaced );
 
 		//TEST_CASE( test_connectNorthToSouth_whenNorthAlreadyConnected ); // Optional
 		//TEST_CASE( test_connectNorthToSouth_whenSouthAlreadyConnected ); // Optional
