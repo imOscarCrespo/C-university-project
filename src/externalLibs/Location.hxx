@@ -21,110 +21,97 @@
 
 class Location{
 
-//ATRIBUTS d'entrada
-std::string _name;
-Location *_north;
-Location *_south;
-Location * _east;
-Location * _west;
+	//ATRIBUTS d'entrada
+	std::string _name;
+	Location *_north;
+	Location *_south;
+	Location * _east;
+	Location * _west;
 
-//
-typedef std::list<Item*> Items;
-typedef std::list<Character*> Characters;
+	typedef std::list<Item*> Items;
+	typedef std::list<Character*> Characters;
 
-public:
-	//Llista d'Items
-	Items _items;
-	//Llista d'Items
-	Characters _character;
-	//Constructor de la classe
+	public:
 
-	Location()
-		//inicialització per defecte
-		: _name("unknown")
-		
-	{
-		_north = NULL;
-		_south = NULL;
-		_east = NULL;
-		_west = NULL;
-	}
+		Items _items;
+		Characters _character;
+
+		//Constructor de la classe
+		Location()
+			//inicialització per defecte
+			: _name("unknown")
+			
+		{
+			_north = NULL;
+			_south = NULL;
+			_east = NULL;
+			_west = NULL;
+		}
 	
-	~Location(){
-		for (Items::const_iterator it =_items.begin(); it!=_items.end(); it++){
-			delete (*it);
-		}
+		~Location(){
+			for (Items::const_iterator it =_items.begin(); it!=_items.end(); it++){
+				delete (*it);
+			}
 
-		for (Characters::const_iterator it =_character.begin(); it!=_character.end(); it++){
-			delete (*it);
-		}
-	}//~Locations
+			for (Characters::const_iterator it =_character.begin(); it!=_character.end(); it++){
+				delete (*it);
+			}
+		}//~Locations
 
 
 	//Metodes de la classe
-		//Getter de name
-		const std::string & name() const
-		{
-			return _name;
-		}
-		//Setter de name
-		void name(const std::string &theName)
-		{
-			_name = theName;
-		}
+		//Getter
+			const std::string & name() const{
+				return _name;
+			}//name
 
-		//NORTH
-		Location* north()
-		{
-			return _north;
-		}
-		void connectNorth(Location & theNorth)
-		{
-			_north = &theNorth;
-		}
+		//Setter
+			void name(const std::string &theName){
+				_name = theName;
+			}//name
 
-		//SOUTH
-		Location* south()
-		{
-			return _south;
-		}
-		void connectSouth(Location & theSouth)
-		{
-			_south = &theSouth;
-		}
+		//-- NORTH
+			Location* north(){
+				return _north;
+			}//north
+
+			void connectNorth(Location & theNorth){
+				_north = &theNorth;
+			}//connectNorth
+
+		//-- SOUTH
+			Location* south(){
+				return _south;
+			}//south
+
+			void connectSouth(Location & theSouth){
+				_south = &theSouth;
+			}//connectSouth
+
+		//-- WEST
+			Location* west(){
+				return _west;
+			}//west
+
+			void connectWest(Location & theWest){
+				_west = &theWest;
+			}//connectWest
+
+		//-- EAST
+			Location* east(){
+				return _east;
+			}//east
+
+			void connectEast(Location & theEast){
+				_east = &theEast;
+			}//connectEast
 		
+			std::string description(){
+				return "Location: " + _name + "\n" + connections() + items() + characters();
+			}//description
 
-		//WEST
-		Location* west()
-		{
-			return _west;
-		}
-		void connectWest(Location & theWest)
-		{
-			_west = &theWest;
-		}
-
-		//EAST
-		Location* east()
-		{
-			return _east;
-		}
-		void connectEast(Location & theEast)
-		{
-			_east = &theEast;
-		}
-		
-
-		//Empty Description
-		std::string description()
-		{
-			return "Location: " + _name + "\n" + connections() + items() + characters();
-
-		}
-
-/*----------------------------------CONNECTIONS----------------------------------------*/
-		std::string connections() const
-		{
+/*----------------------------------CONNECTIONS--------------------------------*/
+		std::string connections() const{
 			std::string connections = "";
 			if(_north != NULL)
 			{
@@ -151,11 +138,10 @@ public:
 			}
 		
 			return connections;
-		}
-/*----------------------------------ITEMS----------------------------------------------*/
-		//Add item at the pointers vectors of Items
-		void addItem( const std::string & theName, const int & level )
-		{
+		}//connections
+/*------------------------------------ITEMS------------------------------------*/
+
+		void addItem( const std::string & theName, const int & level ){
 			//nova instancia de item
 			//set del valors de la nova instancia
 			//pushback al final del vector
@@ -167,11 +153,10 @@ public:
 
 			//delete anonymous;
 		
-		}
+		}//addItem
 
 		//Retorna tot el contingut del vector
-		std::string items() const
-		{
+		std::string items() const{
 
 			for (Items::const_iterator it=_items.begin(); it!=_items.end(); it++)
 				{
@@ -198,11 +183,10 @@ public:
 				}
 
 			return "";
-		}
+		}//itemss
 
 		//Retorna la posició de memoria d'on esta un item amb un nom concret que reps per parmentre
-		Item & findItem(const std::string theName) const
-		{
+		Item & findItem(const std::string theName) const{
 			
 			Item *anonymous;
 			
@@ -215,17 +199,15 @@ public:
 	
 			throw Exception();			
 
-		}
-/*--------------------------------CHARACTER----------------------------------*/
+		}//findItem
+
+/*----------------------------------CHARACTER----------------------------------*/
 
 		void placeCharacter(Character &theCharacter){
-
 			_character.push_back(&theCharacter);
+		}//placeCharacter
 
-		}
-
-		std::string characters() const
-		{
+		std::string characters() const{
 			for (Characters::const_iterator it=_character.begin(); it!=_character.end(); it++)
 				{
 					if ( (*it) == NULL){
@@ -248,11 +230,9 @@ public:
 
 			return "";
 
-		}
+		}//characters
 
-		Character & findCharacter(const std::string theName) const
-		{
-			
+		Character & findCharacter(const std::string theName) const{
 			//Character *anonymous;
 			
 			for( Characters::const_iterator it=_character.begin(); it!=_character.end(); it++)
@@ -263,18 +243,11 @@ public:
 			}
 	
 			throw CharacterNotFound();			
-
-		}
+		}//findCharacter
 
 		void unplaceCharacter(Character &theCharacter){
-
 			_character.remove(&theCharacter);
-
-		}
-
-		
-
-
+		}//unplaceCharacter
 
 
 };
