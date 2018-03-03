@@ -6,13 +6,14 @@
 
 #ifndef LOCATION_HXX
 #define LOCATION_HXX
-#include <iostream>
+
+/*#include <iostream>
 #include <string>
 #include <list>
 #include <algorithm>
 #include <vector>
 #include <exception>
-
+*/
 #include "Item.hxx"
 #include "Exception.hxx"
 #include "Character.hxx"
@@ -48,8 +49,8 @@ public:
 		_east = NULL;
 		_west = NULL;
 	}
-	~Location()
-	{
+	
+	~Location(){
 		for (Items::const_iterator it =_items.begin(); it!=_items.end(); it++){
 			delete (*it);
 		}
@@ -57,7 +58,7 @@ public:
 		for (Characters::const_iterator it =_character.begin(); it!=_character.end(); it++){
 			delete (*it);
 		}
-	}
+	}//~Locations
 
 
 	//Metodes de la classe

@@ -21,20 +21,18 @@ bool _enable;
 		
 		{}
 
-		//Metodes
 /*----------NAME-------------*/
 		//Getter name
 		const std::string & name() const
 		{
 			return _name;
 		}
-
-		
 		//Setter name
 		void name(const std::string &name) 
 		{
 			_name = name;
 		}
+
 /*----------LEVEL-------------*/
 		//getter level
 		 const int & level()  const
@@ -45,6 +43,7 @@ bool _enable;
 		void level(const int & theLevel){
 			_level = theLevel;
 		}
+		
 /*----------ENABLE-------------*/
 		//getter enable
 		const bool & enable() const

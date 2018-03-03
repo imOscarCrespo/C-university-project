@@ -33,23 +33,15 @@ public:
 		:	_name("unknown"), 
 			_level(0u), 
 			_life(10u)
-			//_location(NULL)
-			
-
-	{
-		//location = NULL;	
-	}
+	{}
 
 	//void locateAt( Location & location);
 
+	//Destructor
 	~Character()
 	{}
 
-
-
-//Functions of the class
 /*----------NAME-------------*/
-
 	//getter
 	const std::string & name() const //utilitzem & com a punter i cap persona des d'una altra part del codi no pot canviar aquest valor que guardem a _name, per tant ha de ser constant.
 	{

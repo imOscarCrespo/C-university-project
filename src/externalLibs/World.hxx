@@ -36,6 +36,7 @@ class World{
 			: _name("unknown")	
 
 		{}
+		//World Destructor
 		~World()
 		{
 			for (Locations::const_iterator it =_locations.begin(); it!=_locations.end(); it++){
@@ -43,44 +44,41 @@ class World{
 			}
 		}
 
-	//Metodes de la classe
-		//Getter de name
-		const std::string & name() const
-		{
+// ------------ WORLD 
+
+	//Getter
+		const std::string & name() const{
 			return _name;
-		}
+		}//name
 
-		//Setter de name
-		void name(const std::string &theName)
-		{
+	//Setter
+		void name(const std::string &theName){
 			_name = theName;
-		}
+		}//name
 
+// ------------ WORLD END
+
+// ------------ LOCATION
 		void addLocation(const std::string & theName){
-
 			Location * anonymous = new Location ();
-			//Sha d'utilitzar la funcio location.description
 			anonymous->name(theName);
 			_locations.push_back(anonymous);
-	
-		}
+		}//addLocation
 
 		//Retorna totes les localitzacions del World
-		std::string locations() const
-		{
-			string locations;
+		std::string locations() const{
+				string locations;
 
-			for (Locations::const_iterator it=_locations.begin(); it!=_locations.end(); it++)
-				{
-					locations = locations + (*it)->name() + "\n";
-				}
+				for (Locations::const_iterator it=_locations.begin(); it!=_locations.end(); it++)
+					{
+						locations = locations + (*it)->name() + "\n";
+					}
 
-			return locations;
-		}
+				return locations;
+		}//locations
 
 		//Reserca d'una localització dins del World i treure tota la seva infomació
-		std::string locationDetails( const std::string & theLocation) const
-			{
+		std::string locationDetails( const std::string & theLocation) const{
 				for( Locations::const_iterator it=_locations.begin(); it!=_locations.end(); it++)
 					{
 						if(  (*it)->name() == theLocation  )
@@ -92,30 +90,27 @@ class World{
 			
 				throw LocationNotFound();
 
-			}
+		}//locationDetails
 
-		std::string addItemAtLocation(const std::string & theLocation, const std::string & theItem, int level)
-			{
+		std::string addItemAtLocation(const std::string & theLocation, const std::string & theItem, int level){
 			
-				for( Locations::const_iterator it= _locations.begin(); it!=_locations.end(); it++)
-					{
-						//Comprovacio si la localitzacio existeix
-						if( (*it)->name() == theLocation)
-							{
-								//Afegim l'element a la localitzacio
-								(*it)->addItem( theItem, level );
-								return "Element added";
-								
-							}
-					}
-				throw LocationNotFound();
+			for( Locations::const_iterator it= _locations.begin(); it!=_locations.end(); it++)
+				{
+					//Comprovacio si la localitzacio existeix
+					if( (*it)->name() == theLocation)
+						{
+							//Afegim l'element a la localitzacio
+							(*it)->addItem( theItem, level );
+							return "Element added";
+							
+						}
+				}
+			throw LocationNotFound();
+
+		}//addItemAtLocation
 
 
-			} 
-
-
-		Location & findLocation( const std::string &theLocation)
-		{
+		Location & findLocation( const std::string &theLocation){
 			if( _locations.empty() != true )
 			{
 				for( Locations:: const_iterator it = _locations.begin(); it != _locations.end(); it++)
@@ -125,11 +120,10 @@ class World{
 				}
 			}
 			throw LocationNotFound();
-		}
+		}//findLocation
 
 
-		void connectNorthToSouth( const std::string & theNorth, const std::string & theSouth)
-		{
+		void connectNorthToSouth( const std::string & theNorth, const std::string & theSouth){
 		
 			for( Locations::const_iterator it = _locations.begin(); it!=_locations.end(); it++)
 			{
@@ -142,11 +136,10 @@ class World{
 				}
 
 			}
-		}
+		}//connectNorthToSouth
 
 
-		void connectWestToEast( const std::string & theWest, const std::string & theEast)
-		{
+		void connectWestToEast( const std::string & theWest, const std::string & theEast){
 		
 			for( Locations::const_iterator it = _locations.begin(); it!=_locations.end(); it++)
 			{
@@ -159,11 +152,12 @@ class World{
 				}
 
 			}
-		}
+		}//connectWestToEast
 
+// ------------ LOCATION END
 
-		std::string characters() const
-		{
+// ------------ CHARACTERS
+		std::string characters() const{
 
 			for (Characters::const_iterator it=_characters.begin(); it!=_characters.end(); it++)
 				{
@@ -186,10 +180,9 @@ class World{
 				}
 
 			return "";
-		}
+		}//characters
 
-		void addCharacter( const std::string & theName, const int & level )
-		{
+		void addCharacter( const std::string & theName, const int & level){
 			//nova instancia de item
 			//set del valors de la nova instancia
 			//pushback al final del vector
@@ -198,8 +191,8 @@ class World{
 			anonymous->name(theName);
 			anonymous->level(level);
 			_characters.push_back( anonymous);
-		
-		}
+
+		}//addCharacter
 
 		void placeCharacter(const std::string & theCharacter, const std::string & theLocation){
 
@@ -224,8 +217,9 @@ class World{
 			if( anonymous == NULL)
 				throw CharacterNotFound();
 
-		}
+		}//placeCharacter
 
+// ------------ CHARACTERS END
 
 };
 
