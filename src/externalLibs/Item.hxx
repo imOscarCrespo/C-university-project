@@ -8,65 +8,59 @@
 #include "Exception.hxx"
 class Item{
 
-std::string _name;
-int _level;
-bool _enable;
+	std::string _name;
+	int _level;
+	bool _enable;
 
 	public:
 		Item()
-			//Variab1les inicials
 			: _name("unknown"),
 			_level(10u),
 			_enable(false)
-		
 		{}
 
 /*----------NAME-------------*/
-		//Getter name
-		const std::string & name() const
-		{
-			return _name;
-		}
-		//Setter name
-		void name(const std::string &name) 
-		{
-			_name = name;
-		}
+		//Getter
+			const std::string & name() const{
+				return _name;
+			}//name
+
+		//Setter
+			void name(const std::string &name){
+				_name = name;
+			}//name
 
 /*----------LEVEL-------------*/
-		//getter level
-		 const int & level()  const
-		{
-			return _level;
-		}
-		//setter level
-		void level(const int & theLevel){
-			_level = theLevel;
-		}
+		//getter
+			const int & level()  const{
+				return _level;
+			}//level
+
+		//setter
+			void level(const int & theLevel){
+				_level = theLevel;
+			}//level
 		
 /*----------ENABLE-------------*/
-		//getter enable
-		const bool & enable() const
-		{
-			return _enable;
-		}
-		//setter enable
-		void enable( const bool & theEnable)
-		{
-			_enable = theEnable;
-		}
+		//getter 
+			const bool & enable() const{
+				return _enable;
+			}//enable
+
+		//setter
+			void enable( const bool & theEnable){
+				_enable = theEnable;
+			}//enable
 
 /*---------DESCRIPTION----------*/
 
-		std::string description() const
-		{
-				int entero = _level;
-				std::string cadena = "";
-				cadena = std::to_string(entero);
+	std::string description() const{
+		int entero = _level;
+		std::string cadena = "";
+		cadena = std::to_string(entero);
 
-			return _name + " [" + cadena + "]";
-
-		}
+		return _name + " [" + cadena + "]";
+	}//descripption
 
 };
 
