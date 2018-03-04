@@ -5,7 +5,10 @@
 
 #ifndef ITEM_HXX
 #define ITEM_HXX 
-#include "Exception.hxx"
+
+#include <sstream>
+// #include "Exception.hxx"
+
 class Item{
 
 	std::string _name;

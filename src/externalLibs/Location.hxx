@@ -7,17 +7,19 @@
 #ifndef LOCATION_HXX
 #define LOCATION_HXX
 
-/*#include <iostream>
-#include <string>
-#include <list>
-#include <algorithm>
+// #include <iostream>
+// #include <string>
+// #include <list>
+// #include <algorithm>
 #include <vector>
-#include <exception>
-*/
+// #include <exception>
+
 #include "Item.hxx"
 #include "Exception.hxx"
 #include "Character.hxx"
 
+typedef std::list<Item*> Items;
+typedef std::list<Character*> Characters;
 
 class Location{
 
@@ -28,8 +30,7 @@ class Location{
 	Location * _east;
 	Location * _west;
 
-	typedef std::list<Item*> Items;
-	typedef std::list<Character*> Characters;
+	
 
 	public:
 
@@ -60,15 +61,16 @@ class Location{
 
 
 	//Metodes de la classe
-		//Getter
-			const std::string & name() const{
-				return _name;
-			}//name
+		// -- NAME
+			//Getter
+				const std::string & name() const{
+					return _name;
+				}//name
 
-		//Setter
-			void name(const std::string &theName){
-				_name = theName;
-			}//name
+			//Setter
+				void name(const std::string &theName){
+					_name = theName;
+				}//name
 
 		//-- NORTH
 			Location* north(){
@@ -105,7 +107,7 @@ class Location{
 			void connectEast(Location & theEast){
 				_east = &theEast;
 			}//connectEast
-		
+		// -- DESCRIPTION
 			std::string description(){
 				return "Location: " + _name + "\n" + connections() + items() + characters();
 			}//description
@@ -188,7 +190,7 @@ class Location{
 		//Retorna la posició de memoria d'on esta un item amb un nom concret que reps per parmentre
 		Item & findItem(const std::string theName) const{
 			
-			Item *anonymous;
+			// Item *anonymous;
 			
 			for( Items::const_iterator it=_items.begin(); it!=_items.end(); it++)
 			{

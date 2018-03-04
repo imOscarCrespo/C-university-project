@@ -4,12 +4,13 @@
 
 #ifndef CHARACTER_HXX
 #define CHARACTER_HXX
-#include <iostream>
-#include <string>
-#include <list>
-#include <algorithm>
-#include <vector>
-#include <exception>
+
+// #include <iostream>
+// #include <string>
+// #include <list>
+// #include <algorithm>
+// #include <vector>
+// #include <exception>
 
 //class Location;
 
@@ -20,7 +21,7 @@ class Character{
 	int _life;
 	int _damage;
 	int _cure;
-	//Location * _location;
+	Location * _location;
 
 	public:
 
@@ -30,10 +31,9 @@ class Character{
 				//inicialització per defecte
 				:	_name("unknown"), 
 					_level(0u), 
-					_life(10u)
+					_life(10u),
+					_location(NULL)
 			{}
-
-			//void locateAt( Location & location);
 
 			//Destructor
 			~Character()
@@ -86,6 +86,9 @@ class Character{
 					_life = _life + theCure;
 				}
 			}//cure
+			
+		//forwardDeclaration
+		void locateAt( Location & location);
 
 };
 

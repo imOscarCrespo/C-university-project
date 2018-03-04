@@ -5,27 +5,25 @@
 #ifndef WORLD_HXX
 #define WORLD_HXX
 
-#include <iostream>
-#include <string>
-#include <list>
-#include <algorithm>
+// #include <iostream>
+// #include <string>
+// #include <list>
+// #include <algorithm>
 #include <vector>
-#include <exception>
+// #include <exception>
 
 #include "Location.hxx"
 #include "Item.hxx"
 #include "Exception.hxx"
 #include "Character.hxx"
 
-
+typedef std::list<Location*> Locations;
+typedef std::list<Character*> Characters;
 
 class World{
 	std::string _name;
 
-	typedef std::list<Location*> Locations;
-	typedef std::list<Character*> Characters;
-
-
+	
 	public:
 
 		Locations _locations;
@@ -42,6 +40,8 @@ class World{
 			for (Locations::const_iterator it =_locations.begin(); it!=_locations.end(); it++){
 				delete (*it);
 			}
+
+			//Falta el vectorr de Characters
 		}
 
 // ------------ WORLD 
@@ -182,42 +182,67 @@ class World{
 			return "";
 		}//characters
 
-		void addCharacter( const std::string & theName, const int & level){
+		void addCharacter( const std::string & theName, const int & theLevel){
 			//nova instancia de item
 			//set del valors de la nova instancia
 			//pushback al final del vector
 			Character * anonymous = new Character();
 			
 			anonymous->name(theName);
-			anonymous->level(level);
+			anonymous->level(theLevel);
 			_characters.push_back( anonymous);
 
 		}//addCharacter
 
-		void placeCharacter(const std::string & theCharacter, const std::string & theLocation){
+		// void placeCharacter(const std::string & theCharacter, const std::string & theLocation){
 
-			Character* anonymous = NULL;
+		// 	Character* anonymous = NULL;
 
-			for( Locations::const_iterator it1 = _locations.begin(); it1!= _locations.end(); it1++ )
-			{
-				if( (*it1)->name() == theLocation )
-					{
-						for( Characters::const_iterator it2 = _characters.begin(); it2!= _characters.end(); it2++)
-						{
-							if( (*it2)->name() == theCharacter) 
-							{
-								anonymous = (*it2);
-								(*it1) ->placeCharacter(*anonymous);
-								//break;
-							}
-						}
-						//break;
-					}
+		// 	for( Locations::const_iterator it1 = _locations.begin(); it1!= _locations.end(); it1++ )
+		// 	{
+		// 		if( (*it1)->name() == theLocation )
+		// 			{
+		// 				for( Characters::const_iterator it2 = _characters.begin(); it2!= _characters.end(); it2++)
+		// 				{
+		// 					if( (*it2)->name() == theCharacter) 
+		// 					{
+		// 						anonymous = (*it2);
+		// 						(*it1) ->placeCharacter(*anonymous);
+		// 						//break;
+		// 					}
+		// 				}
+		// 				//break;
+		// 			}
+		// 	}
+		// 	if( anonymous == NULL)
+		// 		throw CharacterNotFound();
+
+		// }//placeCharacter
+
+		void placeCharacter (const std::string &character,const std::string &location)
+		{
+			int flagCheckCharacter = 0;
+			for (Characters::const_iterator it = _characters.begin();it != _characters.end();it++ ){
+				if((*it)->name() == character){
+					findCharacter(character).locateAt(findLocation(location));
+					flagCheckCharacter=1;
+				}
 			}
-			if( anonymous == NULL)
-				throw CharacterNotFound();
+			if(flagCheckCharacter==0){throw CharacterNotFound();}
+		}
 
-		}//placeCharacter
+
+		Character & findCharacter ( const std::string & character )
+		{
+			if ( _characters.empty() != true )
+			{	
+				for ( Characters::iterator it = _characters.begin(); it != _characters.end(); ++it )
+					if( (*it)->name() == character )
+						return (**it);
+			}
+ 
+			throw CharacterNotFound();
+		}
 
 // ------------ CHARACTERS END
 
