@@ -41,7 +41,9 @@ class World{
 				delete (*it);
 			}
 
-			//Falta el vectorr de Characters
+			for (Characters::const_iterator it = _characters.begin(); it!=_characters.end(); it++){
+				delete (*it);
+			}
 		}
 
 // ------------ WORLD 
@@ -192,35 +194,11 @@ class World{
 			anonymous->level(theLevel);
 			_characters.push_back( anonymous);
 
+			delete anonymous;
+
 		}//addCharacter
 
-		// void placeCharacter(const std::string & theCharacter, const std::string & theLocation){
-
-		// 	Character* anonymous = NULL;
-
-		// 	for( Locations::const_iterator it1 = _locations.begin(); it1!= _locations.end(); it1++ )
-		// 	{
-		// 		if( (*it1)->name() == theLocation )
-		// 			{
-		// 				for( Characters::const_iterator it2 = _characters.begin(); it2!= _characters.end(); it2++)
-		// 				{
-		// 					if( (*it2)->name() == theCharacter) 
-		// 					{
-		// 						anonymous = (*it2);
-		// 						(*it1) ->placeCharacter(*anonymous);
-		// 						//break;
-		// 					}
-		// 				}
-		// 				//break;
-		// 			}
-		// 	}
-		// 	if( anonymous == NULL)
-		// 		throw CharacterNotFound();
-
-		// }//placeCharacter
-
-		void placeCharacter (const std::string &character,const std::string &location)
-		{
+		void placeCharacter (const std::string &character,const std::string &location){
 			int flagCheckCharacter = 0;
 			for (Characters::const_iterator it = _characters.begin();it != _characters.end();it++ ){
 				if((*it)->name() == character){
@@ -229,11 +207,10 @@ class World{
 				}
 			}
 			if(flagCheckCharacter==0){throw CharacterNotFound();}
-		}
+		}//placeCharacter
 
 
-		Character & findCharacter ( const std::string & character )
-		{
+		Character & findCharacter ( const std::string & character ){
 			if ( _characters.empty() != true )
 			{	
 				for ( Characters::iterator it = _characters.begin(); it != _characters.end(); ++it )
@@ -242,7 +219,7 @@ class World{
 			}
  
 			throw CharacterNotFound();
-		}
+		}//findCharacter
 
 // ------------ CHARACTERS END
 

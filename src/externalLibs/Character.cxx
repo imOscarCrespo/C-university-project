@@ -1,4 +1,4 @@
-#include "Character.hxx"
+#include "Location.hxx"
 
 void Character::locateAt( Location & location)
 {

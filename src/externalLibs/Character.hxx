@@ -5,14 +5,14 @@
 #ifndef CHARACTER_HXX
 #define CHARACTER_HXX
 
-// #include <iostream>
+#include <iostream>
 // #include <string>
 // #include <list>
 // #include <algorithm>
-// #include <vector>
+#include <vector>
 // #include <exception>
 
-//class Location;
+class Location;
 
 class Character{
 
@@ -32,7 +32,7 @@ class Character{
 				:	_name("unknown"), 
 					_level(0u), 
 					_life(10u),
-					_location(NULL)
+					_location(0)
 			{}
 
 			//Destructor

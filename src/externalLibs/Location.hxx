@@ -7,9 +7,9 @@
 #ifndef LOCATION_HXX
 #define LOCATION_HXX
 
-// #include <iostream>
+#include <iostream>
 // #include <string>
-// #include <list>
+#include <list>
 // #include <algorithm>
 #include <vector>
 // #include <exception>
@@ -153,7 +153,7 @@ class Location{
 			anonymous->level(level);
 			_items.push_back(anonymous);
 
-			//delete anonymous;
+			delete anonymous;
 		
 		}//addItem
 
@@ -190,8 +190,7 @@ class Location{
 		//Retorna la posició de memoria d'on esta un item amb un nom concret que reps per parmentre
 		Item & findItem(const std::string theName) const{
 			
-			// Item *anonymous;
-			
+		
 			for( Items::const_iterator it=_items.begin(); it!=_items.end(); it++)
 			{
 					if( (*it)->name() == theName ){		
