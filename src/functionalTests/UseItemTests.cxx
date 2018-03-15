@@ -7,7 +7,7 @@ public:
 	TEST_FIXTURE( UseItemTests )
 	{
 		TEST_CASE( test_useItem_whenNoLocation );
-		//TEST_CASE( test_useItem_whenNoCharacter );
+		TEST_CASE( test_useItem_whenNoCharacter );
 		//TEST_CASE( test_useItem_whenNoItem );
 		//TEST_CASE( test_useItem_whenLevelTooLow );
 		//TEST_CASE( test_useBasicItem );
@@ -40,7 +40,7 @@ public:
 			ASSERT_EQUALS( "The location does not exist" , e.what() );
 		}
 	}
-	/*
+
 	void test_useItem_whenNoCharacter()
 	{
 		World world;
@@ -55,6 +55,7 @@ public:
 			ASSERT_EQUALS( "The character does not exist" , e.what() );
 		}
 	}
+	/*	
 	void test_useItem_whenNoItem()
 	{
 		World world;
