@@ -239,7 +239,7 @@ class World{
 
 			//Check if the level of theCharacter is high enogh to use theItem
 			if( ( findCharacter(theCharacter).level() ) >= ( findLocation(theLocation).findItem(theItem).level())   ){
-				return "hola";
+				return (findLocation(theLocation).findItem(theItem)).use(theCharacter,theLocation);
 			}
 			else{
 				return "The level of " + findCharacter(theCharacter).name() + " is too low\n";

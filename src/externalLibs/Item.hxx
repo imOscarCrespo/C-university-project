@@ -65,6 +65,11 @@ class Item{
 		return _name + " [" + cadena + "]";
 	}//descripption
 
+
+	std::string use(std::string theCharacter, std::string theLocation){
+		return theCharacter + "uses" + (*this).name() + " at " + theLocation + "\n";
+	}//use
+
 };
 
 
