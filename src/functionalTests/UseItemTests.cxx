@@ -10,7 +10,7 @@ public:
 		TEST_CASE( test_useItem_whenNoLocation );
 		TEST_CASE( test_useItem_whenNoCharacter );
 		TEST_CASE( test_useItem_whenNoItem );
-		//TEST_CASE( test_useItem_whenLevelTooLow );
+		TEST_CASE( test_useItem_whenLevelTooLow );
 		//TEST_CASE( test_useBasicItem );
 		//TEST_CASE( test_distributeMagic_whenNoLocation );
 		//TEST_CASE( test_distributeMagic );
@@ -74,7 +74,7 @@ public:
 		}
 	}
 	
-	/*	
+
   void test_useItem_whenLevelTooLow()
   {
 		// requires checking whether the level of the character
@@ -89,6 +89,8 @@ public:
 			world.useItem( "Paradise", "Eve", "Apple" )
 		);
   }
+  
+	/*	
 	void test_useBasicItem()
 	{
 		// requires a method "use" in Item.hxx with two arguments:

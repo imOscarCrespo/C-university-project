@@ -226,24 +226,26 @@ class World{
 
 // ------------ ITEM 
 
-		void useItem(const std::string theLocation, const std::string theCharacter, const std::string theItem){
+		std::string useItem(const std::string theLocation, const std::string theCharacter, const std::string theItem){
 			
+			//Check if the Location exists or not
 			findLocation(theLocation);
 
+			//Check if the Charachter exists or not
 			findCharacter(theCharacter);
 
-
+			//Check if the Item exists or not in theLocation
 			findLocation(theLocation).findItem(theItem);
 
-			//Character & anonymousChar =  findCharacter(theCharacter);
-
-
-			/*if( findLocation(theLocation) != NULL ){
-
-				return "Location Found!!";
-
+			//Check if the level of theCharacter is high enogh to use theItem
+			if( ( findCharacter(theCharacter).level() ) >= ( findLocation(theLocation).findItem(theItem).level())   ){
+				return "hola";
 			}
-			throw LocationNotFound();*/
+			else{
+				return "The level of " + findCharacter(theCharacter).name() + " is too low";
+			}
+
+
 
 		}//useItem
 
