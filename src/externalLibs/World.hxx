@@ -223,6 +223,18 @@ class World{
 
 // ------------ CHARACTERS END
 
+
+// ------------ ITEM 
+
+		void useItem(const std::string theLocation, const std::string theCharacter, const std::string theItem){
+			
+			findCharacter(theCharacter);
+			findLocation(theLocation);
+
+		}//useItem
+
+// ------------ ITEM END
+
 };
 
 

@@ -39,6 +39,7 @@ public:
 			ASSERT_EQUALS( "The location does not exist" , e.what() );
 		}
 	}
+	/*
 	void test_useItem_whenNoCharacter()
 	{
 		World world;

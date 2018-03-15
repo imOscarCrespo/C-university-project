@@ -113,6 +113,7 @@ class Location{
 			}//description
 
 /*----------------------------------CONNECTIONS--------------------------------*/
+
 		std::string connections() const{
 			std::string connections = "";
 			if(_north != NULL)
@@ -141,6 +142,7 @@ class Location{
 		
 			return connections;
 		}//connections
+
 /*------------------------------------ITEMS------------------------------------*/
 
 		void addItem( const std::string & theName, const int & level ){
@@ -198,9 +200,19 @@ class Location{
 					}
 			}
 	
-			throw Exception();			
+			throw ItemNotFound();			
 
 		}//findItem
+
+
+		void useItem(const std::string theLocation, const std::string theCharacter, const std::string theItem){
+
+			//Retorna la instancia de tipus Item que te com a nom theItem
+			findItem(theItem);
+			//Retorna la instancia de tipus Character que te com a nom theCharacter
+			findCharacter(theCharacter);
+
+		}//useItem
 
 /*----------------------------------CHARACTER----------------------------------*/
 

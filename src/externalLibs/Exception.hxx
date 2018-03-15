@@ -8,7 +8,7 @@
 //#include <exception>
 using namespace std; 
 
-class Exception : public exception{
+class ItemNotFound : public exception{
 
 	public:
 		const char * what() const throw(){
