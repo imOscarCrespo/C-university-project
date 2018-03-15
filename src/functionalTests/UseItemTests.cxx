@@ -1,5 +1,6 @@
 #include <MiniCppUnit.hxx>
 #include "World.hxx"
+#include "Location.hxx"
 
 class UseItemTests : public TestFixture< UseItemTests >
 {

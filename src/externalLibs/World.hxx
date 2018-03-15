@@ -232,6 +232,9 @@ class World{
 
 			findCharacter(theCharacter);
 
+
+			findLocation(theLocation).findItem(theItem);
+
 			//Character & anonymousChar =  findCharacter(theCharacter);
 
 
