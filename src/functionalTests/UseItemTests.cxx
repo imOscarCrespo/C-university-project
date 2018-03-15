@@ -8,7 +8,7 @@ public:
 	{
 		TEST_CASE( test_useItem_whenNoLocation );
 		TEST_CASE( test_useItem_whenNoCharacter );
-		//TEST_CASE( test_useItem_whenNoItem );
+		TEST_CASE( test_useItem_whenNoItem );
 		//TEST_CASE( test_useItem_whenLevelTooLow );
 		//TEST_CASE( test_useBasicItem );
 		//TEST_CASE( test_distributeMagic_whenNoLocation );
@@ -55,7 +55,7 @@ public:
 			ASSERT_EQUALS( "The character does not exist" , e.what() );
 		}
 	}
-	/*	
+
 	void test_useItem_whenNoItem()
 	{
 		World world;
@@ -72,6 +72,8 @@ public:
 			ASSERT_EQUALS( "The item does not exist" , e.what() );
 		}
 	}
+	
+	/*	
   void test_useItem_whenLevelTooLow()
   {
 		// requires checking whether the level of the character
