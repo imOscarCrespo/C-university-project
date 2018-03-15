@@ -12,7 +12,7 @@ public:
 		TEST_CASE( test_useItem_whenNoItem );
 		TEST_CASE( test_useItem_whenLevelTooLow );
 		TEST_CASE( test_useBasicItem );
-		//TEST_CASE( test_distributeMagic_whenNoLocation );
+		TEST_CASE( test_distributeMagic_whenNoLocation );
 		//TEST_CASE( test_distributeMagic );
 		//TEST_CASE( test_distributeMagic_onDamageCharacter );
 		//TEST_CASE( test_useTrap );
@@ -107,7 +107,7 @@ public:
 		);
 	}
 	
-	/*
+
 	void test_distributeMagic_whenNoLocation()
 	{
 		// requires a method "distributeMagic" in World.hxx
@@ -123,6 +123,8 @@ public:
 			ASSERT_EQUALS( "The location does not exist" , e.what() );
 		}
 	}
+
+	/*
 	void test_distributeMagic()
 	{
 		// requires a method "receiveMagic" in Item.hxx

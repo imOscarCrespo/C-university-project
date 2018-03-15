@@ -247,6 +247,11 @@ class World{
 
 		}//useItem
 
+
+		std::string distributeMagic( const std::string theLocation, unsigned int theLevel ){
+			findLocation(theLocation);
+		}//distributeMagic
+
 // ------------ ITEM END
 
 };
