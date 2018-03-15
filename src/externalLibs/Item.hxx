@@ -67,7 +67,7 @@ class Item{
 
 
 	std::string use(std::string theCharacter, std::string theLocation){
-		return theCharacter + "uses" + (*this).name() + " at " + theLocation + "\n";
+		return theCharacter + " uses " + (*this).name() + " at " + theLocation + "\n";
 	}//use
 
 };
