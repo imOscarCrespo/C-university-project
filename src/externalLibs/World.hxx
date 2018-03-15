@@ -242,7 +242,7 @@ class World{
 				return "hola";
 			}
 			else{
-				return "The level of " + findCharacter(theCharacter).name() + " is too low";
+				return "The level of " + findCharacter(theCharacter).name() + " is too low\n";
 			}
 
 
