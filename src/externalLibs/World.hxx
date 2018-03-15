@@ -230,6 +230,8 @@ class World{
 			
 			findLocation(theLocation);
 
+			findCharacter(theCharacter);
+
 			//Character & anonymousChar =  findCharacter(theCharacter);
 
 
