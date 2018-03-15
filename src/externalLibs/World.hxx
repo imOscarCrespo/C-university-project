@@ -228,8 +228,17 @@ class World{
 
 		void useItem(const std::string theLocation, const std::string theCharacter, const std::string theItem){
 			
-			findCharacter(theCharacter);
 			findLocation(theLocation);
+
+			//Character & anonymousChar =  findCharacter(theCharacter);
+
+
+			/*if( findLocation(theLocation) != NULL ){
+
+				return "Location Found!!";
+
+			}
+			throw LocationNotFound();*/
 
 		}//useItem
 

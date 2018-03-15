@@ -208,9 +208,9 @@ class Location{
 		void useItem(const std::string theLocation, const std::string theCharacter, const std::string theItem){
 
 			//Retorna la instancia de tipus Item que te com a nom theItem
-			findItem(theItem);
+			//Item & anonymousItem = findItem(theItem);
 			//Retorna la instancia de tipus Character que te com a nom theCharacter
-			findCharacter(theCharacter);
+			//Character & anonymousChar = findCharacter(theCharacter);
 
 		}//useItem
 

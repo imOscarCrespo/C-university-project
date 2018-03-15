@@ -1,11 +1,12 @@
 #include <MiniCppUnit.hxx>
+#include "World.hxx"
 
 class UseItemTests : public TestFixture< UseItemTests >
 {
 public:
 	TEST_FIXTURE( UseItemTests )
 	{
-		//TEST_CASE( test_useItem_whenNoLocation );
+		TEST_CASE( test_useItem_whenNoLocation );
 		//TEST_CASE( test_useItem_whenNoCharacter );
 		//TEST_CASE( test_useItem_whenNoItem );
 		//TEST_CASE( test_useItem_whenLevelTooLow );
@@ -23,7 +24,7 @@ public:
 		//TEST_CASE( test_useBombTwice );
 		//TEST_CASE( test_useBombOnManyThings );
 	}
-	/*
+	
 	void test_useItem_whenNoLocation()
 	{
 		// requires a method "useItem" in World.hxx
