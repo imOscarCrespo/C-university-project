@@ -245,8 +245,6 @@ class World{
 				return "The level of " + findCharacter(theCharacter).name() + " is too low\n";
 			}
 
-
-
 		}//useItem
 
 // ------------ ITEM END
