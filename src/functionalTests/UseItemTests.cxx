@@ -142,9 +142,8 @@ public:
 			world.distributeMagic( "Paradise", 5 )
 		);
 	}
-	
-	/*
 
+	/*
 	void test_distributeMagic_onDamageCharacter()
 	{
 		// requires a method "addDamageCharacter" in World.hxx
@@ -159,6 +158,9 @@ public:
 			world.distributeMagic( "Paradise", 5 )
 		);
 	}
+
+
+
 	void test_useTrap()
 	{
 		// refactor the Item class using the Decorator pattern

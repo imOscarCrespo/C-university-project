@@ -11,6 +11,7 @@
 // #include <algorithm>
 #include <vector>
 // #include <exception>
+#include <MiniCppUnit.hxx>
 
 #include "Location.hxx"
 #include "Item.hxx"
