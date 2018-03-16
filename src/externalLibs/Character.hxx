@@ -91,7 +91,7 @@ class Character{
 		void locateAt( Location & location);
 
 		std::string receiveMagic (int magicPoint){
-			return this->name() + " receives " + std::to_string(magicPoint) + "magic points\n";
+			return this->name() + " receives " + std::to_string(magicPoint) + " magic points\n";
 		}
 
 };
