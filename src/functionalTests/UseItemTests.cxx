@@ -14,7 +14,7 @@ public:
 		TEST_CASE( test_useBasicItem );
 		TEST_CASE( test_distributeMagic_whenNoLocation );
 		TEST_CASE( test_distributeMagic );
-		//TEST_CASE( test_distributeMagic_onDamageCharacter );
+		TEST_CASE( test_distributeMagic_onDamageCharacter );
 		//TEST_CASE( test_useTrap );
 		//TEST_CASE( test_useTrapTwice );
 		//TEST_CASE( test_distributeMagic_onCureCharacter );
@@ -143,7 +143,7 @@ public:
 		);
 	}
 
-	/*
+	
 	void test_distributeMagic_onDamageCharacter()
 	{
 		// requires a method "addDamageCharacter" in World.hxx
@@ -160,6 +160,7 @@ public:
 	}
 
 
+	/*
 
 	void test_useTrap()
 	{

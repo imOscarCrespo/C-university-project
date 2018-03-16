@@ -17,6 +17,7 @@
 #include "Item.hxx"
 #include "Exception.hxx"
 #include "Character.hxx"
+#include "DamageCharacter.hxx"
 
 typedef std::list<Location*> Locations;
 typedef std::list<Character*> Characters;
@@ -274,6 +275,17 @@ class World{
 			return output;
 
 		}//distributeMagic
+
+		void addDamageCharacter( const std::string theCharacter, int theDamage ){
+
+			Character* anonymous = new DamageCharacter();
+
+			anonymous->name(theCharacter);
+			anonymous->level(theDamage);
+
+			_characters.push_back(anonymous);
+						
+		}//addDamageCharacter
 
 // ------------ ITEM END
 
