@@ -8,7 +8,7 @@
 #define LOCATION_HXX
 
 #include <iostream>
-// #include <string>
+#include <string>
 #include <list>
 // #include <algorithm>
 #include <vector>
@@ -111,6 +111,14 @@ class Location{
 			std::string description(){
 				return "Location: " + _name + "\n" + connections() + items() + characters();
 			}//description
+
+		//RETURN DELS LISTS
+			list<Character*> llistaCharacters(){
+				return _character;
+			}
+			list<Item*> llistaItems(){
+				return _items;
+			}
 
 /*----------------------------------CONNECTIONS--------------------------------*/
 

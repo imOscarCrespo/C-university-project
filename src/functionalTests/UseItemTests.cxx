@@ -13,7 +13,7 @@ public:
 		TEST_CASE( test_useItem_whenLevelTooLow );
 		TEST_CASE( test_useBasicItem );
 		TEST_CASE( test_distributeMagic_whenNoLocation );
-		//TEST_CASE( test_distributeMagic );
+		TEST_CASE( test_distributeMagic );
 		//TEST_CASE( test_distributeMagic_onDamageCharacter );
 		//TEST_CASE( test_useTrap );
 		//TEST_CASE( test_useTrapTwice );
@@ -124,7 +124,7 @@ public:
 		}
 	}
 
-	/*
+	
 	void test_distributeMagic()
 	{
 		// requires a method "receiveMagic" in Item.hxx
@@ -142,6 +142,9 @@ public:
 			world.distributeMagic( "Paradise", 5 )
 		);
 	}
+	
+	/*
+
 	void test_distributeMagic_onDamageCharacter()
 	{
 		// requires a method "addDamageCharacter" in World.hxx

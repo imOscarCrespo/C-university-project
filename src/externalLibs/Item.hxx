@@ -7,6 +7,7 @@
 #define ITEM_HXX 
 
 #include <sstream>
+#include <string>
 // #include "Exception.hxx"
 
 class Item{
@@ -69,6 +70,10 @@ class Item{
 	std::string use(std::string theCharacter, std::string theLocation){
 		return theCharacter + " uses " + (*this).name() + " at " + theLocation + "\n";
 	}//use
+
+	std::string receiveMagic (int magicPoint){
+		return this->name() + " receives " + std::to_string(magicPoint) + " magic points\n";
+	}
 
 };
 

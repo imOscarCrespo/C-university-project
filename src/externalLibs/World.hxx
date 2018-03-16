@@ -248,8 +248,30 @@ class World{
 		}//useItem
 
 
-		std::string distributeMagic( const std::string theLocation, unsigned int theLevel ){
+		std::string distributeMagic( const std::string theLocation, int theLevel ){
 			findLocation(theLocation);
+
+			std::string output = "";
+
+			typedef std::list<Item*> Items;
+			typedef std::list<Character*> Characters;
+			Items Vitems;
+			Characters Vcharacter;
+
+			//return de les llistes de tipus Character i tipus Item
+			Vcharacter = findLocation(theLocation).llistaCharacters();
+			Vitems = findLocation(theLocation).llistaItems();
+
+			for(Characters::iterator it = Vcharacter.begin(); it!= Vcharacter.end(); it++){
+				output = output + (*it)->receiveMagic(theLevel);
+			}
+
+			for(Items::iterator it = Vitems.begin(); it!= Vitems.end(); it++){
+				output = output + (*it)->receiveMagic(theLevel);
+			}
+
+			return output;
+
 		}//distributeMagic
 
 // ------------ ITEM END
