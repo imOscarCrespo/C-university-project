@@ -182,6 +182,8 @@ public:
 			world.useItem( "Paradise", "Eve", "Trap" )
 		);
 	}
+	
+	/*
 	void test_useTrapTwice()
 	{
 		// since the trap disappears it cannot be used twice
