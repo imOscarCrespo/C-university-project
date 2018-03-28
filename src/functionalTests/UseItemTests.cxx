@@ -17,7 +17,7 @@ public:
 		TEST_CASE( test_distributeMagic_onDamageCharacter );
 		TEST_CASE( test_useTrap );
 		TEST_CASE( test_useTrapTwice );
-		//TEST_CASE( test_distributeMagic_onCureCharacter );
+		TEST_CASE( test_distributeMagic_onCureCharacter );
 		//TEST_CASE( test_usePotion );
 		//TEST_CASE( test_usePotionTwice ); 
 		//TEST_CASE( test_useBomb_whenNotEnabled );
@@ -188,7 +188,7 @@ public:
 			ASSERT_EQUALS( "The item does not exist" , e.what() );
 		}
 	}
-	/*
+
 	void test_distributeMagic_onCureCharacter()
 	{
 		// requires a method "addCureCharacter" in World.hxx
@@ -206,7 +206,7 @@ public:
 		);
 	}
 
-
+	/*
 	void test_usePotion()
 	{
 		// requires a method "addPotionAtLocation" in World.hxx
