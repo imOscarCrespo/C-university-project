@@ -19,7 +19,7 @@ public:
 		TEST_CASE( test_useTrapTwice );
 		TEST_CASE( test_distributeMagic_onCureCharacter );
 		TEST_CASE( test_usePotion );
-		//TEST_CASE( test_usePotionTwice ); 
+		TEST_CASE( test_usePotionTwice ); 
 		//TEST_CASE( test_useBomb_whenNotEnabled );
 		//TEST_CASE( test_useBomb );
 		//TEST_CASE( test_useBombTwice );
@@ -228,7 +228,7 @@ public:
 		);
 	}
 
-	/*	
+
 	void test_usePotionTwice()
 	{
 		// since the potion disappears it cannot be used twice
@@ -250,7 +250,7 @@ public:
 			ASSERT_EQUALS( "The item does not exist" , e.what() );
 		}
 	}
-	
+	/*	
 	void test_useBomb_whenNotEnabled()
 	{
 		// requires a method "addBombAtLocation" in World.hxx
