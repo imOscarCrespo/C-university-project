@@ -189,16 +189,16 @@ class Location{
 		}//useItem
 		
 		std::string distributeMagic (const unsigned int points){
-			std::string devolver;
+			std::string output;
 			for(Characters::iterator it = _characters.begin(); it!= _characters.end(); it++){
 			
-				devolver += (*it)->receiveMagic(points);		
+				output += (*it)->receiveMagic(points);		
 				
 			}
 			for(Items::const_iterator it = _items.begin(); it!= _items.end(); it++){
-				devolver += (*it)->receiveMagic(points);
+				output += (*it)->receiveMagic(points);
 			}
-			return devolver; 
+			return output; 
 			
 		}//distributeMagic
 		
@@ -241,6 +241,18 @@ class Location{
 			
 		}//addBomb
 		
+//---------------------GUI-----------------------//
+
+		Location* neighbor(std::string theDirection){
+			if( theDirection == "north" )
+				return _north;
+			if( theDirection == "south" )
+				return _south;
+			if( theDirection == "west" )
+				return _west;
+			if( theDirection == "east" )
+				return _east;
+		}
 
 
 };

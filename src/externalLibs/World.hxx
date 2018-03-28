@@ -4,22 +4,26 @@
 #include "Character.hxx"
 #include "Location.hxx"
 #include "MyException.hxx"
+//#include "gui/Model.hxx"
 #include <vector>
 #include <iostream>
 
 typedef std::vector<Location *> Locations; 
 typedef std::vector<Character *> Characters; 
 
-class World{
+class World /*: public Model*/{
 	
 	private:
 	Locations _locations;
 	Characters _characters;
 
 	public:
-
+		Character* player;
 		
-		World(){}
+		World()
+		{
+		}
+
 		//World Destructor
 		~World(){
 			for(Locations::iterator it = _locations.begin(); it!= _locations.end(); it++){
@@ -52,13 +56,13 @@ class World{
 			return locations;
 		}
 		//Reserca d'una localització dins del World i treure tota la seva infomació
-		std::string locationDetails( const std::string & details){
+		std::string locationDetails( const std::string & theCharacter){
 			
 			std::string locations;
 			
 			for ( Locations::const_iterator it = _locations.begin(); it != _locations.end(); it++ ){
 				
-				if ((*it)->name() == details){
+				if ((*it)->name() == theCharacter){
 					locations += (*it)->description();
 					return locations; 
 				}
@@ -112,11 +116,11 @@ class World{
 
 
 // ------------ CHARACTERS
-		void addCharacter (const std::string & newCharacter, unsigned int level)
+		void addCharacter (const std::string & newCharacter, unsigned int level){
 			//nova instancia de item
 			//set del valors de la nova instancia
 			//pushback al final del vector
-		{
+		
 			Character* character = new Character();
 			character->name(newCharacter);
 			character->level(level);
@@ -162,19 +166,27 @@ class World{
 // ------------ ITEM 
 	
 		std::string useItem(const std::string & location, const std::string & character, const std::string & item){
-			std::string devolver;
+			//El character utilitza el item a la localitzacio			
+		
+			std::string output;
+
 			findLocation(location); 
 			findCharacter(character); 
 			findLocation(location).findItem(item); 
-			devolver=findLocation(location).useItem(character,item);
-			return devolver;
+			output = findLocation(location).useItem(character,item);
+
+			return output;
+
 		}//useItem
 
 		std::string distributeMagic (const std::string &location, const unsigned int points){
-			std::string devolver;
+			std::string output;
+
 			findLocation(location);
-			devolver=findLocation(location).distributeMagic(points);
-			return devolver;
+			output = findLocation(location).distributeMagic(points);
+
+			return output;
+
 		}//distributeMagic
 
 		void addDamageCharacter(const std::string &character,const unsigned int points){
@@ -204,6 +216,43 @@ class World{
 		void addBombAtLocation(const std::string &location, const std::string &bomb, const unsigned int points)
 		{
 			findLocation(location).addBomb(bomb,points); 
+		}
+
+//---------------------GUI-----------------------//
+
+		void registerPlayer( const std::string & playerName ){
+			//registrem el jugador i l'afegim a la llista de caracter dins la seva localitzacio
+
+			player = new Character();
+			player->name(playerName);
+			_characters.push_back( player );
+		}
+
+		std::string locationDetails(){
+			//return the name of the current Location of the player Character
+			return player->currentLocation()->name();
+		}
+
+		void move( const std::string & direction ){
+			//Fem que el jugador es mogui d'un lloc a un altre
+			Location* neighbourLocation = player->currentLocation()->neighbor(direction);
+			player->currentLocation( neighbourLocation );		
+		}
+
+		std::string useItem( const std::string & itemName ){
+			//El player utilitza el item anomenat
+
+			std::string output;
+			findLocation( player->currentLocation()->name() );
+			findCharacter( player->name() );
+			player->currentLocation()->findItem( itemName );
+			
+			output = player->currentLocation()->useItem( player->name(), itemName );
+			
+			
+			return output;
+			//output: El jugador utilitzar el item a la location..
+		
 		}
 
 };

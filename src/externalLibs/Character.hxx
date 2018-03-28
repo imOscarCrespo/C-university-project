@@ -53,10 +53,10 @@ class Character{
 				_life = _life-damage;
 			}
 
-			std::stringstream devolver;
-			devolver << damage;
+			std::stringstream output;
+			output << damage;
 
-			return " takes " + devolver.str() + " damage\n";
+			return " takes " + output.str() + " damage\n";
 
 		}//damae
 		
@@ -79,23 +79,31 @@ class Character{
 			_life = _life+cure;
 			}
 
-			std::stringstream devolver;
-			devolver << cure;
+			std::stringstream output;
+			output << cure;
 
-			return " gains " + devolver.str() + " life\n";
+			return " gains " + output.str() + " life\n";
 		}//cure
 
 		void locateAt( Location & newLocation );
 		
 		
 		virtual std::string receiveMagic(const unsigned int points){
-			std::stringstream devolver;
-			devolver << name() << " receives " << points <<" magic points\n";
-			return devolver.str(); 
+			std::stringstream output;
+			output << name() << " receives " << points <<" magic points\n";
+			return output.str(); 
 			
 		}//reciveMagic
 
 		virtual ~Character() {}
+
+		Location* currentLocation(){
+			return _location;
+		}
+		
+		void currentLocation( Location* newLocation ){
+			_location = newLocation;
+		}
 
 };
  
