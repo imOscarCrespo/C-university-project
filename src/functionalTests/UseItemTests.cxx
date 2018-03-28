@@ -22,7 +22,7 @@ public:
 		TEST_CASE( test_usePotionTwice ); 
 		TEST_CASE( test_useBomb_whenNotEnabled );
 		TEST_CASE( test_useBomb );
-		//TEST_CASE( test_useBombTwice );
+		TEST_CASE( test_useBombTwice );
 		//TEST_CASE( test_useBombOnManyThings );
 	}
 	
@@ -287,7 +287,7 @@ public:
 			world.useItem( "Paradise", "Eve", "Bomb" )
 		);
 	}
-	/*	
+
 	void test_useBombTwice()
 	{
 		// since the bomb disappears it cannot be used twice
@@ -309,7 +309,7 @@ public:
 		}
 	}
 
-
+	/*	
 	void test_useBombOnManyThings()
 	{
 		World world;
