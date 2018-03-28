@@ -1,100 +1,103 @@
-/*
-*	PRACTICA 2 : Xavier Maltas i Oscar Crespo
-*/
-
 #ifndef CHARACTER_HXX
-#define CHARACTER_HXX
-
+#define CHARACTER_HXX 
 #include <iostream>
-// #include <string>
-// #include <list>
-// #include <algorithm>
+#include <string>
+#include <sstream>
 #include <vector>
-// #include <exception>
 
 class Location;
 
 class Character{
 
+	protected:
 	std::string _name;
-	int _level;
-	int _life;
-	int _damage;
-	int _cure;
+	unsigned int _level;
+	unsigned int _life;
+	unsigned int _damage;
+	unsigned int _cure;
 	Location * _location;
 
 	public:
+		Character()
+			:_name("unknown"), 
+			 _level(0u), 	   
+			 _life(10u),       
+			 _location(0)
+		{}
 
-		//Constructor de la classe
+/*-----------------------NAME------------------------*/		 
 
-			Character()
-				//inicialització per defecte
-				:	_name("unknown"), 
-					_level(0u), 
-					_life(10u),
-					_location(0)
-			{}
+		const std::string & name() const{
+			return _name;
+		}//name
 
-			//Destructor
-			~Character()
-			{}
+		void name(const std::string &name){
+			_name = name;
+		}//name
+/*-----------------------LEVEL------------------------*/	
+		const unsigned int & level() const{
+			return _level;
+		}//level
+		
+		
+		void level(const unsigned int &level){
+			_level = level;
+		}//level
 
-		/*----------NAME-------------*/
-			//getter
-				const std::string & name() const //utilitzem & com a punter i cap persona des d'una altra part del codi no pot canviar aquest valor que guardem a _name, per tant ha de ser constant.
-				{
-					return _name;
-				}
+/*-----------------------DAMAGE------------------------*/	
+		std::string damage(const unsigned int &damage){
+			if(_life < damage ){
+				_life = 0;
+			}
+			else{
+				_life = _life-damage;
+			}
 
-			//setter
-				void name(const std::string & theName){
-					_name = theName;
-				}
+			std::stringstream devolver;
+			devolver << damage;
 
-		/*----------LEVEL-------------*/
-			//getter
-				const int & level()  const{
-					return _level;
-				}//level
-			//setter
-				void level(const int & theLevel){
-					_level = theLevel;
-				}//level
-		/*----------LIFE-------------*/
-			const int & life()  const{
-				return _life;
-			}//life
+			return " takes " + devolver.str() + " damage\n";
 
-			void life(const int & theLife){
-				_life = theLife;
-			}//life
-		/*----------DAMAGE-------------*/
-			void damage(const int & theDamage){
-				if(_life < theDamage){
-					_life = 0;
-				}
-				else{
-					_life = _life - theDamage;
-				}
-			}//damage
-		/*----------CURE-------------*/
-			void cure(const int & theCure){
-				if(_life==10){
-					_life=_life;
-				}
-				else{
-					_life = _life + theCure;
-				}
-			}//cure
+		}//damae
+		
+/*-----------------------LIFE------------------------*/	
+
+		void life(const unsigned int &life){
+			_life = life;
+		}//life
+
+		const unsigned int & life(){
+			return _life;
+		}//lifE
+
+/*-----------------------CURE------------------------*/	
+		std::string cure(const unsigned int &cure){
+			if(_life==10){
+			_life=_life;
+			}
+			else{
+			_life = _life+cure;
+			}
+
+			std::stringstream devolver;
+			devolver << cure;
+
+			return " gains " + devolver.str() + " life\n";
+		}//cure
+
+		void locateAt( Location & newLocation );
+		
+		
+		virtual std::string receiveMagic(const unsigned int points){
+			std::stringstream devolver;
+			devolver << name() << " receives " << points <<" magic points\n";
+			return devolver.str(); 
 			
-		//forwardDeclaration
-		void locateAt( Location & location);
+		}//reciveMagic
 
-		virtual std::string receiveMagic (int magicPoint){
-			return this->name() + " receives " + std::to_string(magicPoint) + " magic points\n";
-		}
+		virtual ~Character() {}
 
 };
+ 
 
-//Character_hxx
 #endif

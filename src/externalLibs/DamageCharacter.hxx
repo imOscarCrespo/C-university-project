@@ -1,27 +1,23 @@
-#ifndef DAMAGECHARACTER_HXX
-#define DAMAGECHARACTER_HXX
+#ifndef DamageCharacter_hxx
+#define DamageCharacter_hxx
 
-#include <MiniCppUnit.hxx>
-#include "Exception.hxx"
 #include "Character.hxx"
 
-class DamageCharacter : public Character
-{
+class DamageCharacter : public Character {
 
 public:
-	DamageCharacter(){}
-	~DamageCharacter(){}
 
-	std::string receiveMagic (int magicPoint){
-		std::string output = "";
+	DamageCharacter ( const std::string name, const unsigned level ) {
+		_name = name;
+		_level = level;
+	}//DamageCharacter
 
-		output = this->name() + " receives " + std::to_string(magicPoint) + " magic points\n" +
-		this->name() + " takes " + std::to_string(magicPoint) + " damage\n";
-
-		return output;
-	}
-
+	std::string receiveMagic(const unsigned points){
+		std::stringstream devolver;
+		damage(points);
+		devolver << Character::receiveMagic(points) << name() << " takes " << points <<" damage\n";
+		return devolver.str();	
+	}//receiveMagic
 };
 
-
-#endif //DamageCharacter_hxx
+#endif

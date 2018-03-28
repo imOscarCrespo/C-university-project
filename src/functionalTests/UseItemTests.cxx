@@ -1,6 +1,6 @@
 #include <MiniCppUnit.hxx>
-#include "World.hxx"
-#include "Location.hxx"
+#include <World.hxx>
+#include <Location.hxx>
 
 class UseItemTests : public TestFixture< UseItemTests >
 {
@@ -15,11 +15,11 @@ public:
 		TEST_CASE( test_distributeMagic_whenNoLocation );
 		TEST_CASE( test_distributeMagic );
 		TEST_CASE( test_distributeMagic_onDamageCharacter );
-		//TEST_CASE( test_useTrap );
+		TEST_CASE( test_useTrap );
 		//TEST_CASE( test_useTrapTwice );
 		//TEST_CASE( test_distributeMagic_onCureCharacter );
 		//TEST_CASE( test_usePotion );
-		//TEST_CASE( test_usePotionTwice );
+		//TEST_CASE( test_usePotionTwice ); 
 		//TEST_CASE( test_useBomb_whenNotEnabled );
 		//TEST_CASE( test_useBomb );
 		//TEST_CASE( test_useBombTwice );
@@ -41,7 +41,6 @@ public:
 			ASSERT_EQUALS( "The location does not exist" , e.what() );
 		}
 	}
-
 	void test_useItem_whenNoCharacter()
 	{
 		World world;
@@ -56,7 +55,6 @@ public:
 			ASSERT_EQUALS( "The character does not exist" , e.what() );
 		}
 	}
-
 	void test_useItem_whenNoItem()
 	{
 		World world;
@@ -73,8 +71,6 @@ public:
 			ASSERT_EQUALS( "The item does not exist" , e.what() );
 		}
 	}
-	
-
   void test_useItem_whenLevelTooLow()
   {
 		// requires checking whether the level of the character
@@ -89,8 +85,6 @@ public:
 			world.useItem( "Paradise", "Eve", "Apple" )
 		);
   }
-  
-	
 	void test_useBasicItem()
 	{
 		// requires a method "use" in Item.hxx with two arguments:
@@ -106,8 +100,6 @@ public:
 			world.useItem( "Paradise", "Eve", "Apple" )
 		);
 	}
-	
-
 	void test_distributeMagic_whenNoLocation()
 	{
 		// requires a method "distributeMagic" in World.hxx
@@ -123,8 +115,6 @@ public:
 			ASSERT_EQUALS( "The location does not exist" , e.what() );
 		}
 	}
-
-	
 	void test_distributeMagic()
 	{
 		// requires a method "receiveMagic" in Item.hxx
@@ -142,8 +132,6 @@ public:
 			world.distributeMagic( "Paradise", 5 )
 		);
 	}
-
-	
 	void test_distributeMagic_onDamageCharacter()
 	{
 		// requires a method "addDamageCharacter" in World.hxx
@@ -158,9 +146,6 @@ public:
 			world.distributeMagic( "Paradise", 5 )
 		);
 	}
-
-
-	/*
 
 	void test_useTrap()
 	{
@@ -182,7 +167,7 @@ public:
 			world.useItem( "Paradise", "Eve", "Trap" )
 		);
 	}
-	
+
 	/*
 	void test_useTrapTwice()
 	{
@@ -203,6 +188,7 @@ public:
 			ASSERT_EQUALS( "The item does not exist" , e.what() );
 		}
 	}
+	
 	void test_distributeMagic_onCureCharacter()
 	{
 		// requires a method "addCureCharacter" in World.hxx
@@ -219,6 +205,8 @@ public:
 			world.distributeMagic( "Paradise", 5 )
 		);
 	}
+
+
 	void test_usePotion()
 	{
 		// requires a method "addPotionAtLocation" in World.hxx
@@ -239,6 +227,8 @@ public:
 			world.useItem( "Paradise", "Eve", "Cure" )
 		);
 	}
+
+	
 	void test_usePotionTwice()
 	{
 		// since the potion disappears it cannot be used twice
@@ -260,6 +250,7 @@ public:
 			ASSERT_EQUALS( "The item does not exist" , e.what() );
 		}
 	}
+	
 	void test_useBomb_whenNotEnabled()
 	{
 		// requires a method "addBombAtLocation" in World.hxx
@@ -278,6 +269,8 @@ public:
 			world.useItem( "Paradise", "Eve", "Bomb" )
 		);
 	}
+
+	
 	void test_useBomb()
 	{
 		// the bomb disappears before distributing magic energy
@@ -294,6 +287,7 @@ public:
 			world.useItem( "Paradise", "Eve", "Bomb" )
 		);
 	}
+
 	void test_useBombTwice()
 	{
 		// since the bomb disappears it cannot be used twice
@@ -314,6 +308,8 @@ public:
 			ASSERT_EQUALS( "The item does not exist" , e.what() );
 		}
 	}
+
+
 	void test_useBombOnManyThings()
 	{
 		World world;

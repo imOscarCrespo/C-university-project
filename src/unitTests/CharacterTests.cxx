@@ -1,17 +1,13 @@
-/*
-*	PRACTICA 2 : Xavier Maltas i Oscar Crespo
-*/
-
-
 #include <MiniCppUnit.hxx>
 #include <Character.hxx>
+
 
 class CharacterTest : public TestFixture< CharacterTest >
 {
 public:
 	TEST_FIXTURE( CharacterTest )
 	{
-		TEST_CASE( test_name_byDefault );
+		TEST_CASE( test_name_byDefault ); 
 		TEST_CASE( test_name_whenChanged );
 		TEST_CASE( test_level_byDefault );
 		TEST_CASE( test_level_whenChanged );
@@ -40,17 +36,14 @@ public:
 			character.name()
 		);
 	}
-	
 	void test_level_byDefault()
 	{
 		Character character;
 		ASSERT_EQUALS(
-			0,
+			0u,
 			character.level()
 		);
-
 	}
-
 	void test_level_whenChanged()
 	{
 		Character character;
@@ -60,7 +53,6 @@ public:
 			character.level()
 		);
 	}
-	
 
 	void test_life_byDefault()
 	{
@@ -70,17 +62,14 @@ public:
 			character.life()
 		);
 	}
-	
+
 	void test_life_afterDamage()
 	{
 		Character character;
 		character.damage( 4u );
-		ASSERT_EQUALS(
-			6u,
-			character.life()
-		);
+		ASSERT_EQUALS(6u,character.life());
 	}
-	
+
 	void test_life_afterCure()
 	{
 		Character character;
@@ -91,7 +80,7 @@ public:
 			character.life()
 		);
 	}
-	
+
 	void test_life_afterDamageBeyondLife()
 	{
 		Character character;
@@ -101,8 +90,6 @@ public:
 			character.life()
 		);
 	}
-	
-	
 	void test_life_afterCuringBeyondMax()
 	{
 		Character character;

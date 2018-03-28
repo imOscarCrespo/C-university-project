@@ -1,17 +1,12 @@
-
-#include <MiniCppUnit.hxx>
+#include "Location.hxx"
 #include "Character.hxx"
-#include "ItemDecorator.hxx"
-#include <string>
-#include <iostream>
 
-class Trap : public ItemDecorator
-{
-	public:
-		Trap(AbstractItem *decorator):ItemDecorator(decorator){}
-		~Trap(){}
-		/*std::string useItem(Character *anonymous)
-		{
-			return anonymous->name() + " takes 5 damage\n";
-		}*/
-};
+
+std::string TrapItem::useItem( Location * newLocation, Character * newCharacter ){
+	
+	std::string uses = DecoratorItem::useItem( newLocation, newCharacter );
+
+	newLocation->removeItem(getName());
+	
+	return uses + newCharacter->name() + newCharacter->damage( 5 );
+}//useItem

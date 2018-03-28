@@ -39,9 +39,8 @@ public:
 		ASSERT_EQUALS(
 			"Hall\n",
 			world.locations()
-		);
-	}
-	
+		); 
+	} 
 	void test_locations_byDefault()
 	{
 		World world;
@@ -50,7 +49,6 @@ public:
 			world.locations()
 		);
 	}
-	
 	void test_locations_afterAddingASecondLocation()
 	{
 		World world;
@@ -62,7 +60,6 @@ public:
 			world.locations()
 		);
 	}
-	
 	void test_locationDetails_whenNoLocation()
 	{
 		World world;
@@ -79,7 +76,6 @@ public:
 			);
 		}
 	}
-	
 	void test_locationDetails_whenEmptyAndUnconnected()
 	{
 		// The idea is to use the method Location::description.
@@ -90,7 +86,6 @@ public:
 			world.locationDetails( "Madrid" )
 		);
 	}
-	
 	void test_locationDetails_whenLocationDoesNotExist()
 	{
 		World world;
@@ -121,7 +116,6 @@ public:
 			, world.locationDetails("Hall")
 		);
 	}
-
 	void test_addItemAtLocation_withWrongLocation()
 	{
 		World world;
@@ -138,7 +132,6 @@ public:
 			);
 		}
 	}
-	
 	void test_locationDetails_whenConnectedNorthSouth()
 	{
 		// Remember that the (unary) association is *optional*, not multiple.
@@ -174,8 +167,6 @@ public:
 			world.locationDetails("Madrid")
 		);
 	}
-	
-	
 	void test_locationDetails_whenConnectedEastWest()
 	{
 		// Similar to the previous test but for east-west connections.
@@ -192,8 +183,6 @@ public:
 			world.locationDetails("Madrid")
 		);
 	}
-
-	
 	void test_locationDetails_whenFullyConnected()
 	{
 		// Tests the order in which connections are presented.
@@ -216,7 +205,6 @@ public:
 			world.locationDetails("Madrid")
 		);
 	}
-	
 	void test_characters_whenEmpty()
 	{
 		World world;
@@ -225,7 +213,6 @@ public:
 			, world.characters()
 		);
 	}
-	
 	void test_characters_withOneCharacter()
 	{
 		World world;
@@ -236,7 +223,6 @@ public:
 			world.characters()
 		);
 	}
-	
 	void test_characters_withTwoCharacters()
 	{
 		World world;
@@ -248,7 +234,6 @@ public:
 			world.characters()
 		);
 	}
-	
 	void test_placeCharacter_whenCharacterDoesNotExist()
 	{
 		World world;
@@ -266,7 +251,6 @@ public:
 			);
 		}
 	}
-
 	void test_locationDetails_withOneCharacter()
 	{
 		// The idea is to use the method Location::placeCharacter.
@@ -280,7 +264,6 @@ public:
 			world.locationDetails( "Hall" )
 		);
 	}
-
 	void test_locationDetails_withManyCharacters()
 	{
 		World world;
@@ -296,7 +279,6 @@ public:
 			world.locationDetails( "Hall" )
 		);
 	}
-	
 	void test_locationDetails_withCharactersItemsAndConnections()
 	{
 		// Tests the order of the information in locationDetails.
@@ -327,7 +309,6 @@ public:
 			world.locationDetails( "Hall" )
 		);
 	}
-
 	void test_placeCharacter_whenWasAlreadyPlaced()
 	{
 		// Here we see that it is convenient to maintain a backlink from
@@ -379,8 +360,7 @@ public:
 			world.locationDetails( "Hall" ) +
 			world.locationDetails( "Garden" )
 		);
-	}
-	/*
+	}/*
 	// Optional test
 	void test_connectNorthToSouth_whenNorthAlreadyConnected()
 	{

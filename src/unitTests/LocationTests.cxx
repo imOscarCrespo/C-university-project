@@ -1,7 +1,3 @@
-/*
-*	PRACTICA 2 : Xavier Maltas i Oscar Crespo
-*/
-
 #include <MiniCppUnit.hxx>
 #include <Location.hxx>
 
@@ -24,7 +20,6 @@ public:
 		);
 	}
 
-	
 	void test_name_whenChanged()
 	{
 		Location location;
@@ -34,7 +29,7 @@ public:
 			location.name()
 		);
 	}
-	
+
 	void test_description_whenEmpty()
 	{
 		Location location;

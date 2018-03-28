@@ -1,72 +1,27 @@
-#include <MiniCppUnit.hxx>
+#ifndef AbstractItem_hxx
+#define AbstractItem_hxx
+
 #include "Character.hxx"
-
-#include <string>
 #include <iostream>
+#include <string>
+#include <vector>
 
-class AbstractItem
-{
 
-	protected:
-	std::string _name;
-	int _level;
-	bool _enable;
+class AbstractItem{
 
 	public:
-		AbstractItem():	_name("unknown"),_level(10u),_enable(false)
-		{}
-		virtual ~AbstractItem(){}
-
-/*----------NAME-------------*/
-		//Getter
-			const std::string & name() const{
-				return _name;
-			}//name
-
-		//Setter
-			void name(const std::string &name){
-				_name = name;
-			}//name
-
-/*----------LEVEL-------------*/
-		//getter
-			const int & level()  const{
-				return _level;
-			}//level
-
-		//setter
-			void level(const int & theLevel){
-				_level = theLevel;
-			}//level
-		
-/*----------ENABLE-------------*/
-		//getter 
-			const bool & enable() const{
-				return _enable;
-			}//enable
-
-		//setter
-			void enable( const bool & theEnable){
-				_enable = theEnable;
-			}//enable
-
-/*---------DESCRIPTION----------*/
-
-	std::string description() const{
-		int entero = _level;
-		std::string cadena = "";
-		cadena = std::to_string(entero);
-
-		return _name + " [" + cadena + "]";
-	}//descripption
-
-
-	std::string use(std::string theCharacter, std::string theLocation){
-		return theCharacter + " uses " + (*this).name() + " at " + theLocation + "\n";
-	}//use
-
-	std::string receiveMagic (int magicPoint){
-		return this->name() + " receives " + std::to_string(magicPoint) + " magic points\n";
-	}
-
+		virtual ~AbstractItem() {};
+		virtual const std::string & getName() const = 0;
+		virtual void setName(const std::string &name) = 0;
+		virtual const unsigned int & level() const= 0;
+		virtual void level(const unsigned int &level) = 0;
+		virtual const bool & hasItem() const= 0;
+		virtual void hasItem(const bool &hasItem) = 0;
+		virtual std::string description () = 0;
+		virtual std::string receiveMagic(const unsigned int points)= 0;
+		virtual std::string useItem ( Location * newLocation, Character * newCharacter )= 0;
+		virtual bool hasMagic () =0;
+		virtual void hasMagic ( bool hasMagic ) =0;
 };
+
+#endif

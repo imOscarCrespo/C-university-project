@@ -1,6 +1,5 @@
 #include <MiniCppUnit.hxx>
 #include "Location.hxx"
-#include <iostream>
 
 class ExtendedLocationTests : public TestFixture< ExtendedLocationTests >
 {
@@ -32,7 +31,6 @@ public:
 			location.items()
 		);
 	}
-	
 	void test_addItem_withNoItem()
 	{
 		Location location;
@@ -41,7 +39,6 @@ public:
 			location.items()
 		);
 	}
-	
 	void test_addItem_withTwoItems()
 	{
 		Location location;
@@ -53,24 +50,22 @@ public:
 			location.items()
 		);
 	}
-	
 	void test_findItem_withTwoItems()
 	{
 		Location location;
 		location.addItem( "Hammer", 0u );
 		location.addItem( "Nail", 0u );
-		
-		Item & item = location.findItem( "Nail" );
+
+		AbstractItem & item = location.findItem( "Nail" );
 		ASSERT_EQUALS(
 			"Nail [0]",
 			item.description()
 		);
 	}
-	
 	void test_findItem_withInexistentItem()
 	{
 		Location location;
-		location.addItem( "Hammer", 0u );	
+		location.addItem( "Hammer", 0u );
 
 		try
 		{
@@ -85,7 +80,6 @@ public:
 			)
 		}
 	}
-	
 	void testDescription_withoutItems()
 	{
 		Location location;
@@ -96,7 +90,6 @@ public:
 			location.description()
 		)
 	}
-
 	void testDescription_withItems()
 	{
 		Location location;
@@ -124,7 +117,6 @@ public:
 			"- Carpenter is here.\n",
 			location.characters()
 		);
-		
 	}
 	void test_placeCharacter_withNoCharacter()
 	{
@@ -153,7 +145,6 @@ public:
 			location.characters()
 		);
 	}
-
 	void test_findCharacter_withTwoCharacters()
 	{
 		Location location;
@@ -172,8 +163,6 @@ public:
 			character.name()
 		);
 	}
-
-	
 	void test_findCharacter_withInexistentCharacter()
 	{
 		Location location;
