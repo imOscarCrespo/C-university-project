@@ -23,7 +23,7 @@ public:
 		TEST_CASE( test_useBomb_whenNotEnabled );
 		TEST_CASE( test_useBomb );
 		TEST_CASE( test_useBombTwice );
-		//TEST_CASE( test_useBombOnManyThings );
+		TEST_CASE( test_useBombOnManyThings );
 	}
 	
 	void test_useItem_whenNoLocation()
@@ -309,7 +309,7 @@ public:
 		}
 	}
 
-	/*	
+
 	void test_useBombOnManyThings()
 	{
 		World world;
@@ -334,7 +334,7 @@ public:
 			world.useItem( "Paradise", "Eve", "Bomb" )
 		);
 	}
-	*/
+
 };
 
 REGISTER_FIXTURE(UseItemTests)
