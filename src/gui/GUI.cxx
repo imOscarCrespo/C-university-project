@@ -2,7 +2,7 @@
 #include "Controller.hxx"
 #include "Model.hxx"
 #include "View.hxx"
-//#include "World.hxx"
+#include "World.hxx"
 
 int main( int argc, char * argv[] )
 {
@@ -12,8 +12,8 @@ int main( int argc, char * argv[] )
 	Model * model;
 	View view( &controller );
 
-	//World world;
-	//model = &world;
+	World world;
+	model = &world;
 
 	QObject::connect( &controller, SIGNAL( doMove( const std::string & ) ),
 	                  model, SLOT( doMove( const std::string & ) ) );

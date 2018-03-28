@@ -4,14 +4,14 @@
 #include "Character.hxx"
 #include "Location.hxx"
 #include "MyException.hxx"
-//#include "gui/Model.hxx"
+#include "gui/Model.hxx"
 #include <vector>
 #include <iostream>
 
 typedef std::vector<Location *> Locations; 
 typedef std::vector<Character *> Characters; 
 
-class World /*: public Model*/{
+class World : public Model{
 	
 	private:
 	Locations _locations;
