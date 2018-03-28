@@ -8,5 +8,5 @@ std::string TrapItem::useItem( Location * newLocation, Character * newCharacter 
 
 	newLocation->removeItem(getName());
 	
-	return uses + " " + newCharacter->name() + newCharacter->damage( 5 );
+	return uses + newCharacter->name() + newCharacter->damage( 5 );
 }//useItem
