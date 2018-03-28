@@ -18,7 +18,7 @@ public:
 		TEST_CASE( test_useTrap );
 		TEST_CASE( test_useTrapTwice );
 		TEST_CASE( test_distributeMagic_onCureCharacter );
-		//TEST_CASE( test_usePotion );
+		TEST_CASE( test_usePotion );
 		//TEST_CASE( test_usePotionTwice ); 
 		//TEST_CASE( test_useBomb_whenNotEnabled );
 		//TEST_CASE( test_useBomb );
@@ -206,7 +206,7 @@ public:
 		);
 	}
 
-	/*
+
 	void test_usePotion()
 	{
 		// requires a method "addPotionAtLocation" in World.hxx
@@ -228,7 +228,7 @@ public:
 		);
 	}
 
-	
+	/*	
 	void test_usePotionTwice()
 	{
 		// since the potion disappears it cannot be used twice
