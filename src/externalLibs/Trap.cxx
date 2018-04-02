@@ -1,20 +1,10 @@
-#ifndef TrapItem_hxx
-#define TrapItem_hxx
+#include "Location.hxx"
+#include "Character.hxx"
 
-#include "DecoratorItem.hxx"
 
-class TrapItem : public DecoratorItem {
-	
-public:
-
-	TrapItem(AbstractItem * absItem) : DecoratorItem(absItem){}
-	
-	std::string useItem(Location * loc, Character * character){
-		std::string uses = DecoratorItem::useItem( loc, character );
-
-		return uses + character->name() + character->damage( 5 );
-	}//useItem
-	
-};
-
-#endif
+std::string Trap::useItem( Character * newCharacter, Location * location )
+{
+	std::string uses = ItemDecorator::useItem( newCharacter, location );
+	location->removeItem(getName());
+	return uses + newCharacter->damage(5);
+}

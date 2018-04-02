@@ -17,42 +17,42 @@ public:
 
     void test_name_byDefault()
     {
-        Item item1;
+        Item it;
 
-        ASSERT_EQUALS( "unknown", item1.getName() );
+        ASSERT_EQUALS( "unknown", it.getName() );
     }
   
     void test_level_byDefault()
     {
-	Item item1;
+	Item it;
 	ASSERT_EQUALS(
-		50u,
-		item1.level()
+		75u,
+		it.level()
 	);
      }
 
     void test_level_whenChanged()
     {
-	Item item1;
-	item1.level(50u);
+	Item it;
+	it.level(75);
 	ASSERT_EQUALS(
-		50u,
-		item1.level()
+		75u,
+		it.level()
 	);
     }
 
     void test_bool_byDefault()
     {
-        Item item1;
+        Item it;
 
-        ASSERT_EQUALS( false, item1.hasItem() );
+        ASSERT_EQUALS( false, it.hasItem() );
     }
 
     void test_bool_withItem()
     {
-        Item item1;
-	   item1.hasItem(true);
-        ASSERT_EQUALS( true, item1.hasItem() );
+        Item it;
+	it.hasItem(true);
+        ASSERT_EQUALS( true, it.hasItem() );
     }
 
 };

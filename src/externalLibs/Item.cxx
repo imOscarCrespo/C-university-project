@@ -1,7 +1,7 @@
 #include "Location.hxx"
 #include "Character.hxx"
 
-std::string Item::useItem ( Location * newLocation, Character * newCharacter )
+std::string Item::useItem ( Character * newCharacter,  Location * location )
 {
-	return newCharacter->name() + " uses " + this->_name + " at " + newLocation->name() + "\n";
+	return newCharacter->name() + " uses " + (*this).getName() + " at " + location->name() + "\n";
 }

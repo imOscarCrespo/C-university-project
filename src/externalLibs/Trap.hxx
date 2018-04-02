@@ -1,12 +1,16 @@
-#include "Location.hxx"
-#include "Character.hxx"
+#ifndef Trap_hxx
+#define Trap_hxx
 
+#include "ItemDecorator.hxx"
 
-std::string TrapItem::useItem( Location * newLocation, Character * newCharacter ){
+class Trap : public ItemDecorator {
 	
-	std::string uses = DecoratorItem::useItem( newLocation, newCharacter );
+public:
 
-	newLocation->removeItem(getName());
+	Trap( AbstractItem * absItem ) : ItemDecorator(absItem){}
 	
-	return uses + newCharacter->name() + newCharacter->damage( 5 );
-}//useItem
+	std::string useItem(Character * newCharacter, Location * location );
+	 
+}; 
+
+#endif

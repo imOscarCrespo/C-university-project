@@ -26,10 +26,6 @@ public:
 		TEST_CASE( test_locationDetails_withCharactersItemsAndConnections );
 		TEST_CASE( test_placeCharacter_whenWasAlreadyPlaced );
 
-		//TEST_CASE( test_connectNorthToSouth_whenNorthAlreadyConnected ); // Optional
-		//TEST_CASE( test_connectNorthToSouth_whenSouthAlreadyConnected ); // Optional
-		//TEST_CASE( test_connectWestToEast_whenEastAlreadyConnected ); // Optional
-		//TEST_CASE( test_connectWestToEast_whenWestAlreadyConnected ); // Optional
 	}
 
 	void test_locations_afterAddingALocation()
@@ -360,89 +356,9 @@ public:
 			world.locationDetails( "Hall" ) +
 			world.locationDetails( "Garden" )
 		);
-	}/*
-	// Optional test
-	void test_connectNorthToSouth_whenNorthAlreadyConnected()
-	{
-		World world;
-		world.addLocation( "Location" );
-		world.addLocation( "Connection1" );
-		world.addLocation( "Connection2" );
-		world.connectNorthToSouth( "Location", "Connection1" );
-		world.connectNorthToSouth( "Location", "Connection2" );
-		ASSERT_EQUALS(
-			"Location: Location\n"
-			"\tSouth: Connection2\n"
-			"Location: Connection1\n"
-			"Location: Connection2\n"
-			"\tNorth: Location\n",
-			world.locationDetails( "Location" ) +
-			world.locationDetails( "Connection1" ) +
-			world.locationDetails( "Connection2" )
-		);
 	}
-	// Optional test
-	void test_connectNorthToSouth_whenSouthAlreadyConnected()
-	{
-		World world;
-		world.addLocation( "Location" );
-		world.addLocation( "Connection1" );
-		world.addLocation( "Connection2" );
-		world.connectNorthToSouth( "Connection1", "Location" );
-		world.connectNorthToSouth( "Connection2", "Location" );
-		ASSERT_EQUALS(
-			"Location: Location\n"
-			"\tNorth: Connection2\n"
-			"Location: Connection1\n"
-			"Location: Connection2\n"
-			"\tSouth: Location\n",
-			world.locationDetails( "Location" ) +
-			world.locationDetails( "Connection1" ) +
-			world.locationDetails( "Connection2" )
-		);
-	}
-	// Optional test
-	void test_connectWestToEast_whenEastAlreadyConnected()
-	{
-		World world;
-		world.addLocation( "Location" );
-		world.addLocation( "Connection1" );
-		world.addLocation( "Connection2" );
-		world.connectWestToEast( "Connection1", "Location" );
-		world.connectWestToEast( "Connection2", "Location" );
-		ASSERT_EQUALS(
-			"Location: Location\n"
-			"\tWest: Connection2\n"
-			"Location: Connection1\n"
-			"Location: Connection2\n"
-			"\tEast: Location\n",
-			world.locationDetails( "Location" ) +
-			world.locationDetails( "Connection1" ) +
-			world.locationDetails( "Connection2" )
-		);
-	}
-	// Optional test
-	void test_connectWestToEast_whenWestAlreadyConnected()
-	{
-		World world;
-		world.addLocation( "Location" );
-		world.addLocation( "Connection1" );
-		world.addLocation( "Connection2" );
-		world.connectWestToEast( "Location", "Connection1" );
-		world.connectWestToEast( "Location", "Connection2" );
-		ASSERT_EQUALS(
-			"Location: Location\n"
-			"\tEast: Connection2\n"
-			"Location: Connection1\n"
-			"Location: Connection2\n"
-			"\tWest: Location\n",
-			world.locationDetails( "Location" ) +
-			world.locationDetails( "Connection1" ) +
-			world.locationDetails( "Connection2" )
-		);
-	}
-*/
 };
 
 REGISTER_FIXTURE( WorldTests )
+
 

@@ -147,6 +147,7 @@ public:
 		);
 	}
 
+	
 	void test_useTrap()
 	{
 		// refactor the Item class using the Decorator pattern
@@ -167,8 +168,8 @@ public:
 			world.useItem( "Paradise", "Eve", "Trap" )
 		);
 	}
-
-
+	
+	
 	void test_useTrapTwice()
 	{
 		// since the trap disappears it cannot be used twice
@@ -188,7 +189,7 @@ public:
 			ASSERT_EQUALS( "The item does not exist" , e.what() );
 		}
 	}
-
+	
 	void test_distributeMagic_onCureCharacter()
 	{
 		// requires a method "addCureCharacter" in World.hxx
@@ -206,7 +207,7 @@ public:
 		);
 	}
 
-
+	
 	void test_usePotion()
 	{
 		// requires a method "addPotionAtLocation" in World.hxx
@@ -250,7 +251,7 @@ public:
 			ASSERT_EQUALS( "The item does not exist" , e.what() );
 		}
 	}
-
+	
 	void test_useBomb_whenNotEnabled()
 	{
 		// requires a method "addBombAtLocation" in World.hxx
@@ -269,8 +270,7 @@ public:
 			world.useItem( "Paradise", "Eve", "Bomb" )
 		);
 	}
-
-
+	
 	void test_useBomb()
 	{
 		// the bomb disappears before distributing magic energy
@@ -308,8 +308,7 @@ public:
 			ASSERT_EQUALS( "The item does not exist" , e.what() );
 		}
 	}
-
-
+	
 	void test_useBombOnManyThings()
 	{
 		World world;
@@ -334,7 +333,7 @@ public:
 			world.useItem( "Paradise", "Eve", "Bomb" )
 		);
 	}
-
+	
 };
 
 REGISTER_FIXTURE(UseItemTests)

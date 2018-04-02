@@ -1,111 +1,103 @@
 #ifndef CHARACTER_HXX
 #define CHARACTER_HXX 
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <vector>
+
+#include <sstream>   
 
 class Location;
 
+ 
 class Character{
 
 	protected:
-	std::string _name;
-	unsigned int _level;
-	unsigned int _life;
-	unsigned int _damage;
-	unsigned int _cure;
-	Location * _location;
+		std::string _name;
+		unsigned int _level;
+		unsigned int _life;
+		unsigned int _damage;
+		unsigned int _cure;
+
+		Location * loc_;
+
+
 
 	public:
+		
 		Character()
-			:_name("unknown"), 
-			 _level(0u), 	   
-			 _life(10u),       
-			 _location(0)
-		{}
+			:_name("unknown"), _level(0u), _life(10u), loc_(0)     
+		{
+ 			// TO DO
+		}	
 
-/*-----------------------NAME------------------------*/		 
-
-		const std::string & name() const{
+	
+		const std::string & name() const
+		{
 			return _name;
-		}//name
+		}
 
-		void name(const std::string &name){
+		void name(const std::string &name) 
+		{
 			_name = name;
-		}//name
-/*-----------------------LEVEL------------------------*/	
-		const unsigned int & level() const{
+		}
+
+		const unsigned int & level() const
+		{
 			return _level;
-		}//level
-		
-		
-		void level(const unsigned int &level){
+		}
+
+		void level(const unsigned int &level) 
+		{
 			_level = level;
-		}//level
+		}
 
-/*-----------------------DAMAGE------------------------*/	
-		std::string damage(const unsigned int &damage){
-			if(_life < damage ){
-				_life = 0;
-			}
-			else{
-				_life = _life-damage;
-			}
+		std::string damage(const unsigned int &damage) 
+		{
+			if(damage > _life ){ _life = 0; }
+			else { _life = _life-damage; }
 
-			std::stringstream output;
-			output << damage;
+			std::stringstream ss;
+			ss << damage;
+			return this->name() + " takes " + ss.str() + " damage\n";
+		}
 
-			return " takes " + output.str() + " damage\n";
-
-		}//damae
-		
-/*-----------------------LIFE------------------------*/	
-
-		void life(const unsigned int &life){
-			_life = life;
-		}//life
-
-		const unsigned int & life(){
+		const unsigned int & life() 
+		{
 			return _life;
-		}//lifE
-
-/*-----------------------CURE------------------------*/	
-		std::string cure(const unsigned int &cure){
-			if(_life==10){
-			_life=_life;
-			}
-			else{
-			_life = _life+cure;
-			}
-
-			std::stringstream output;
-			output << cure;
-
-			return " gains " + output.str() + " life\n";
-		}//cure
-
-		void locateAt( Location & newLocation );
-		
-		
-		virtual std::string receiveMagic(const unsigned int points){
-			std::stringstream output;
-			output << name() << " receives " << points <<" magic points\n";
-			return output.str(); 
-			
-		}//reciveMagic
-
-		virtual ~Character() {}
-
-		Location* currentLocation(){
-			return _location;
 		}
-		
-		void currentLocation( Location* newLocation ){
-			_location = newLocation;
+
+		void life(const unsigned int &life) 
+		{
+			_life = life;
 		}
+
+
+		std::string cure(const unsigned int &cure) 
+		{
+			if(_life==10){ _life = _life; }
+			else{ _life = _life + cure; }
+			std::stringstream ss;
+			ss << cure;
+
+			return " gains " + ss.str() + " life\n";
+		}
+
+		void locateAt( Location & newLoc );
+		Location * playerLocations() const { return loc_; }
+
+ 
+		virtual std::string receiveMagic(unsigned int points)
+		{
+			std::stringstream ss;
+			ss << this->name() << " receives " << points << " magic points\n";
+			return ss.str();
+		}
+
+		
+
+
+
+		virtual ~Character(){};
+
+
 
 };
- 
 
 #endif

@@ -235,3 +235,4 @@ public:
 
 REGISTER_FIXTURE( ExtendedLocationTests )
 
+

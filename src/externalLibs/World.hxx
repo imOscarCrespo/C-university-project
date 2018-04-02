@@ -1,28 +1,26 @@
 #ifndef WORLD_HXX
 #define WORLD_HXX
+
+
 #include "Item.hxx"
 #include "Character.hxx"
 #include "Location.hxx"
+#include "Cure.hxx" 
+#include "Potion.hxx" 
 #include "MyException.hxx"
-#include "gui/Model.hxx"
+#include "Model.hxx"
 #include <vector>
-#include <iostream>
 
-typedef std::vector<Location *> Locations; 
 typedef std::vector<Character *> Characters; 
+typedef std::vector<Location *> Locations; 
 
-class World : public Model{
+
+class World : public Model{ 
 	
-	private:
 	Locations _locations;
 	Characters _characters;
-
+	
 	public:
-		Character* player;
-		
-		World()
-		{
-		}
 
 		//World Destructor
 		~World(){
@@ -33,7 +31,6 @@ class World : public Model{
 				delete *it;
 			}
 		}
-
 
 // ------------ LOCATION
 
@@ -54,21 +51,22 @@ class World : public Model{
 			}
 	
 			return locations;
-		}
+		}//locations
+		
 		//Reserca d'una localització dins del World i treure tota la seva infomació
-		std::string locationDetails( const std::string & theCharacter){
+		std::string locationDetails( const std::string & details){
 			
 			std::string locations;
 			
 			for ( Locations::const_iterator it = _locations.begin(); it != _locations.end(); it++ ){
 				
-				if ((*it)->name() == theCharacter){
+				if ((*it)->name() == details){
 					locations += (*it)->description();
 					return locations; 
 				}
 			}
 			throw LocationNotFound();
-		}
+		}//locationDetails
 
 		void addItemAtLocation(const std::string &newLocation, const std::string &newItem2, unsigned requiredLevel){
 			bool aux= false;
@@ -80,8 +78,7 @@ class World : public Model{
 				}
 			}
 			if(aux==false) {throw LocationNotFound();}
-		
-		}
+		}//addItemAtLocation
 
 		void connectNorthToSouth(const std::string &north, const std::string &south){
 
@@ -99,7 +96,7 @@ class World : public Model{
 				if ((*it)->name() == east){(*it)->connectWest(findLocation(west));}	
 			}	
 			
-		}
+		}//connectWestToEast
 		
 		
 		Location & findLocation ( const std::string & newLocation )
@@ -115,12 +112,10 @@ class World : public Model{
 		}//findLocation
 
 
-// ------------ CHARACTERS
-		void addCharacter (const std::string & newCharacter, unsigned int level){
-			//nova instancia de item
-			//set del valors de la nova instancia
-			//pushback al final del vector
-		
+//--------CHARACTER
+
+		void addCharacter (const std::string & newCharacter, unsigned level)
+		{
 			Character* character = new Character();
 			character->name(newCharacter);
 			character->level(level);
@@ -136,104 +131,97 @@ class World : public Model{
 			}
 	
 			return characters; 
-		}
+		}//characters
 
-		void placeCharacter (const std::string &character,const std::string &location)
+		void placeCharacter (const std::string &character,const std::string location)
 		{
-			int aux = 0;
+			int flagCheckCharacter = 0;
 			for (Characters::const_iterator it = _characters.begin();it != _characters.end();it++ ){
 				if((*it)->name() == character){
 					findCharacter(character).locateAt(findLocation(location));
-					aux=1;
-				}
+					flagCheckCharacter=1;
+				} 
 			}
-			if(aux==0){throw CharacterNotFound();}
-		}
-
+			if(flagCheckCharacter==0){throw CharacterNotFound();}
+		}//placeCharacter
+     
 
 		Character & findCharacter ( const std::string & character )
-		{
+		{ 
 			if ( _characters.empty() != true )
 			{	
 				for ( Characters::iterator it = _characters.begin(); it != _characters.end(); ++it )
 					if( (*it)->name() == character )
 						return (**it);
 			}
- 
+  
 			throw CharacterNotFound();
-		}
-// ------------ CHARACTERS END
-// ------------ ITEM 
-	
-		std::string useItem(const std::string & location, const std::string & character, const std::string & item){
-			//El character utilitza el item a la localitzacio			
-		
-			std::string output;
+		}//findCharacter
 
-			findLocation(location); 
-			findCharacter(character); 
-			findLocation(location).findItem(item); 
-			output = findLocation(location).useItem(character,item);
+//---------ITEM
 
-			return output;
-
+		std::string useItem(const std::string locN, const std::string charN, const std::string itN)
+		{	
+			findLocation(locN);
+			findCharacter(charN);
+			findLocation(locN).findItem(itN);
+			Location & location = findLocation(locN);
+			AbstractItem & item = findLocation(locN).findItem(itN); 
+			Character & character = findCharacter(charN);
+			
+			if(character.level() >= item.level()) { return item.useItem(&character, &location); }
+			else return "The level of " + character.name() + " is too low\n";
 		}//useItem
-
-		std::string distributeMagic (const std::string &location, const unsigned int points){
-			std::string output;
-
-			findLocation(location);
-			output = findLocation(location).distributeMagic(points);
-
-			return output;
-
+   
+		std::string distributeMagic ( std::string nLoc, unsigned int nPts )
+		{		
+			return findLocation( nLoc ).distributeMagic( nPts );
 		}//distributeMagic
 
-		void addDamageCharacter(const std::string &character,const unsigned int points){
-
-			Character* damageChar = new DamageCharacter(character,points);
-			_characters.push_back(damageChar);		
-
-		}
-
-		void addTrapAtLocation(const std::string &location, const std::string &trap, const unsigned int points){
-		
-			findLocation(location).addTrap(trap,points); 
-		}
-
-		void addCureCharacter(const std::string &character,const unsigned int points){
-
-			Character* cureChar = new CureCharacter(character,points);
-			_characters.push_back(cureChar);		
-
-		}
-
-		void addPotionAtLocation(const std::string &location, const std::string &trap, const unsigned int points){
-		
-			findLocation(location).addPotion(trap,points); 
-		}
-
-		void addBombAtLocation(const std::string &location, const std::string &bomb, const unsigned int points)
+		void addDamageCharacter(const std::string & nName, unsigned nPts)
 		{
-			findLocation(location).addBomb(bomb,points); 
-		}
+			Character * character = new CharacterDamage(nName, nPts);
+			
+			_characters.push_back(character);
+		}//addDamageCharacter
+
+		void addTrapAtLocation (const std::string & nLoc, const std::string & nName, unsigned nPts )
+		{		
+			return findLocation( nLoc ).addTrap( nName, nPts );
+		}//addTrapAtLocation
+
+		void addCureCharacter ( const std::string & newName, unsigned int newPoints )
+		{
+			Character * cureCharacter = new Cure( newName, newPoints );
+			_characters.push_back( cureCharacter );
+		}//addCureCharacter
+
+		void addPotionAtLocation ( const std::string & newLocation, const std::string & newName, unsigned newPoints )
+		{  
+			return findLocation( newLocation ).addPotion( newName, newPoints );
+		}//addPotionAtLocation
+
+		void addBombAtLocation ( const std::string & newLocation, const std::string & newName, unsigned newPoints )
+		{ 
+			return findLocation( newLocation ).addBomb( newName, newPoints );
+		}//addBombAtLocation
 
 //---------------------GUI-----------------------//
 
-		void registerPlayer( const std::string & playerName ){
-			//registrem el jugador i l'afegim a la llista de caracter dins la seva localitzacio
+		Character * player;
 
-			player = new Character();
-			player->name(playerName);
-			_characters.push_back( player );
-		}
+		void registerPlayer( const std::string & playerName )
+		{
+			player = & findCharacter(playerName);
+		}//registerPlayer
+	 	
+	 	std::string locationDetails() const 
+	 	{
+	 		return player->playerLocations()->description();
+	 	}//locationDetails
 
-		std::string locationDetails(){
-			//return the name of the current Location of the player Character
-			return player->currentLocation()->name();
-		}
-
-		void move( const std::string & direction ){
+/*
+	 	void move( const std::string & direction ){
 			//Fem que el jugador es mogui d'un lloc a un altre
 			Location* neighbourLocation = player->currentLocation()->neighbor(direction);
 			player->currentLocation( neighbourLocation );		
@@ -255,6 +243,9 @@ class World : public Model{
 		
 		}
 
+		*/
+
 };
 
-#endif
+#endif 
+

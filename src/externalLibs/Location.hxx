@@ -3,68 +3,67 @@
 
 #include "Item.hxx"
 #include "Character.hxx"
-#include "MyException.hxx"
-#include "DamageCharacter.hxx"
-#include "CureCharacter.hxx"
 #include "AbstractItem.hxx"
-#include "TrapItem.hxx"
-#include "PotionItem.hxx"
-#include "BombItem.hxx"
+#include "Trap.hxx"
+#include "Potion.hxx"
+#include "Bomb.hxx"
+#include "MyException.hxx"
+#include "CharacterDamage.hxx"
 #include <vector>
-#include <sstream>
 
-typedef std::vector<AbstractItem *> Items;
+
 typedef std::vector<Character *> Characters;
+typedef std::vector<AbstractItem *> Items;
+  
 
+// Realizado en clase con el tutor Sebastian Marichal
 class Location{
 
-	std::string _name;
+protected: 
+	std::string _name;      
+	Location* _north;
+	Location* _south;  
+	Location* _west;
+	Location* _east;
 	Items _items;
 	Characters _characters;
 
-	Location* _north;
-	Location* _south; 
-	Location* _west;
-	Location* _east;
-
 	public:
 		Location()
-			:_name("unknown")
-			
-		{
-		_north=NULL;
-		_south=NULL;
-		_west=NULL;
-		_east=NULL;
-		}	
-			
-		~Location(){
-			for(Items::iterator it = _items.begin(); it!= _items.end(); it++){
-				delete *it;
-			}
-		}	
-/*-----------------------NAME------------------------*/	
+			:_name("unknown"),_north(NULL), _south(NULL), _west(NULL), _east(NULL)
+		{}		
+		
+		Location ( const std::string &newName ) {
+		_name = newName;
+		_north = NULL;
+		_south = NULL;
+		_east = NULL;
+		_west = NULL;
+	}
+
 		const std::string & name() const
 		{
 			return _name;
-		}//name
+		}
 
 		void name(const std::string &name) 
 		{
 			_name = name;
-		}//name	
+		}	
 
-/*-----------------------DESCRIPTION------------------------*/	
+		
 		std::string description()
 		{
+			
 			std::string description = "Location: " + _name + "\n";
 			description += connections();
 			description += items();
 			description += characters();
 			
-			return description;	
-		}//description
-/*-----------------------CONNECTIONS------------------------*/	
+			return description;
+			
+		}
+
 		std::string connections () const 
 		{
 			std::string connections = "";
@@ -75,16 +74,15 @@ class Location{
 			if (_west != NULL ){connections += "\tWest: " + _west->name() + "\n";}
 
 			return connections; 
-		}//connections
+		}
 
-/*-----------------------ITEMS------------------------*/	
-		void addItem(const std::string &name, unsigned int level){
-			AbstractItem* absItem = new Item();
-			absItem->setName(name);
-			absItem->level(level);
-			_items.push_back(absItem);
-		}//addItem
+		
+		void addItem(const std::string & name,const unsigned int level){
+			AbstractItem * item = new Item(name, level);
+			_items.push_back(item);
+		}
 
+		
 		std::string items() const{
 			std::string out = "";
 			for(Items::const_iterator it = _items.begin(); it!= _items.end(); it++){
@@ -92,9 +90,9 @@ class Location{
 			}
 			return out;
 			
-		}//items
+		}
 		
-
+		
 		AbstractItem & findItem(const std::string &findName){
 			for(Items::const_iterator it = _items.begin(); it!= _items.end(); it++){
 				if((*it)->getName() == findName){
@@ -103,14 +101,15 @@ class Location{
 			}
 			throw ItemNotFound();
 			
-		}//findItem
+		}
 		
-/*-----------------------CHARACTER------------------------*/	
+		
 		void placeCharacter(Character & placedCharacter){
 			Character * characterPl = &placedCharacter;
 			_characters.push_back( characterPl );
-		}//placeCharacter
+		}
 
+		
 
 		std::string characters(){
 			std::string characters;
@@ -119,9 +118,9 @@ class Location{
 				characters += "- " + (*it)->name() + " is here.\n";
 			}
 			return characters;
-		}//characters
+		}
 		
-	
+			
 		Character & findCharacter(const std::string &findName){
 			for(Characters::iterator it = _characters.begin(); it!= _characters.end(); it++){
 				if((*it)->name() == findName){
@@ -130,9 +129,9 @@ class Location{
 			}
 			throw CharacterNotFound();
 			
-		}//findCharacter
+		}
 		
-
+		
 		void unplaceCharacter(Character & unplacedCharacter){
 			for(Characters::iterator it = _characters.begin(); it!= _characters.end(); it++){
 				if((*it)->name() == unplacedCharacter.name()){
@@ -142,120 +141,102 @@ class Location{
 			}
 			throw CharacterNotFound();
 			
-		}//unplaceCharacter
+		}
 		
-
-/*-----------------------DIRECTIONS------------------------*/	
-		void connectNorth(Location &norte){
+		
+		void connectNorth(Location &norte) 
+		{
 			_north = &norte;
-		}//connectNorth
+		}
 		
 		Location* north() {
 			return _north;
-		}//north
-
-		void connectSouth(Location &sur){
+		}
+	
+		void connectSouth(Location &sur) 
+		{
 			_south = &sur;
-		}//connectSouth
-
+		}
+	
 		Location* south() {
 			return _south;
-		}//south
-
-		void connectWest(Location &west){
+		}
+		
+		void connectWest(Location &west) 
+		{
 			_west = &west;
-		}//connectWest
-
+		}
+	
 		Location* west() {
 			return _west;
-		}//west
+		}
 		
-		void connectEast(Location &east){
+		void connectEast(Location &east) 
+		{ 
 			_east = &east;
-		}//connectEast
-
+		}
+		
 		Location* east() {
 			return _east;
-		}//east	
+		}
 
-/*-----------------------ITEMS AND MAGIC------------------------*/	
-		std::string useItem(const std::string & character, const std::string & item){
-			std::string retorno= character+" uses " +item + " at "+ _name+"\n";
-			if(findCharacter(character).level()<findItem(item).level()){
-				return "The level of " + character +" is too low\n";
+		std::string distributeMagic ( int npts )
+		{
+			std::string d = ""    ;
+
+			for ( Characters::iterator it = _characters.begin(); it != _characters.end(); ++it ){
+				d += (*it)->receiveMagic( npts );
 			}
-			retorno = findItem(item).useItem(this, &findCharacter(character));
-			return retorno; 
-		}//useItem
-		
-		std::string distributeMagic (const unsigned int points){
-			std::string output;
-			for(Characters::iterator it = _characters.begin(); it!= _characters.end(); it++){
-			
-				output += (*it)->receiveMagic(points);		
-				
+
+			for ( Items::const_iterator it2 = _items.begin(); it2 != _items.end(); ++it2 ){		
+				d += (*it2)->receiveMagic( npts );	
 			}
-			for(Items::const_iterator it = _items.begin(); it!= _items.end(); it++){
-				output += (*it)->receiveMagic(points);
-			}
-			return output; 
-			
-		}//distributeMagic
-		
-		void removeItem(const std::string & remItem){
-		    for(Items::iterator it = _items.begin(); it!= _items.end(); it++){
-		        if((*it)->getName() == remItem){
-		        	delete *it;
-		            it = _items.erase(it);
-		            return;
-		        }
-		    }
-		    throw ItemNotFound();
 
-		}//removeItem
+			return d;
+		}
 
-		void addTrap(const std::string &trap, const unsigned int points){
+		void addTrap(const std::string & nName, unsigned int nPts )
+		{
+			AbstractItem * itemAbstracto = new Trap(new Item(nName,nPts ));
+			_items.push_back(itemAbstracto);
 
-			AbstractItem* absItem = new TrapItem(new Item());
-			absItem->setName(trap);
-			absItem->level(points);
-			_items.push_back(absItem);
-			
-		}//addTrap
-
-		void addPotion(const std::string &potion, const unsigned int points){
-
-			AbstractItem* absItem = new PotionItem(new Item());
-			absItem->setName(potion);
-			absItem->level(points);
-			_items.push_back(absItem);
-			
-		}//addPotion
-
-		void addBomb(const std::string &bomb, const unsigned int points){
-			
-			AbstractItem* absItem = new BombItem(new Item());
-			absItem->setName(bomb);
-			absItem->level(points);
-			_items.push_back(absItem);
-			
-		}//addBomb
-		
-//---------------------GUI-----------------------//
-
-		Location* neighbor(std::string theDirection){
-			if( theDirection == "north" )
-				return _north;
-			if( theDirection == "south" )
-				return _south;
-			if( theDirection == "west" )
-				return _west;
-			if( theDirection == "east" )
-				return _east;
 		}
 
 
-};
+		void removeItem(const std::string & remItem){
+            for(Items::iterator it = _items.begin(); it!= _items.end(); it++){
+                if((*it)->getName() == remItem){
+                    it = _items.erase(it);
+                    return;
+                }
+            }
+            throw ItemNotFound();
 
+        }
+
+        void addPotion ( const std::string & newName, unsigned int newPoints )
+		{
+			
+			AbstractItem * absItem = new Potion( new Item(newName, newPoints) ) ;
+			_items.push_back( absItem );
+		}
+
+		void addBomb ( const std::string & newName, unsigned int newPoints )
+		{
+			AbstractItem * absItem = new Bomb(new Item(newName, newPoints) );
+
+			_items.push_back( absItem );
+		}
+
+		~Location(){
+			for(Items::iterator it = _items.begin(); it!= _items.end(); it++){
+				delete *it;
+			}
+		}	
+
+		
+
+};
+ 
 
 #endif

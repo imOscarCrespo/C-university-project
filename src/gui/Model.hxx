@@ -79,8 +79,8 @@ public:
 
 	virtual void registerPlayer( const std::string & playerName ) = 0;
 	virtual std::string locationDetails() const = 0;
-	virtual void move( const std::string & direction ) = 0;
-	virtual std::string useItem( const std::string & itemName ) = 0;
+	//virtual void move( const std::string & direction ) = 0;
+	//virtual std::string useItem( const std::string & itemName ) = 0;
 
 	void start()
 	{
@@ -94,7 +94,7 @@ public slots:
 		std::string event = "";
 		try
 		{
-			move( direction );
+			//move( direction );
 			event = "You move " + direction;
 		}
 		catch ( std::exception & e )
@@ -106,8 +106,8 @@ public slots:
 
 	void doUseItem( const std::string & itemName )
 	{
-		std::string event = useItem( itemName );
-		emit modify( locationDetails(), event );
+		//std::string event = useItem( itemName );
+		//emit modify( locationDetails(), event );
 	}
 
 signals:
